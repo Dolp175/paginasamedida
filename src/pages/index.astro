@@ -1,16 +1,1201 @@
 ---
-
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Inicio"
+  description="Desarrollo de páginas web estáticas y dinámicas a medida."
+>
+  <!-- Hero Section -->
+  <section
+    class="py-20 px-6 text-center bg-gradient-to-br from-purple-900 to-slate-900"
+  >
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+        Cuéntanos tu proyecto
+        <span
+          class="block bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-400 to-purple-300"
+        >
+          y nos adaptamos a ti
+        </span>
+      </h1>
+      <p class="text-xl text-purple-100 mb-10">
+        Estudiamos tu caso <strong class="text-fuchsia-300">sin coste</strong> y
+        te ofrecemos un presupuesto
+        <strong class="text-white">sin compromiso</strong>.
+      </p>
+
+      <!-- Botones de Contacto -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="tel:+34623962963"
+          class="bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-6 rounded-lg transition flex items-center gap-2"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            ></path>
+          </svg>
+          Llama ahora
+        </a>
+
+        <a
+          href="https://wa.me/34623962963"
+          class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg transition flex items-center gap-2"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M19.05 4.91A9.816 9.816 0 0012 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.13-1.32c1.45.89 3.11 1.32 4.87 1.32 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.09zm-7.01 15.1c-1.45 0-2.87-.4-4.1-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"
+            ></path>
+          </svg>
+          WhatsApp
+        </a>
+
+        <a
+          href="#contacto"
+          class="bg-transparent hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-lg transition border-2 border-fuchsia-400 flex items-center gap-2"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            ></path>
+          </svg>
+          Presupuesto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Por qué elegirnos -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >¿Por qué</span
+        > elegirnos?
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tarjeta 1 -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div
+            class="w-14 h-14 mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-2xl group-hover:bg-fuchsia-100 group-hover:text-fuchsia-700 transition"
+          >
+            👨‍💻
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Atención 100% técnica y cercana
+          </h3>
+          <p class="text-gray-600">
+            Desde la primera llamada hasta la entrega final, hablarás
+            directamente conmigo: <strong class="text-purple-700"
+              >ingeniero informático y desarrollador web</strong
+            >. Sin intermediarios, sin comerciales.
+          </p>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div
+            class="w-14 h-14 mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-2xl group-hover:bg-fuchsia-100 group-hover:text-fuchsia-700 transition"
+          >
+            🚫
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Sin plantillas, sin WordPress
+          </h3>
+          <p class="text-gray-600">
+            Creamos tu web <strong class="text-purple-700">desde cero</strong>,
+            optimizada para SEO y velocidad. Código limpio, moderno y pensado
+            para destacar en Google y funcionar en cualquier dispositivo.
+          </p>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div
+            class="w-14 h-14 mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-2xl group-hover:bg-fuchsia-100 group-hover:text-fuchsia-700 transition"
+          >
+            🧩
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Servicio integral sin complicaciones
+          </h3>
+          <p class="text-gray-600">
+            ¿No tienes tiempo o ideas? No pasa nada. Me encargo de todo: <strong
+              class="text-purple-700"
+              >diseño, textos, imágenes y estructura</strong
+            >. Tú solo dime qué necesitas y yo lo convierto en realidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Proceso de Trabajo -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-4xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+      >
+        Así <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >trabajamos</span
+        >
+      </h2>
+
+      <div class="space-y-8">
+        <!-- Paso 1 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">1</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Análisis inicial gratuito
+            </h3>
+            <p class="text-gray-600">
+              Empezamos con una videollamada o llamada sin coste, donde
+              analizamos tu negocio, tus objetivos y las funcionalidades que
+              realmente necesitas. Esta conversación es clave para ofrecer una
+              solución web eficaz y personalizada.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">2</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Propuesta a medida
+            </h3>
+            <p class="text-gray-600">
+              En un máximo de 48 horas recibirás una propuesta clara y honesta:
+              funcionalidades, diseño, tecnologías recomendadas, plazos y
+              presupuesto sin sorpresas. Todo adaptado a ti, sin plantillas
+              genéricas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">3</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Desarrollo profesional y flexible
+            </h3>
+            <p class="text-gray-600">
+              Comenzamos el desarrollo por fases, con entregas intermedias para
+              que puedas revisar y dar feedback. Así garantizamos que el
+              resultado final cumple tus expectativas al 100%, sin sustos de
+              última hora.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">4</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Publicación y soporte continuo
+            </h3>
+            <p class="text-gray-600">
+              Una vez tu web esté lista, la subimos a producción y te ayudamos
+              con todo lo necesario: dominio, correo, SEO básico y seguridad.
+              Además, puedes contar conmigo si más adelante necesitas cambios o
+              mejoras.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Portafolio -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >Nuestros</span
+          > Proyectos
+        </h2>
+        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+          Webs rápidas, seguras y optimizadas para cada necesidad
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Proyecto 1 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto1.webp"
+            alt="Web para cerrajero en Tetuán"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Cerrajero Tetuán</h3>
+              <p class="text-purple-200">Web estática con Astro + Tailwind</p>
+              <p class="text-purple-100 text-sm mt-1">SEO local optimizado</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto2.webp"
+            alt="Web para cerrajero multiservicio"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Tu Cerrajero Local</h3>
+              <p class="text-purple-200">Solución completa con Bootstrap</p>
+              <p class="text-purple-100 text-sm mt-1">
+                +50 páginas de servicios
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto3.webp"
+            alt="Landing page para cerrajero"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
+              <p class="text-purple-200">Landing page ultra ligera</p>
+              <p class="text-purple-100 text-sm mt-1">
+                Diseño minimalista con Tailwind
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección FAQ - Versión Mejorada -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-4xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >Preguntas</span
+        > frecuentes
+      </h2>
+
+      <div class="space-y-4" x-data="{ open: null }">
+        <!-- Pregunta 1 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 1 ? open = null : open = 1"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 1"
+            aria-controls="faq-1"
+          >
+            <span class="text-lg font-medium text-gray-800">
+              ¿Cuánto cuesta hacer una página web?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 1 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-1"
+            x-show="open === 1"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <p>
+              El coste de una página web varía según el tipo de proyecto, las
+              funcionalidades requeridas y el nivel de personalización. En <strong
+                class="text-purple-700">Páginas a Medida</strong
+              > ajustamos cada presupuesto en función de las necesidades reales de
+              cada cliente, sin ofrecer paquetes genéricos.
+            </p>
+            <p class="mt-3">
+              Como orientación, una web básica totalmente personalizada,
+              desarrollada con tecnologías modernas como Astro y Tailwind, puede
+              partir desde <strong class="text-purple-700">500 €</strong>.
+              Siempre ofrecemos una <strong class="text-fuchsia-600"
+                >primera consulta gratuita</strong
+              > para evaluar el alcance del proyecto y elaborar una propuesta a medida.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 2 ? open = null : open = 2"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 2"
+            aria-controls="faq-2"
+          >
+            <span class="text-lg font-medium text-gray-800"
+              >¿Qué recibiré si contrato vuestros servicios?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 2 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-2"
+            x-show="open === 2"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-fuchsia-500 mr-2 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Diseño web totalmente personalizado y adaptado a tu identidad
+                  visual</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-fuchsia-500 mr-2 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Desarrollo con tecnologías modernas, puedes elegir la que
+                  mejor se adapte.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-fuchsia-500 mr-2 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Optimización para buscadores (SEO)</span>
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-fuchsia-500 mr-2 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  >Servicio integral, generamos el 100% del contenido de la web.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-fuchsia-500 mr-2 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Soporte técnico, mantenemos tu web en el tiempo.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 3 ? open = null : open = 3"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 3"
+            aria-controls="faq-3"
+          >
+            <span class="text-lg font-medium text-gray-800">
+              ¿Qué diferencia hay entre las páginas web a medida y las que
+              ofrecen otras agencias?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 3 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-3"
+            x-show="open === 3"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <p>
+              Una página web a medida se desarrolla desde cero, pensando en las
+              necesidades específicas de tu negocio, sin depender de plantillas
+              prediseñadas ni limitaciones técnicas. Esto permite mayor
+              flexibilidad, rendimiento y escalabilidad.
+            </p>
+            <p class="mt-3">
+              En <strong class="text-purple-700">Páginas a Medida</strong> utilizamos
+              tecnologías modernas como Astro y Tailwind para crear sitios rápidos,
+              optimizados y fáciles de mantener. Otras agencias suelen trabajar con
+              constructores visuales genéricos que priorizan la rapidez sobre la
+              calidad técnica, lo que puede afectar a la personalización, velocidad
+              y SEO de tu web.
+            </p>
+          </div>
+        </div>
+        <!-- Pregunta 4 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 4 ? open = null : open = 4"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 4"
+            aria-controls="faq-4"
+          >
+            <span class="text-lg font-medium text-gray-800">
+              Me han ofrecido una web hecha con WordPress, ¿cuál es mejor?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 4 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-4"
+            x-show="open === 4"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <p>
+              WordPress es una herramienta muy extendida que puede ser útil en
+              muchos casos, especialmente para blogs o sitios con cambios
+              frecuentes de contenido. Sin embargo, también suele incluir <strong
+                class="text-purple-700">mucha carga innecesaria</strong
+              > y dependencias de plugins que afectan al rendimiento, seguridad y
+              mantenimiento.
+            </p>
+            <p class="mt-3">
+              En <strong class="text-purple-700">Páginas a Medida</strong> trabajamos
+              con las mejores tecnologías, que permiten crear webs <strong
+                class="text-fuchsia-600"
+                >más rápidas, seguras y optimizadas</strong
+              > desde cero, sin elementos sobrantes. Esto se traduce en mejores resultados
+              en buscadores y una experiencia de usuario mucho más fluida.
+            </p>
+          </div>
+        </div>
+        <!-- Pregunta 5 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 5 ? open = null : open = 5"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 5"
+            aria-controls="faq-5"
+          >
+            <span class="text-lg font-medium text-gray-800">
+              ¿Qué pasa si necesito cambios o mejoras en el futuro?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 5 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-5"
+            x-show="open === 5"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <p>
+              En <strong class="text-purple-700">Páginas a Medida</strong> ofrecemos
+              soporte continuo para que tu web evolucione contigo. Si en el futuro
+              necesitas añadir nuevas funcionalidades, actualizar el diseño o realizar
+              mejoras, estaremos aquí para ayudarte.
+            </p>
+            <p class="mt-3">
+              Nuestro objetivo es construir relaciones a largo plazo con
+              nuestros clientes, por lo que siempre podrás contar con nosotros
+              para cualquier cambio o actualización que necesites.
+            </p>
+          </div>
+        </div>
+        <!-- Pregunta 6 -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden bg-white">
+          <button
+            @click="open === 6 ? open = null : open = 6"
+            class="w-full flex justify-between items-center p-6 text-left focus:outline-none"
+            :aria-expanded="open === 6"
+            aria-controls="faq-6"
+          >
+            <span class="text-lg font-medium text-gray-800">
+              ¿Cómo puedo saber si una web es mejor que otra?
+            </span>
+            <svg
+              class="w-5 h-5 text-purple-600 transition-transform duration-200"
+              :class="{ 'rotate-180': open === 5 }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div
+            id="faq-6"
+            x-show="open === 6"
+            x-collapse
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-150"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            class="px-6 pb-6 text-gray-600"
+          >
+            <p>
+              No todas las webs son iguales, aunque a simple vista puedan
+              parecerlo. Para evaluar la calidad de una página web debes tener
+              en cuenta factores como su velocidad de carga, adaptabilidad a
+              móviles, facilidad de uso, posicionamiento en buscadores (<strong
+                class="text-purple-700">SEO</strong
+              >), nivel de personalización y mantenimiento técnico a largo
+              plazo.
+            </p>
+            <p class="mt-3">
+              Una web bien diseñada no solo debe verse bien, sino también <strong
+                class="text-fuchsia-600">funcionar bien</strong
+              >, estar optimizada técnicamente, y cumplir con tus objetivos
+              (atraer clientes, mostrar tu marca, vender, etc.). En <strong
+                class="text-purple-700">Páginas a Medida</strong
+              > trabajamos cada detalle para garantizar una solución profesional
+              y eficaz.
+            </p>
+            <p class="mt-3">
+              Si tienes dudas sobre la calidad de tu web actual o quieres
+              compararla con otras, no dudes en <a
+                href="#contacto"
+                class="text-fuchsia-600 hover:underline">contactarnos</a
+              >. Disponemos de herramientas que tu mismo puedes usar y que te
+              permiten calificar a nivel técnico una web. Estaremos encantados
+              de ayudarte a evaluar y mejorar tu presencia online.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Servicios Destacados -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >Soluciones</span
+        > a tu medida
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tarjeta 1 -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Webs Estáticas</h3>
+          <p class="text-gray-600 mb-4">
+            Páginas ultra rápidas con Astro, perfectas para negocios que
+            necesitan presencia profesional.
+          </p>
+          <a
+            href="/servicios/webs-estaticas"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Tarjeta 2 (E-commerce) -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Tiendas Online</h3>
+          <p class="text-gray-600 mb-4">
+            Soluciones e-commerce con Shopify o desarrollos personalizados para
+            vender 24/7.
+          </p>
+          <a
+            href="/servicios/ecommerce"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Tarjeta 3 (SEO) -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Posicionamiento SEO
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Optimización técnica y de contenido para aparecer en los primeros
+            resultados de búsqueda.
+          </p>
+          <a
+            href="/servicios/seo"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección CTA Final -->
+  <section
+    class="py-20 px-6 text-center bg-gradient-to-br from-purple-800 to-slate-800"
+  >
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
+        ¿Listo para transformar tu presencia online?
+      </h2>
+      <p class="text-xl text-purple-200 mb-10 max-w-2xl mx-auto">
+        Envíanos un mensaje y hablamos de cómo podemos ayudarte a crecer.
+      </p>
+      <a
+        href="#contacto"
+        class="inline-block bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl"
+      >
+        Contactar ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- Sección Comparativa WordPress vs Astro -->
+  <section class="py-20 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <!-- Columna de texto -->
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+              >WordPress vs Astro</span
+            >
+            <br />La diferencia es abismal
+          </h2>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">
+                <div
+                  class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800">
+                  WordPress Típico
+                </h3>
+                <p class="text-gray-600">
+                  Promedio: 3-5s de carga, 60-70 en PageSpeed
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">
+                <div
+                  class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-emerald-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800">
+                  Astro + Tailwind
+                </h3>
+                <p class="text-gray-600">
+                  Resultados: 0.5-1s de carga, 90-100 en PageSpeed
+                </p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 pl-2">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >Hasta <strong>5 veces más rápido</strong></span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >Menos de <strong>1MB de peso total</strong></span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >SEO técnico <strong>perfecto</strong> desde el inicio</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Columna del gráfico -->
+        <div class="lg:w-1/2 w-full">
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <!-- Gráfico de barras comparativo -->
+            <div class="space-y-8">
+              <!-- Barra 1: Tiempo de carga -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Tiempo de carga (s)</span
+                  >
+                  <span class="text-sm text-gray-500">Menos es mejor</span>
+                </div>
+                <!-- Dentro de una tarjeta existente -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '90%'"
+                  class="flex gap-4 items-center"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full transition-all duration-1000"
+                    :style="{ width }"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">4.2s</div>
+                </div>
+
+                <div class="flex gap-4 items-center mt-2">
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
+                    style="width: 15%"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">0.6s</div>
+                </div>
+              </div>
+
+              <!-- Barra 2: Puntuación PageSpeed -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Puntuación PageSpeed</span
+                  >
+                  <span class="text-sm text-gray-500">Más es mejor</span>
+                </div>
+                <div class="flex gap-4 items-center">
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                    style="width: 65%"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">65</div>
+                </div>
+                <div class="flex gap-4 items-center mt-2">
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
+                    style="width: 98%"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">98</div>
+                </div>
+              </div>
+
+              <!-- Barra 3: Tamaño página -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Tamaño total (MB)</span
+                  >
+                  <span class="text-sm text-gray-500">Menos es mejor</span>
+                </div>
+                <div class="flex gap-4 items-center">
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full"
+                    style="width: 80%"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">3.8</div>
+                </div>
+                <div class="flex gap-4 items-center mt-2">
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
+                    style="width: 20%"
+                  >
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">0.7</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leyenda -->
+            <div class="flex justify-center gap-6 mt-8">
+              <div class="flex items-center">
+                <div
+                  class="w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-400 mr-2"
+                >
+                </div>
+                <span class="text-sm text-gray-600">WordPress</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-4 h-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400 mr-2"
+                >
+                </div>
+                <span class="text-sm text-gray-600">Astro + Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</Layout>
