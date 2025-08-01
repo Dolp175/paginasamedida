@@ -1,0 +1,128 @@
+---
+// src/components/PlatformCard.astro
+const {
+  logo,
+  title,
+  price,
+  bestFor,
+  pros,
+  cons,
+  accentColor = "bg-gray-100",
+  featured = false,
+} = Astro.props;
+---
+
+<div class="h-full flex flex-col bg-white rounded-xl border 
+  {featured ? 'border-2 border-purple-500 shadow-lg' : 'border-gray-200'} 
+  overflow-hidden">
+  
+  <!-- Cabecera con logo y espacio -->
+  <div class="flex items-center px-6 pt-6 pb-2">
+    <img src={logo} alt={title} class="h-6 w-auto" />
+  </div>
+
+    <div class="pt-16 pb-8 px-6 flex-grow">
+      <h3 class="text-xl font-bold text-center text-gray-800 mb-1">{title}</h3>
+      <p class="text-center text-purple-600 font-medium mb-4">{price}</p>
+
+      <div class={`${accentColor} rounded-lg p-4 mb-6`}>
+        <p class="text-sm font-medium text-gray-800 text-center">
+          Ideal para: <span class="text-purple-700">{bestFor}</span>
+        </p>
+      </div>
+
+      <div class="mb-6">
+        <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center">
+          <svg
+            class="w-4 h-4 text-green-500 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 13l4 4L19 7"></path>
+          </svg>
+          Ventajas
+        </h4>
+        <ul class="space-y-2">
+          {
+            pros.map((pro) => (
+              <li class="flex items-start">
+                <svg
+                  class="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span class="text-sm text-gray-700">{pro}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-sm font-bold text-gray-800 mb-2 flex items-center">
+          <svg
+            class="w-4 h-4 text-red-500 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+          Limitaciones
+        </h4>
+        <ul class="space-y-2">
+          {
+            cons.map((con) => (
+              <li class="flex items-start">
+                <svg
+                  class="w-4 h-4 text-red-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                <span class="text-sm text-gray-700">{con}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="px-6 pb-6">
+      <a
+        href="#contacto"
+        class={`block w-full text-center font-bold py-3 px-6 rounded-lg transition ${
+          featured
+            ? "bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white shadow-md hover:shadow-lg"
+            : "bg-gray-100 text-purple-700 hover:bg-gray-200"
+        }`}
+      >
+        {featured ? "Me interesa" : "Más info"}
+      </a>
+    </div>
+  </div>
+</div>

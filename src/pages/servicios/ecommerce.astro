@@ -1,0 +1,420 @@
+---
+// src/pages/servicios/ecommerce.astro
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import PlatformCard from "../../components/PlatformCard.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+
+const title = "Desarrollo Ecommerce Profesional | Páginas a Medida";
+const description =
+  "Tiendas online a medida con Shopify, PrestaShop o WooCommerce. Soluciones optimizadas para conversión y gestión sencilla.";
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-50 to-white">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        Tu Tienda Online <span
+          class="block bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >que vende</span
+        >
+      </h1>
+      <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+        Tiendas online <strong class="text-purple-700"
+          >optimizadas para conversión</strong
+        >, con las mejores plataformas del mercado o desarrollo completamente a
+        medida.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#comparativa"
+          class="bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg"
+        >
+          Ver Plataformas
+        </a>
+        <a
+          href="#contacto"
+          class="bg-white hover:bg-gray-50 text-purple-700 font-bold py-3 px-8 rounded-lg transition border-2 border-purple-200 shadow-sm hover:shadow-md"
+        >
+          Consultar Proyecto
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logos Tecnologías -->
+  <section class="py-12 px-6 bg-white border-y border-gray-100">
+    <div class="container mx-auto max-w-5xl">
+      <h2
+        class="text-center text-sm uppercase tracking-wider text-gray-500 mb-8"
+      >
+        Desarrollamos con las plataformas más potentes
+      </h2>
+      <div
+        class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70"
+      >
+        <img
+          src="/tech-logos/shopify.svg"
+          alt="Shopify"
+          class="h-8"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/prestashop.svg"
+          alt="PrestaShop"
+          class="h-8"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/woocommerce.svg"
+          alt="WooCommerce"
+          class="h-8"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/astro.svg"
+          alt="Astro"
+          class="h-10"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparativa Plataformas -->
+  <section id="comparativa" class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-6xl mb-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >¿Qué plataforma</span
+          > necesitas?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Cada negocio es único - te ayudamos a elegir la mejor solución
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Shopify -->
+        <PlatformCard
+          logo="/tech-logos/shopify.svg"
+          title="Shopify"
+          price="Desde 1.500€"
+          bestFor="Emprendedores y marcas"
+          pros={[
+            "Más fácil de usar",
+            "Todo incluido (hosting, seguridad)",
+            "Apps para ampliar funcionalidades",
+            "Ideal para dropshipping",
+          ]}
+          cons={[
+            "Costes recurrentes (suscripción + comisiones)",
+            "Menos personalización técnica",
+            "Dependencia de la plataforma",
+          ]}
+          accentColor="bg-blue-100"
+        />
+
+        <!-- PrestaShop -->
+        <PlatformCard
+          logo="/tech-logos/prestashop.svg"
+          title="PrestaShop"
+          price="Desde 2.000€"
+          bestFor="Negocios establecidos"
+          pros={[
+            "Open-source (control total)",
+            "Potente gestión de catálogos",
+            "Multitienda integrado",
+            "Sin comisiones por venta",
+          ]}
+          cons={[
+            "Requiere mantenimiento técnico",
+            "Hosting y seguridad por tu cuenta",
+            "Curva de aprendizaje más pronunciada",
+          ]}
+          accentColor="bg-orange-100"
+          featured={true}
+        />
+
+        <!-- WooCommerce -->
+        <PlatformCard
+          logo="/tech-logos/woocommerce.svg"
+          title="WooCommerce"
+          price="Desde 1.200€"
+          bestFor="Quien ya usa WordPress"
+          pros={[
+            "Integración perfecta con WordPress",
+            "Miles de plugins disponibles",
+            "Coste inicial bajo",
+            "Comunidad muy grande",
+          ]}
+          cons={[
+            "Rendimiento puede ser problemático",
+            "Seguridad requiere mantenimiento",
+            "Escalabilidad limitada",
+          ]}
+          accentColor="bg-purple-100"
+        />
+      </div>
+    </div>
+
+    <!-- Solución Personalizada -->
+    <div class="container mx-auto max-w-6xl">
+      <div
+        class="rounded-xl p-8 border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-white"
+      >
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/3 text-center">
+            <div
+              class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-purple-100 text-purple-700 mb-4"
+            >
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800">Solución a Medida</h3>
+            <p class="text-purple-600 font-medium">Presupuesto personalizado</p>
+          </div>
+
+          <div class="md:w-2/3">
+            <p class="text-gray-700 mb-4">
+              ¿Ninguna de estas opciones se adapta a lo que necesitas?
+              Desarrollamos <strong class="text-purple-700"
+                >soluciones ecommerce completamente personalizadas</strong
+              >:
+            </p>
+            <ul class="grid md:grid-cols-2 gap-x-8 gap-y-2">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Frontend ultra rápido con Astro + React</span>
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Backend con Strapi, Node.js o PHP</span>
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Integraciones con ERPs y sistemas legacy</span>
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Flujos de compra personalizados</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características de la Tienda -->
+  <section class="py-12 px-6 bg-gradient-to-br from-purple-50 to-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Todo lo que <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >incluye</span
+          > tu tienda
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Soluciones completas con todo lo necesario para vender online con
+          éxito
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <FeatureCard
+          icon={`<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3z"/>
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18"/>
+  </svg>`}
+          title="Diseño exclusivo"
+          text='Creación a medida, adaptada a tu marca y <strong class="text-purple-700">libre de plantillas genéricas</strong>.'
+        />
+
+        <!-- Optimizada para móvil -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 2h8a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2z"/>
+  </svg>`}
+          title="Optimizada para móvil"
+          text='Experiencia perfecta en todos los dispositivos con <strong class="text-purple-700">carga ultra rápida</strong>.'
+        />
+
+        <!-- Gestión fácil -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"/>
+  </svg>`}
+          title="Gestión fácil"
+          text='Controla catálogo, stock y pedidos <strong class="text-purple-700">sin complicaciones técnicas</strong>.'
+        />
+
+        <!-- Pasarelas de pago -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2m4-3h-4m0 0l2-2m-2 2l2 2"/>
+  </svg>`}
+          title="Pasarelas de pago"
+          text='Acepta Stripe, PayPal, Bizum o TPV bancario con <strong class="text-purple-700">seguridad total</strong>.'
+        />
+
+        <!-- SEO optimizado -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"/>
+  </svg>`}
+          title="SEO optimizado"
+          text='Estructura técnica perfecta para <strong class="text-purple-700">posicionar en Google</strong>.'
+        />
+
+        <!-- Redes sociales -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8a6 6 0 11-12 0 6 6 0 0112 0zM12 14v7m-4-4h8"/>
+  </svg>`}
+          title="Redes sociales"
+          text='Integración con <strong class="text-purple-700">Instagram Shopping y Facebook</strong>.'
+        />
+
+        <!-- Cupones y descuentos -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M17 17h.01M3 12l2-2 4 4 8-8 4 4 2-2"/>
+  </svg>`}
+          title="Cupones y descuentos"
+          text='Sistema flexible para <strong class="text-purple-700">campañas de marketing</strong>.'
+        />
+
+        <!-- Integraciones avanzadas -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+  </svg>`}
+          title="Integraciones avanzadas"
+          text='ERP, CRM, email marketing y <strong class="text-purple-700">chat en vivo</strong>.'
+        />
+
+        <!-- Hosting premium -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l8 4v6c0 5-3 9-8 10-5-1-8-5-8-10V7l8-4z" />
+  </svg>`}
+          title="Hosting premium"
+          text='SSL, backups y <strong class="text-purple-700">soporte 24/7</strong> incluidos.'
+        />
+
+        <!-- Notificaciones automáticas -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6m-18 0v8h18V8M3 16l9 6 9-6" />
+  </svg>`}
+          title="Notificaciones automáticas"
+          text='Emails de confirmación y <strong class="text-purple-700">seguimiento de pedidos</strong>.'
+        />
+
+        <!-- Diseño conversivo -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M9 17l3-3 4 4 5-5" />
+  </svg>`}
+          title="Diseño conversivo"
+          text='Flujo optimizado para <strong class="text-purple-700">maximizar ventas</strong>.'
+        />
+
+        <!-- Soporte continuo -->
+        <FeatureCard
+          icon={`<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3v2.25m4.5-2.25v2.25M3 9.75h18M4.5 19.5h15a1.5 1.5 0 001.5-1.5v-9H3v9a1.5 1.5 0 001.5 1.5z" />
+  </svg>`}
+          title="Soporte continuo"
+          text='Asistencia técnica y <strong class="text-purple-700">actualizaciones</strong> post-lanzamiento.'
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section
+    id="contacto"
+    class="py-16 px-6 bg-gradient-to-br from-purple-600 to-fuchsia-600"
+  >
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        ¿Listo para vender online?
+      </h2>
+      <p class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
+        Dinos qué necesitas y te recomendaremos la mejor solución para tu
+        negocio.
+      </p>
+
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Layout>

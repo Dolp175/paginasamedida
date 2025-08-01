@@ -1,6 +1,7 @@
 ---
 // src/pages/index.astro
 import Layout from "../layouts/Layout.astro";
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout
@@ -245,7 +246,7 @@ import Layout from "../layouts/Layout.astro";
             <p class="text-gray-600">
               Una vez tu web esté lista, la subimos a producción y te ayudamos
               con todo lo necesario: dominio, correo, SEO básico y seguridad.
-              Además, puedes contar conmigo si más adelante necesitas cambios o
+              Además, puedes contar con nosotros si más adelante necesitas cambios o
               mejoras.
             </p>
           </div>
@@ -254,82 +255,307 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Sección Portafolio -->
-  <section class="py-16 px-6 bg-white">
+  <!-- Sección Comparativa WordPress vs Astro -->
+  <section class="py-20 px-6 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
-          <span
-            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
-            >Nuestros</span
-          > Proyectos
-        </h2>
-        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-          Webs rápidas, seguras y optimizadas para cada necesidad
-        </p>
-      </div>
+      <div class="flex flex-col lg:flex-row gap-12 items-center">
+        <!-- Columna de texto -->
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+              >WordPress vs Astro</span
+            >
+            <br />La diferencia es abismal
+          </h2>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Proyecto 1 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/proyecto1.webp"
-            alt="Web para cerrajero en Tetuán"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Cerrajero Tetuán</h3>
-              <p class="text-purple-200">Web estática con Astro + Tailwind</p>
-              <p class="text-purple-100 text-sm mt-1">SEO local optimizado</p>
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">
+                <div
+                  class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800">
+                  WordPress Típico
+                </h3>
+                <p class="text-gray-600">
+                  Promedio: 3-5s de carga, 60-70 en PageSpeed
+                </p>
+              </div>
             </div>
+
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 mt-1">
+                <div
+                  class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-5 h-5 text-emerald-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-gray-800">
+                  Astro + Tailwind
+                </h3>
+                <p class="text-gray-600">
+                  Resultados: 0.5-1s de carga, 90-100 en PageSpeed
+                </p>
+              </div>
+            </div>
+
+            <ul class="space-y-3 pl-2">
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >Hasta <strong>5 veces más rápido</strong></span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >Menos de <strong>1MB de peso total</strong></span
+                >
+              </li>
+              <li class="flex items-start gap-2">
+                <svg
+                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-gray-700"
+                  >SEO técnico <strong>perfecto</strong> desde el inicio</span
+                >
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Proyecto 2 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/proyecto2.webp"
-            alt="Web para cerrajero multiservicio"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Tu Cerrajero Local</h3>
-              <p class="text-purple-200">Solución completa con Bootstrap</p>
-              <p class="text-purple-100 text-sm mt-1">
-                +50 páginas de servicios
-              </p>
-            </div>
-          </div>
-        </div>
+        <!-- Columna del gráfico -->
+        <div class="lg:w-1/2 w-full">
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <!-- Gráfico de barras comparativo -->
+            <div class="space-y-8">
+              <!-- Barra 1: Tiempo de carga -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Tiempo de carga (s)</span
+                  >
+                  <span class="text-sm text-gray-500">Menos es mejor</span>
+                </div>
 
-        <!-- Proyecto 3 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/proyecto3.webp"
-            alt="Landing page para cerrajero"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
-              <p class="text-purple-200">Landing page ultra ligera</p>
-              <p class="text-purple-100 text-sm mt-1">
-                Diseño minimalista con Tailwind
-              </p>
+                <!-- WordPress -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '90%'"
+                  class="flex gap-4 items-center"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-red-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-red-500 to-red-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">4.2s</div>
+                </div>
+
+                <!-- Astro -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '14.3%'"
+                  class="flex gap-4 items-center mt-2"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-emerald-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">0.6s</div>
+                </div>
+              </div>
+
+              <!-- Barra 2: Puntuación PageSpeed -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Puntuación PageSpeed</span
+                  >
+                  <span class="text-sm text-gray-500">Más es mejor</span>
+                </div>
+
+                <!-- WordPress -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '65%'"
+                  class="flex gap-4 items-center"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-red-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-red-500 to-red-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">65</div>
+                </div>
+
+                <!-- Astro -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '98%'"
+                  class="flex gap-4 items-center mt-2"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-emerald-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">98</div>
+                </div>
+              </div>
+
+              <!-- Barra 3: Tamaño página -->
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="font-medium text-gray-700"
+                    >Tamaño total (MB)</span
+                  >
+                  <span class="text-sm text-gray-500">Menos es mejor</span>
+                </div>
+
+                <!-- WordPress -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '80%'"
+                  class="flex gap-4 items-center"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">
+                    WordPress
+                  </div>
+                  <div
+                    class="flex-1 h-8 bg-red-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-red-500 to-red-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">3.8</div>
+                </div>
+
+                <!-- Astro -->
+                <div
+                  x-data="{ width: '0%' }"
+                  x-intersect.once="width = '15%'"
+                  class="flex gap-4 items-center mt-2"
+                >
+                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
+                  <div
+                    class="flex-1 h-8 bg-emerald-100 rounded-full overflow-hidden"
+                  >
+                    <div
+                      class="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-2000"
+                      :style="{ width }"
+                    >
+                    </div>
+                  </div>
+                  <div class="w-12 text-left text-sm font-medium">0.7</div>
+                </div>
+              </div>
+
+              <!-- Leyenda -->
+              <div class="flex justify-center gap-6 mt-8">
+                <div class="flex items-center">
+                  <div
+                    class="w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-400 mr-2"
+                  >
+                  </div>
+                  <span class="text-sm text-gray-600">WordPress</span>
+                </div>
+                <div class="flex items-center">
+                  <div
+                    class="w-4 h-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400 mr-2"
+                  >
+                  </div>
+                  <span class="text-sm text-gray-600">Astro + Tailwind</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -337,7 +563,441 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Sección FAQ - Versión Mejorada -->
+  <!-- Sección: "El Proceso Real vs Lo que Te Venden" -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-50 to-white">
+    <div class="container mx-auto max-w-5xl">
+      <!-- Título -->
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >La realidad</span
+        > detrás del desarrollo web
+      </h2>
+
+      <!-- Línea de tiempo interactiva -->
+      <div class="relative" x-data="{ activeTab: 0 }">
+        <!-- Pestañas -->
+        <div class="flex justify-center gap-4 mb-12">
+          <button
+            @click="activeTab = 0"
+            :class="activeTab === 0 ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'"
+            class="px-6 py-3 rounded-full font-medium transition-all shadow-sm border border-gray-200"
+          >
+            Diseño
+          </button>
+          <button
+            @click="activeTab = 1"
+            :class="activeTab === 1 ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'"
+            class="px-6 py-3 rounded-full font-medium transition-all shadow-sm border border-gray-200"
+          >
+            Desarrollo
+          </button>
+          <button
+            @click="activeTab = 2"
+            :class="activeTab === 2 ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'"
+            class="px-6 py-3 rounded-full font-medium transition-all shadow-sm border border-gray-200"
+          >
+            Resultado
+          </button>
+        </div>
+
+        <!-- Contenido -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Columna izquierda: Proceso real -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-md border border-purple-100"
+          >
+            <h3
+              class="text-xl font-bold text-purple-700 mb-6 flex items-center gap-2"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Nuestro proceso (Astro + Tailwind)
+            </h3>
+
+            <div x-show="activeTab === 0" x-transition>
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">
+                    Investigación de marca y objetivos
+                  </p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">Prototipado en Figma/Adobe XD</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Diseño de componentes atómicos</p>
+                </li>
+              </ul>
+            </div>
+
+            <div x-show="activeTab === 1" x-transition style="display: none;">
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">Maquetación con Tailwind CSS</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">Integración con Astro</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Optimización de rendimiento</p>
+                </li>
+              </ul>
+            </div>
+
+            <div x-show="activeTab === 2" x-transition style="display: none;">
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">Web ultra rápida (0.5-1s carga)</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">SEO técnico perfecto</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Fácil mantenimiento</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Lo común -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-md border border-gray-200"
+          >
+            <h3
+              class="text-xl font-bold text-gray-700 mb-6 flex items-center gap-2"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+              Lo habitual (WordPress/Constructores)
+            </h3>
+
+            <div x-show="activeTab === 0" x-transition>
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">Elección de plantilla prehecha</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">Cambio de colores y logo</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Ajustes limitados al constructor</p>
+                </li>
+              </ul>
+            </div>
+
+            <div x-show="activeTab === 1" x-transition style="display: none;">
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">Arrastrar y soltar componentes</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">Plugins para funcionalidades</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Código inflado automáticamente</p>
+                </li>
+              </ul>
+            </div>
+
+            <div x-show="activeTab === 2" x-transition style="display: none;">
+              <ul class="space-y-4">
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    1
+                  </div>
+                  <p class="text-gray-700">Web lenta (3-5s carga)</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    2
+                  </div>
+                  <p class="text-gray-700">Problemas de SEO técnico</p>
+                </li>
+                <li class="flex gap-3">
+                  <div
+                    class="flex-shrink-0 w-6 h-6 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center"
+                  >
+                    3
+                  </div>
+                  <p class="text-gray-700">Dependencia del constructor</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicador de progreso -->
+        <div class="mt-12 px-8">
+          <div class="relative h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              class="absolute top-0 left-0 h-full bg-gradient-to-r from-fuchsia-500 to-purple-600 transition-all duration-500"
+              :style="`width: ${(activeTab + 1) * 33.33}%`"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Servicios Destacados -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
+      >
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >Soluciones</span
+        > a tu medida
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tarjeta 1 -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Webs Estáticas</h3>
+          <p class="text-gray-600 mb-4">
+            Páginas ultra rápidas con Astro, perfectas para negocios que
+            necesitan presencia profesional.
+          </p>
+          <a
+            href="/servicios/webs-estaticas"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Tarjeta 2 (E-commerce) -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Tiendas Online</h3>
+          <p class="text-gray-600 mb-4">
+            Soluciones e-commerce con Shopify o desarrollos personalizados para
+            vender 24/7.
+          </p>
+          <a
+            href="/servicios/ecommerce"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Tarjeta 3 (SEO) -->
+        <div
+          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-purple-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Posicionamiento SEO
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Optimización técnica y de contenido para aparecer en los primeros
+            resultados de búsqueda.
+          </p>
+          <a
+            href="/servicios/seo"
+            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
+          >
+            Saber más
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sección FAQ  -->
   <section class="py-16 px-6 bg-gray-50">
     <div class="container mx-auto max-w-4xl">
       <h2
@@ -770,432 +1430,87 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Sección Servicios Destacados -->
+  <!-- Sección Portafolio -->
   <section class="py-16 px-6 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
-      >
-        <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
-          >Soluciones</span
-        > a tu medida
-      </h2>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Tarjeta 1 -->
-        <div
-          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
-        >
-          <div
-            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-700"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Webs Estáticas</h3>
-          <p class="text-gray-600 mb-4">
-            Páginas ultra rápidas con Astro, perfectas para negocios que
-            necesitan presencia profesional.
-          </p>
-          <a
-            href="/servicios/webs-estaticas"
-            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
-          >
-            Saber más
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Tarjeta 2 (E-commerce) -->
-        <div
-          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
-        >
-          <div
-            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-700"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Tiendas Online</h3>
-          <p class="text-gray-600 mb-4">
-            Soluciones e-commerce con Shopify o desarrollos personalizados para
-            vender 24/7.
-          </p>
-          <a
-            href="/servicios/ecommerce"
-            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
-          >
-            Saber más
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Tarjeta 3 (SEO) -->
-        <div
-          class="bg-gray-50 p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
-        >
-          <div
-            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-700"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">
-            Posicionamiento SEO
-          </h3>
-          <p class="text-gray-600 mb-4">
-            Optimización técnica y de contenido para aparecer en los primeros
-            resultados de búsqueda.
-          </p>
-          <a
-            href="/servicios/seo"
-            class="text-fuchsia-600 hover:text-fuchsia-700 font-medium flex items-center gap-1"
-          >
-            Saber más
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >Nuestros</span
+          > Proyectos
+        </h2>
+        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+          Webs rápidas, seguras y optimizadas para cada necesidad
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- Sección CTA Final -->
-  <section
-    class="py-20 px-6 text-center bg-gradient-to-br from-purple-800 to-slate-800"
-  >
-    <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">
-        ¿Listo para transformar tu presencia online?
-      </h2>
-      <p class="text-xl text-purple-200 mb-10 max-w-2xl mx-auto">
-        Envíanos un mensaje y hablamos de cómo podemos ayudarte a crecer.
-      </p>
-      <a
-        href="#contacto"
-        class="inline-block bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl"
-      >
-        Contactar ahora
-      </a>
-    </div>
-  </section>
-
-  <!-- Sección Comparativa WordPress vs Astro -->
-  <section class="py-20 px-6 bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <div class="flex flex-col lg:flex-row gap-12 items-center">
-        <!-- Columna de texto -->
-        <div class="lg:w-1/2">
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
-              >WordPress vs Astro</span
-            >
-            <br />La diferencia es abismal
-          </h2>
-
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 mt-1">
-                <div
-                  class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center"
-                >
-                  <svg
-                    class="w-5 h-5 text-red-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M6 18L18 6M6 6l12 12"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg text-gray-800">
-                  WordPress Típico
-                </h3>
-                <p class="text-gray-600">
-                  Promedio: 3-5s de carga, 60-70 en PageSpeed
-                </p>
-              </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Proyecto 1 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto1.webp"
+            alt="Web para cerrajero en Tetuán"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Cerrajero Tetuán</h3>
+              <p class="text-purple-200">Web estática con Astro + Tailwind</p>
+              <p class="text-purple-100 text-sm mt-1">SEO local optimizado</p>
             </div>
-
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 mt-1">
-                <div
-                  class="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center"
-                >
-                  <svg
-                    class="w-5 h-5 text-emerald-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 class="font-bold text-lg text-gray-800">
-                  Astro + Tailwind
-                </h3>
-                <p class="text-gray-600">
-                  Resultados: 0.5-1s de carga, 90-100 en PageSpeed
-                </p>
-              </div>
-            </div>
-
-            <ul class="space-y-3 pl-2">
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700"
-                  >Hasta <strong>5 veces más rápido</strong></span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700"
-                  >Menos de <strong>1MB de peso total</strong></span
-                >
-              </li>
-              <li class="flex items-start gap-2">
-                <svg
-                  class="w-5 h-5 text-purple-500 mt-0.5 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="text-gray-700"
-                  >SEO técnico <strong>perfecto</strong> desde el inicio</span
-                >
-              </li>
-            </ul>
           </div>
         </div>
 
-        <!-- Columna del gráfico -->
-        <div class="lg:w-1/2 w-full">
-          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <!-- Gráfico de barras comparativo -->
-            <div class="space-y-8">
-              <!-- Barra 1: Tiempo de carga -->
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium text-gray-700"
-                    >Tiempo de carga (s)</span
-                  >
-                  <span class="text-sm text-gray-500">Menos es mejor</span>
-                </div>
-                <!-- Dentro de una tarjeta existente -->
-                <div
-                  x-data="{ width: '0%' }"
-                  x-intersect.once="width = '90%'"
-                  class="flex gap-4 items-center"
-                >
-                  <div class="w-24 text-right text-sm text-gray-500">
-                    WordPress
-                  </div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full transition-all duration-1000"
-                    :style="{ width }"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">4.2s</div>
-                </div>
-
-                <div class="flex gap-4 items-center mt-2">
-                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
-                    style="width: 15%"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">0.6s</div>
-                </div>
-              </div>
-
-              <!-- Barra 2: Puntuación PageSpeed -->
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium text-gray-700"
-                    >Puntuación PageSpeed</span
-                  >
-                  <span class="text-sm text-gray-500">Más es mejor</span>
-                </div>
-                <div class="flex gap-4 items-center">
-                  <div class="w-24 text-right text-sm text-gray-500">
-                    WordPress
-                  </div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                    style="width: 65%"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">65</div>
-                </div>
-                <div class="flex gap-4 items-center mt-2">
-                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
-                    style="width: 98%"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">98</div>
-                </div>
-              </div>
-
-              <!-- Barra 3: Tamaño página -->
-              <div>
-                <div class="flex justify-between mb-2">
-                  <span class="font-medium text-gray-700"
-                    >Tamaño total (MB)</span
-                  >
-                  <span class="text-sm text-gray-500">Menos es mejor</span>
-                </div>
-                <div class="flex gap-4 items-center">
-                  <div class="w-24 text-right text-sm text-gray-500">
-                    WordPress
-                  </div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-red-500 to-red-400 rounded-full"
-                    style="width: 80%"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">3.8</div>
-                </div>
-                <div class="flex gap-4 items-center mt-2">
-                  <div class="w-24 text-right text-sm text-gray-500">Astro</div>
-                  <div
-                    class="flex-1 h-8 bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full"
-                    style="width: 20%"
-                  >
-                  </div>
-                  <div class="w-12 text-left text-sm font-medium">0.7</div>
-                </div>
-              </div>
+        <!-- Proyecto 2 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto2.webp"
+            alt="Web para cerrajero multiservicio"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Tu Cerrajero Local</h3>
+              <p class="text-purple-200">Solución completa con Bootstrap</p>
+              <p class="text-purple-100 text-sm mt-1">
+                +50 páginas de servicios
+              </p>
             </div>
+          </div>
+        </div>
 
-            <!-- Leyenda -->
-            <div class="flex justify-center gap-6 mt-8">
-              <div class="flex items-center">
-                <div
-                  class="w-4 h-4 rounded-full bg-gradient-to-r from-red-500 to-red-400 mr-2"
-                >
-                </div>
-                <span class="text-sm text-gray-600">WordPress</span>
-              </div>
-              <div class="flex items-center">
-                <div
-                  class="w-4 h-4 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-400 mr-2"
-                >
-                </div>
-                <span class="text-sm text-gray-600">Astro + Tailwind</span>
-              </div>
+        <!-- Proyecto 3 -->
+        <div
+          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <img
+            src="/proyecto3.webp"
+            alt="Landing page para cerrajero"
+            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
+              <p class="text-purple-200">Landing page ultra ligera</p>
+              <p class="text-purple-100 text-sm mt-1">
+                Diseño minimalista con Tailwind
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
+<ContactForm />
 </Layout>

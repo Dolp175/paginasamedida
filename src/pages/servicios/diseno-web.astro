@@ -1,0 +1,699 @@
+---
+// src/pages/servicios/diseno-web.astro
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import BeneficioItem from "../../components/BeneficioItem.astro";
+
+const title = "Diseño Web Profesional | Páginas a Medida";
+const description =
+  "Desarrollo de páginas web estáticas y dinámicas ultra rápidas con Astro y Tailwind, optimizadas para SEO y conversión.";
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-50 to-white">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        Diseño Web <span
+          class="block bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >a tu Medida</span
+        >
+      </h1>
+      <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+        Páginas web estáticas y dinámicas <strong class="text-purple-700"
+          >ultra rápidas</strong
+        >, desarrolladas con tecnologías modernas para destacar en Google y
+        convertir visitantes en clientes.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#contacto"
+          class="bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg"
+        >
+          Solicitar Presupuesto
+        </a>
+        <a
+          href="#beneficios"
+          class="bg-white hover:bg-gray-50 text-purple-700 font-bold py-3 px-8 rounded-lg transition border-2 border-purple-200 shadow-sm hover:shadow-md"
+        >
+          Ver Beneficios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logos Tecnologías -->
+  <section class="py-12 px-6 bg-white border-y border-gray-100">
+    <div class="container mx-auto max-w-5xl">
+      <h2
+        class="text-center text-sm uppercase tracking-wider text-gray-500 mb-8"
+      >
+        Desarrollamos con las mejores tecnologías
+      </h2>
+      <div
+        class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70"
+      >
+        <img
+          src="/tech-logos/astro.svg"
+          alt="Astro"
+          class="h-10"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/tailwind.svg"
+          alt="Tailwind CSS"
+          class="h-8"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/react.svg"
+          alt="React"
+          class="h-10"
+          loading="lazy"
+        />
+        <img
+          src="/tech-logos/shopify.svg"
+          alt="Shopify"
+          class="h-8"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section id="beneficios" class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          ¿Por qué elegir nuestro <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >diseño web?</span
+          >
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Soluciones técnicas pensadas para resultados reales
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Beneficio 1 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Rendimiento Extremo
+          </h3>
+          <p class="text-gray-600">
+            Webs que cargan en menos de 1 segundo gracias al uso de las mejores
+            tecnologías.
+            <strong class="text-purple-700"
+              >Puntuación perfecta en PageSpeed Insights</strong
+            >.
+          </p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Hosting Incluido</h3>
+          <p class="text-gray-600">
+            Despliegue automático en <strong class="text-purple-700">
+              usamos servidores nacionales optimizados</strong
+            >
+            con certificado SSL, CDN y backups.
+          </p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Seguridad Avanzada
+          </h3>
+          <p class="text-gray-600">
+            Protección contra ataques DDoS, inyecciones SQL y XSS. Una web a
+            medida elimina muchos de los
+            <strong class="text-purple-700">riesgos comunes</strong> de WordPress.
+          </p>
+        </div>
+
+        <!-- Beneficio 4 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Diseño Personalizado
+          </h3>
+          <p class="text-gray-600">
+            <strong class="text-purple-700">0 plantillas genéricas</strong>.
+            Cada diseño se crea desde cero para reflejar tu marca única.
+          </p>
+        </div>
+
+        <!-- Beneficio 5 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Garantía de Satisfacción
+          </h3>
+          <p class="text-gray-600">
+            30 días de garantía. Si no estás satisfecho,
+            <strong class="text-purple-700">te devolvemos tu dinero</strong>.
+          </p>
+        </div>
+
+        <!-- Beneficio 6 -->
+        <div
+          class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+        >
+          <div
+            class="w-12 h-12 mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Entrega Rápida</h3>
+          <p class="text-gray-600">
+            Webs estáticas listas en <strong class="text-purple-700"
+              >7-10 días</strong
+            >. Proyectos complejos en 2-3 semanas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paquetes de Servicio Interactivos -->
+  <section
+    class="py-16 px-6 bg-gray-50"
+    x-data="{ selectedPackage: 'professional' }"
+  >
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+          >
+            Soluciones
+          </span> a tu medida
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Ejemplos reales de precios según las necesidades más comunes. Si tu
+          proyecto es diferente, hablaremos y lo adaptamos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <template
+          x-for="(pkg, id) in {
+        basic: {
+          title: 'Web Básica',
+          subtitle: 'Ideal para pequeños negocios',
+          price: '500€',
+          highlight: false,
+          beneficios: ['Hasta 5 páginas estáticas (Inicio, Servicios, Sobre mí...)', 'Adaptación RGPD: aviso legal, cookies y privacidad', 'Integración con WhatsApp y llamadas']
+        },
+        professional: {
+          title: 'Web Profesional',
+          subtitle: 'Para negocios con múltiples servicios',
+          price: '1.200€',
+          highlight: true,
+          beneficios: ['Hasta 15 páginas personalizadas', 'Formularios de contacto avanzados', 'SEO avanzado por servicios y zonas', 'Diseño adaptable y optimizado en todos los dispositivos', 'Blog integrado para mejorar SEO']
+        },
+        premium: {
+          title: 'Web Premium',
+          subtitle: 'Para profesionales con múltiples zonas',
+          price: '1.800€',
+          highlight: false,
+          beneficios: ['Hasta 25 páginas y estructura compleja', 'Landing pages específicas por zona o ciudad', 'Contenido original y único en cada página', 'estructura de enlaces internos optimizada']
+        }
+      }"
+          :key="id"
+        >
+          <div
+            class="relative bg-white rounded-xl overflow-hidden transition hover:shadow-lg cursor-pointer h-full flex flex-col justify-between"
+            :class="selectedPackage === id ? 'border-2 border-purple-500 shadow-lg' : 'border border-gray-200'"
+            @click="selectedPackage = id; $nextTick(() => document.getElementById('detalles-paquete').scrollIntoView({ behavior: 'smooth' }))"
+          >
+            <template x-if="pkg.highlight">
+              <div
+                class="absolute top-4 right-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full"
+              >
+                Más popular
+              </div>
+            </template>
+
+            <div class="p-8 flex flex-col justify-between h-full">
+              <!-- Contenido principal -->
+              <div>
+                <h3
+                  class="text-2xl font-bold text-gray-800 mb-2"
+                  x-text="pkg.title"
+                >
+                </h3>
+                <p
+                  class="text-purple-600 font-medium mb-4"
+                  x-text="pkg.subtitle"
+                >
+                </p>
+                <div class="flex items-end mb-6">
+                  <span
+                    class="text-4xl font-bold text-gray-800"
+                    x-text="pkg.price"></span>
+                  <span class="text-gray-500 ml-1">+IVA</span>
+                </div>
+                <ul class="space-y-3 mb-8">
+                  <template
+                    x-for="beneficio in pkg.beneficios"
+                    :key="beneficio"
+                  >
+                    <li class="flex items-start">
+                      <svg
+                        class="w-5 h-5 text-purple-500 mt-0.5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M5 13l4 4L19 7"></path>
+                      </svg>
+                      <span x-text="beneficio"></span>
+                    </li>
+                  </template>
+                </ul>
+              </div>
+
+              <!-- Botón inferior -->
+              <div>
+                <button
+                  class="w-full font-bold py-3 px-6 rounded-lg transition"
+                  :class="selectedPackage === id
+            ? 'bg-gradient-to-r from-fuchsia-500 to-purple-600 text-white shadow-md'
+            : 'bg-gradient-to-r from-purple-100 to-fuchsia-100 text-purple-700'"
+                  :aria-pressed="selectedPackage === id"
+                  type="button"
+                >
+                  <span
+                    x-text="selectedPackage === id ? 'Seleccionado' : 'Ver más'"
+                  ></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- Detalles extendidos -->
+      <div
+        id="detalles-paquete"
+        class="mt-12 scroll-mt-24 bg-white rounded-xl p-8 border border-gray-200"
+        x-cloak
+      >
+        <template x-if="selectedPackage === 'basic'">
+          <div x-transition>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">
+              Detalles completos - Web Básica
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Perfecta para negocios locales que necesitan una web profesional y
+              sencilla. Ideal para tener presencia online sin complicaciones.
+            </p>
+            <ul class="grid md:grid-cols-2 gap-4">
+              <BeneficioItem
+                texto="Hasta 5 páginas estáticas (Inicio, Servicios, Sobre mí...)"
+              />
+              <BeneficioItem
+                texto="Adaptación RGPD: aviso legal, cookies y privacidad"
+              />
+              <BeneficioItem texto="Diseño adaptable y optimizado" />
+              <BeneficioItem
+                texto="Diseño totalmente adaptado a móviles, tablets y pantallas grandes"
+              />
+              <BeneficioItem
+                texto="Redacción de contenidos. Usamos tus textos o los creamos nosotros."
+              />
+              <BeneficioItem texto="Integración con WhatsApp y llamadas" />
+              <BeneficioItem texto="Formularios de contacto personalizados" />
+              <BeneficioItem
+                texto="Integración con Google (Maps, Analytics, Search Console)"
+              />
+              <BeneficioItem texto="Hosting incluido con certificado SSL" />
+              <BeneficioItem
+                texto="Dominio y correo profesional (primer año incluido)"
+              />
+              <BeneficioItem
+                texto="Opción de mantenimiento mensual (desde 30€ más IVA)"
+              />
+            </ul>
+          </div>
+        </template>
+
+        <template x-if="selectedPackage === 'professional'">
+          <div x-transition>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">
+              Detalles completos - Web Profesional
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Pensada para negocios que quieren destacar en su sector.
+            </p>
+            <ul class="grid md:grid-cols-2 gap-4">
+              <BeneficioItem texto="Hasta 15 páginas personalizadas" />
+              <BeneficioItem texto="Integración con WhatsApp y llamadas" />
+              <BeneficioItem
+                texto="SEO técnico avanzado por servicios y zonas"
+              />
+              <BeneficioItem texto="Diseño adaptable y optimizado" />
+              <BeneficioItem
+                texto="Adaptación RGPD: aviso legal, cookies y privacidad"
+              />
+              <BeneficioItem
+                texto="Diseño totalmente adaptado a móviles, tablets y pantallas grandes"
+              />
+              <BeneficioItem
+                texto="Redacción de contenidos. Usamos tus textos o los creamos nosotros."
+              />
+              <BeneficioItem texto="Integración con WhatsApp y llamadas" />
+              <BeneficioItem texto="Formularios de contacto personalizados" />
+              <BeneficioItem
+                texto="Integración con Google (Maps, Analytics, Search Console)"
+              />
+              <BeneficioItem texto="Hosting incluido con certificado SSL" />
+              <BeneficioItem
+                texto="Dominio y correo profesional (primer año incluido)"
+              />
+              <BeneficioItem texto="Opción de mantenimiento mensual" />
+              <BeneficioItem
+                texto="Blog integrado para mejorar SEO y atraer tráfico"
+              />
+              <BeneficioItem
+                texto="Estructura de enlaces internos optimizada para SEO"
+              />
+              <BeneficioItem
+                texto="Posibilidad de incluir web multilingüe, Inglés o Francés (con traducción profesional)"
+              />
+            </ul>
+          </div>
+        </template>
+
+        <template x-if="selectedPackage === 'premium'">
+          <div x-transition>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">
+              Detalles completos - Web Premium
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Solución completa para profesionales con presencia en múltiples
+              zonas.
+            </p>
+            <ul class="grid md:grid-cols-2 gap-4">
+              <BeneficioItem texto="Hasta 25 páginas y estructura compleja" />
+              <BeneficioItem
+                texto="Landing pages específicas por zona o ciudad"
+              />
+              <BeneficioItem texto="Blog integrado" />
+              <BeneficioItem texto="Diseño adaptable y optimizado" />
+              <BeneficioItem
+                texto="Adaptación RGPD: aviso legal, cookies y privacidad"
+              />
+              <BeneficioItem
+                texto="Diseño totalmente adaptado a móviles, tablets y pantallas grandes"
+              />
+              <BeneficioItem
+                texto="Redacción de contenidos. Usamos tus textos o los creamos nosotros."
+              />
+              <BeneficioItem texto="Integración con WhatsApp y llamadas" />
+              <BeneficioItem texto="Formularios de contacto personalizados" />
+              <BeneficioItem
+                texto="Integración con Google (Maps, Analytics, Search Console)"
+              />
+              <BeneficioItem texto="Hosting incluido con certificado SSL" />
+              <BeneficioItem
+                texto="Dominio y correo profesional (primer año incluido)"
+              />
+              <BeneficioItem texto="Opción de mantenimiento mensual" />
+              <BeneficioItem
+                texto="Blog integrado para mejorar SEO y atraer tráfico"
+              />
+              <BeneficioItem
+                texto="Estructura de enlaces internos optimizada para SEO"
+              />
+              <BeneficioItem
+                texto="Posibilidad de incluir web multilingüe, Inglés o Francés (con traducción profesional)"
+              />
+              <BeneficioItem texto="Integración con WhatsApp y llamadas" />
+              <BeneficioItem
+                texto="posibilidad de desarrollo de funciones a medida"
+              />
+              <BeneficioItem
+                texto="Integración con bases de datos u otras plataformas según necesidades"
+              />
+            </ul>
+          </div>
+        </template>
+
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <a
+            href="#contacto"
+            class="inline-flex items-center justify-center bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:from-fuchsia-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg"
+          >
+            Solicitar este paquete
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Nuestro <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
+            >proceso</span
+          > de trabajo
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Transparencia y profesionalismo en cada etapa
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Paso 1 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">1</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Consulta Inicial
+            </h3>
+            <p class="text-gray-600">
+              Analizamos tus necesidades en una videollamada <strong
+                class="text-purple-700">sin coste</strong
+              >. Definimos objetivos, funcionalidades y te explicamos nuestras
+              recomendaciones técnicas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">2</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Propuesta Detallada
+            </h3>
+            <p class="text-gray-600">
+              En 48 horas recibirás un <strong class="text-purple-700"
+                >presupuesto claro</strong
+              > con alcance, tecnologías, plazos y costes. Sin letra pequeña ni sorpresas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">3</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Diseño y Desarrollo
+            </h3>
+            <p class="text-gray-600">
+              Te propondremos <strong class="text-purple-700"
+                >varias paletas de colores</strong
+              > para que elijas la estética que mejor se adapta a tu marca. A medida
+              que cada página esté lista, podrás verla online y darnos tu <strong
+                class="text-purple-700">feedback en tiempo real</strong
+              > para ajustar imágenes, textos y diseño a tu gusto.
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div
+            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
+          >
+            <span class="text-xl font-bold text-purple-700">4</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">
+              Lanzamiento y Soporte
+            </h3>
+            <p class="text-gray-600">
+              Publicamos tu web en servidores optimizados con
+              <strong class="text-purple-700">SSL y CDN incluidos</strong>. Una
+              vez publicada, seguimos a tu lado con soporte y mantenimiento para
+              que no tengas que preocuparte de nada técnico.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section
+    id="contacto"
+    class="py-16 px-6 bg-gradient-to-br from-purple-600 to-fuchsia-600"
+  >
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        ¿Listo para llevar tu presencia online al siguiente nivel?
+      </h2>
+      <p class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
+        Cuéntanos sobre tu proyecto y te enviaremos una propuesta <strong
+          class="text-white">sin compromiso</strong
+        > en menos de 24 horas.
+      </p>
+
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Layout>
