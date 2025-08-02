@@ -17,19 +17,8 @@ const { title, description } = Astro.props;
   <Nav />
   <main class="flex-grow relative z-10">
     <slot />
-    <div id="footer-trigger" class="h-px"></div>
   </main>
   <Footer />
-  <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
-      const footer = document.getElementById('site-footer');
-      const trigger = document.getElementById('footer-trigger');
-      const observer = new IntersectionObserver(([entry]) => {
-        footer.classList.toggle('translate-y-full', !entry.isIntersecting);
-      });
-      observer.observe(trigger);
-    });
-  </script>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
