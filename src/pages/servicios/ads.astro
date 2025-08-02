@@ -1,0 +1,390 @@
+---
+// src/pages/servicios/ads.astro
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+
+const title = "Publicidad Digital Profesional | Páginas a Medida";
+const description = "Gestión experta de campañas digitales en Google Ads, Meta Ads y más. Maximizamos tu inversión publicitaria con estrategias data-driven.";
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section - Morado/Dorado -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-50 to-amber-50">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        Publicidad que <span class="block bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-500">convierte visitantes</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+        Gestionamos tus campañas digitales con <strong class="text-purple-600">precisión analítica</strong> y enfoque en ROI.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#servicios" class="bg-gradient-to-r from-purple-600 to-amber-500 hover:from-purple-700 hover:to-amber-600 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg">
+          Nuestros Servicios
+        </a>
+        <a href="#contacto" class="bg-white hover:bg-gray-50 text-purple-700 font-bold py-3 px-8 rounded-lg transition border-2 border-purple-200 shadow-sm hover:shadow-md">
+          Contactar Expertos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Advertencia - Antes de Publicidad -->
+<section class="py-16 px-6 bg-white">
+  <div class="container mx-auto max-w-5xl">
+    <div class="bg-white border-l-4 border-amber-500 rounded-lg shadow-lg overflow-hidden">
+      <!-- Cabecera de alerta -->
+      <div class="flex items-start bg-amber-50 p-6">
+        <div class="flex-shrink-0 mr-4">
+          <div class="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-gray-800 mb-2">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-800">¡Atención!</span> Lee esto antes de gastar en publicidad
+          </h2>
+          <p class="text-gray-700">
+            El 63% del presupuesto en ads se desperdicia cuando los fundamentos no están bien establecidos
+          </p>
+        </div>
+      </div>
+
+      <!-- Contenido de la advertencia -->
+      <div class="p-6 md:p-8 space-y-6">
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
+              <span class="text-2xl font-bold">1</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Cimenta tu presencia digital</h3>
+            <p class="text-gray-600 mb-4">
+              <strong class="text-purple-600">No construyas la casa por el tejado.</strong> Antes de invertir en publicidad, asegúrate que tu web:
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Carga en <strong>menos de 2 segundos</strong> (Puntuación ≥90 en PageSpeed)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Es <strong>100% responsive</strong> y funciona perfecto en móviles</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Tiene <strong>conversión optimizada</strong> (formularios claros, CTAs visibles)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 my-6"></div>
+
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 rounded-lg bg-purple-100 flex items-center justify-center text-purple-600">
+              <span class="text-2xl font-bold">2</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Fortalece tu SEO primero</h3>
+            <p class="text-gray-600 mb-4">
+              <strong class="text-purple-600">El SEO y la publicidad son complementarios.</strong> Prioriza:
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>SEO técnico impecable</strong> (etiquetas, velocidad, seguridad)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Contenido valioso</strong> actualizado regularmente</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-amber-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span><strong>Estructura de enlaces internos</strong> bien planificada</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 my-6"></div>
+
+        <div class="bg-purple-50 p-6 rounded-lg border border-purple-100">
+          <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            ¿Ya tienes estos puntos cubiertos? Ahora sí, hablemos de publicidad
+          </h3>
+          <p class="text-gray-700 mb-4">
+            Con los cimientos establecidos, podemos crear campañas efectivas según tu negocio:
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Google Ads:</strong> Ideal para captar intención de búsqueda</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Redes Sociales:</strong> Perfecto para engagement y remarketing</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Display/Banners:</strong> Para aumentar reconocimiento de marca</span>
+            </div>
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-purple-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Email Marketing:</strong> Para nutrir leads existentes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Servicios de Publicidad -->
+  <section id="servicios" class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-500">Servicios</span> de Publicidad
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Soluciones completas para cada plataforma digital
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Servicio 1 -->
+        <div class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200">
+          <div class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-500 to-amber-400"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 mb-6 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Google Ads</h3>
+            <p class="text-gray-600 mb-6">
+              Campañas en Search, Display y YouTube con <strong class="text-purple-600">maximización de conversiones</strong>.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-200 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Optimización de <strong>palabras clave</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Remarketing <strong>personalizado</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Informes de <strong>ROI detallados</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200">
+          <div class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-500 to-amber-400"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 mb-6 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Redes Sociales</h3>
+            <p class="text-gray-600 mb-6">
+              Publicidad en Meta (Facebook/Instagram) y TikTok con <strong class="text-purple-600">segmentación avanzada</strong>.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Campañas de <strong>conversión y engagement</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Creación de <strong>audiencias lookalike</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Gestión de <strong>creativos impactantes</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200">
+          <div class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-500 to-amber-400"></div>
+          <div class="p-8">
+            <div class="w-14 h-14 mb-6 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Performance Marketing</h3>
+            <p class="text-gray-600 mb-6">
+              Estrategias <strong class="text-purple-600">orientadas a resultados</strong> con seguimiento multicanal.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Atribución de <strong>conversiones</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Automatización con <strong>Google Scripts</strong></span>
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center">
+                    <svg class="w-3 h-3 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700">Optimización <strong>en tiempo real</strong></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso de Trabajo -->
+  <section class="py-16 px-6 bg-gradient-to-br from-purple-50 to-amber-50">
+    <div class="container mx-auto max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Nuestra <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-500">metodología</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Un proceso claro para obtener los mejores resultados
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Paso 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md text-center border border-purple-100">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold">1</div>
+          <h3 class="text-lg font-bold mb-2 text-gray-800">Análisis</h3>
+          <p class="text-gray-600 text-sm">Auditoría de cuentas y definición de KPIs</p>
+        </div>
+        
+        <!-- Paso 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md text-center border border-purple-100">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold">2</div>
+          <h3 class="text-lg font-bold mb-2 text-gray-800">Configuración</h3>
+          <p class="text-gray-600 text-sm">Estructura de campañas y píxeles</p>
+        </div>
+        
+        <!-- Paso 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-md text-center border border-purple-100">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold">3</div>
+          <h3 class="text-lg font-bold mb-2 text-gray-800">Lanzamiento</h3>
+          <p class="text-gray-600 text-sm">Implementación con presupuesto controlado</p>
+        </div>
+        
+        <!-- Paso 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-md text-center border border-purple-100">
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold">4</div>
+          <h3 class="text-lg font-bold mb-2 text-gray-800">Optimización</h3>
+          <p class="text-gray-600 text-sm">Ajustes semanales basados en datos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section id="contacto" class="py-16 px-6 bg-gradient-to-br from-purple-600 to-amber-600">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        ¿Listo para multiplicar tu ROI?
+      </h2>
+      <p class="text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
+        Analizamos tus campañas actuales y te proponemos una estrategia <strong class="text-white">sin compromiso</strong>.
+      </p>
+
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Layout>

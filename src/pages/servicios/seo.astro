@@ -4,7 +4,8 @@ import Layout from "../../layouts/Layout.astro";
 import ContactForm from "../../components/ContactForm.astro";
 
 const title = "Posicionamiento SEO Profesional | Páginas a Medida";
-const description = "SEO técnico y de contenido para negocios locales. Webs optimizadas para aparecer en Google cuando tus clientes te buscan.";
+const description =
+  "SEO técnico y de contenido para negocios locales. Webs optimizadas para aparecer en Google cuando tus clientes te buscan.";
 ---
 
 <Layout {title} {description}>
@@ -12,326 +13,761 @@ const description = "SEO técnico y de contenido para negocios locales. Webs opt
   <section class="py-20 px-6 bg-gradient-to-br from-indigo-50 to-white">
     <div class="container mx-auto max-w-6xl text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-        SEO que <span class="block bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">genera clientes</span>
+        SEO que <span
+          class="block bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600"
+          >genera clientes</span
+        >
       </h1>
       <p class="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-        No todos los negocios necesitan el mismo SEO. Creamos estrategias <strong class="text-indigo-600">personalizadas</strong> según tu sector y objetivos reales.
+        No todos los negocios necesitan el mismo SEO. Creamos estrategias <strong
+          class="text-indigo-600">personalizadas</strong
+        > según tu sector y objetivos reales.
       </p>
-      
+
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#planes" class="bg-gradient-to-r from-indigo-500 to-fuchsia-600 hover:from-indigo-600 hover:to-fuchsia-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg">
+        <a
+          href="#planes"
+          class="bg-gradient-to-r from-indigo-500 to-fuchsia-600 hover:from-indigo-600 hover:to-fuchsia-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg"
+        >
           Ver Planes SEO
         </a>
-        <a href="#importancia" class="bg-white hover:bg-gray-50 text-indigo-700 font-bold py-3 px-8 rounded-lg transition border-2 border-indigo-200 shadow-sm hover:shadow-md">
+        <a
+          href="#importancia"
+          class="bg-white hover:bg-gray-50 text-indigo-700 font-bold py-3 px-8 rounded-lg transition border-2 border-indigo-200 shadow-sm hover:shadow-md"
+        >
           ¿Por qué es importante?
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Sección de importancia segmentada -->
-  <section id="importancia" class="py-16 px-6 bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          SEO <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">según tu negocio</span>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          No es lo mismo tener presencia online que competir por clientes
-        </p>
-      </div>
+<!-- Sección Impacto Visual - Después del Hero -->
+<section class="relative py-16 px-6 bg-white overflow-hidden">
+  <!-- Fondos decorativos -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-multiply filter blur-3xl"></div>
+  </div>
 
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
-          <div class="bg-indigo-100 text-indigo-800 font-bold inline-flex px-4 py-1 rounded-full mb-4 text-sm">
-            Para negocios con clientes locales
+  <div class="container mx-auto max-w-6xl relative z-10">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <!-- Estadística 1 -->
+      <div class="bg-gradient-to-br from-white to-indigo-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+        <div class="text-5xl font-bold text-indigo-600 mb-3" data-count="93">0%</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">De las experiencias online comienzan en buscadores</h3>
+        <p class="text-gray-600">Sin un buen SEO, pierdes potenciales clientes desde el primer momento</p>
+      </div>
+      
+      <!-- Estadística 2 -->
+      <div class="bg-gradient-to-br from-white to-fuchsia-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+        <div class="text-5xl font-bold text-fuchsia-600 mb-3" data-count="75">0%</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">De los usuarios no pasan de la primera página</h3>
+        <p class="text-gray-600">Si no apareces en los primeros resultados, prácticamente no existes</p>
+      </div>
+      
+      <!-- Estadística 3 -->
+      <div class="bg-gradient-to-br from-white to-indigo-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
+        <div class="text-5xl font-bold text-indigo-600 mb-3" data-count="50">0x</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Más tráfico que el primer resultado vs. el décimo</h3>
+        <p class="text-gray-600">La diferencia entre posicionar bien o mal es abismal</p>
+      </div>
+    </div>
+
+    <!-- Llamada a la acción intermedia -->
+    <div class="mt-16 text-center bg-gradient-to-r from-indigo-50 to-fuchsia-50 p-8 rounded-2xl border border-gray-200">
+      <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+        ¿Sabías que <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">el 60% de los clicks</span> se los llevan los 3 primeros resultados?
+      </h3>
+      <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+        No basta con aparecer, hay que destacar. Nuestras estrategias SEO están diseñadas para colocarte en lo más alto.
+      </p>
+      <a href="#planes" class="inline-flex items-center justify-center bg-gradient-to-r from-indigo-500 to-fuchsia-600 hover:from-indigo-600 hover:to-fuchsia-700 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg">
+        Descubre cómo
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Script de animación -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('[data-count]');
+      const speed = 200;
+      
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const suffix = counter.getAttribute('data-count').includes('%') ? '%' : 'x';
+        const increment = target / speed;
+        
+        const updateCount = () => {
+          const current = +counter.innerText.replace('%', '').replace('x', '');
+          if (current < target) {
+            counter.innerText = Math.ceil(current + increment) + suffix;
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target + suffix;
+          }
+        };
+        
+        setTimeout(updateCount, 500);
+      });
+    });
+  </script>
+</section>
+
+<!-- Sección de importancia segmentada - Versión Mejorada -->
+<section id="importancia" class="py-16 px-6 bg-gradient-to-br from-white to-indigo-50">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">Estrategias SEO</span> segmentadas
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Adaptamos el posicionamiento web a las necesidades reales de cada negocio
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Tarjeta 1 - Con gradiente sutil -->
+      <div class="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group border border-gray-100">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-indigo-500 to-fuchsia-500"></div>
+        <div class="p-8">
+          <div class="flex items-center mb-6">
+            <div class="bg-indigo-100 text-indigo-800 font-bold px-4 py-1 rounded-full text-sm mr-4">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-fuchsia-600">Clientes Online</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Fontaneros, cerrajeros, pintores...</h3>
+          
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">
+            Profesionales locales <span class="text-indigo-600">(Fontaneros, cerrajeros, pintores...)</span>
+          </h3>
+          
           <p class="text-gray-600 mb-6">
-            <strong class="text-indigo-600">Tu web es tu principal fuente de clientes.</strong> La mayoría te encontrarán buscando "tu servicio + tu ciudad". Necesitas:
+            <strong class="bg-gradient-to-r from-indigo-600 to-fuchsia-600 bg-clip-text text-transparent">Tu web es tu escaparate principal.</strong> Los clientes te buscan activamente en Google cuando te necesitan.
           </p>
-          <ul class="space-y-3">
+          
+          <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Posicionamiento en <strong>tus palabras clave principales</strong></span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Posicionamiento local:</strong> Aparecer cuando buscan tu servicio + ciudad</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Optimización para <strong>búsquedas locales</strong> (Google My Business)</span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Google My Business:</strong> Optimización para el mapa local</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Contenido <strong>geolocalizado</strong> (landing pages por zonas)</span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-indigo-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Landing pages:</strong> Contenido específico por zonas de servicio</span>
             </li>
           </ul>
         </div>
-        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200">
-          <div class="bg-indigo-100 text-indigo-800 font-bold inline-flex px-4 py-1 rounded-full mb-4 text-sm">
-            Para negocios con clientes presenciales
+      </div>
+
+      <!-- Tarjeta 2 - Con gradiente sutil -->
+      <div class="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition group border border-gray-100">
+        <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-fuchsia-500 to-indigo-500"></div>
+        <div class="p-8">
+          <div class="flex items-center mb-6">
+            <div class="bg-fuchsia-100 text-fuchsia-800 font-bold px-4 py-1 rounded-full text-sm mr-4">
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 to-indigo-600">Clientes Presenciales</span>
+            </div>
+            <div class="w-10 h-10 rounded-lg bg-fuchsia-50 flex items-center justify-center text-fuchsia-600">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
           </div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-4">Restaurantes, peluquerías, tiendas...</h3>
+          
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">
+            Negocios físicos <span class="text-fuchsia-600">(Restaurantes, peluquerías, tiendas...)</span>
+          </h3>
+          
           <p class="text-gray-600 mb-6">
-            <strong class="text-indigo-600">Tu web refuerza tu presencia.</strong> La mayoría te conocerá por otros medios, pero necesitas:
+            <strong class="bg-gradient-to-r from-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">Tu web complementa tu local.</strong> Los clientes te conocen pero buscan información antes de visitarte.
           </p>
-          <ul class="space-y-3">
+          
+          <ul class="space-y-4">
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Información clara <strong>fácil de encontrar</strong></span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-fuchsia-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Información clave:</strong> Horarios, servicios, ubicación y contacto visibles</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Optimización para <strong>primera impresión</strong></span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-fuchsia-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Diseño impactante:</strong> Que refleje la experiencia de tu negocio</span>
             </li>
             <li class="flex items-start">
-              <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong>Presencia en directorios</strong> locales</span>
+              <div class="flex-shrink-0 mt-1">
+                <div class="w-6 h-6 rounded-full bg-fuchsia-100 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-fuchsia-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </div>
+              </div>
+              <span class="ml-3 text-gray-700"><strong class="text-gray-800">Presencia local:</strong> Listados en directorios y plataformas relevantes</span>
             </li>
           </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- SEO Técnico -->
   <section class="py-16 px-6 bg-gray-50">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Bases técnicas <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">imprescindibles</span>
+          Bases técnicas <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600"
+            >imprescindibles</span
+          >
         </h2>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
           Construimos tu web con los cimientos perfectos para el SEO
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Beneficio 1 - Con franja superior -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Velocidad de carga</h3>
-          <p class="text-gray-600">
-            Webs optimizadas para cargar en <strong class="text-indigo-600">menos de 1 segundo</strong>, con puntuación perfecta en PageSpeed Insights. Google premia los sitios rápidos.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Velocidad de carga
+            </h3>
+            <p class="text-gray-600">
+              Webs que cargan en <strong class="text-indigo-600"
+                >menos de 1 segundo</strong
+              >, con puntuación perfecta en PageSpeed Insights. Google premia
+              los sitios rápidos.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
+        <!-- Beneficio 2 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Estructura semántica</h3>
-          <p class="text-gray-600">
-            Código HTML5 perfectamente estructurado con <strong class="text-indigo-600">etiquetas semánticas</strong>, schema markup y jerarquía de contenido clara para los buscadores.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Estructura semántica
+            </h3>
+            <p class="text-gray-600">
+              Código HTML5 perfectamente estructurado con <strong
+                class="text-indigo-600">etiquetas semánticas</strong
+              >, schema markup y jerarquía clara para buscadores.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-            </svg>
+        <!-- Beneficio 3 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Experiencia móvil</h3>
-          <p class="text-gray-600">
-            Diseño <strong class="text-indigo-600">mobile-first</strong> completamente adaptable. Google prioriza los sitios con buena experiencia en dispositivos móviles.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Experiencia móvil
+            </h3>
+            <p class="text-gray-600">
+              Diseño <strong class="text-indigo-600">mobile-first</strong> completamente
+              adaptable. Priorizado por Google para mejores posiciones en móvil.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-            </svg>
+        <!-- Beneficio 4 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Seguridad</h3>
-          <p class="text-gray-600">
-            Certificado SSL, protección contra malware y <strong class="text-indigo-600">cumplimiento RGPD</strong>. Factores esenciales para el posicionamiento actual.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">Seguridad</h3>
+            <p class="text-gray-600">
+              Certificado SSL, protección contra malware y <strong
+                class="text-indigo-600">cumplimiento RGPD</strong
+              >. Factores esenciales para el posicionamiento actual.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
+        <!-- Beneficio 5 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">URLs optimizadas</h3>
-          <p class="text-gray-600">
-            Estructura de enlaces <strong class="text-indigo-600">limpia y descriptiva</strong>, con keywords estratégicas y fácil navegación para usuarios y bots.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              URLs optimizadas
+            </h3>
+            <p class="text-gray-600">
+              Estructura de enlaces <strong class="text-indigo-600"
+                >limpia y descriptiva</strong
+              >, con keywords estratégicas y navegación intuitiva para usuarios
+              y bots.
+            </p>
+          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition">
-          <div class="w-12 h-12 mb-4 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
+        <!-- Beneficio 6 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition group"
+        >
+          <div class="h-2 bg-gradient-to-r from-indigo-500 to-fuchsia-600">
           </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Contenido estratégico</h3>
-          <p class="text-gray-600">
-            Textos originales con <strong class="text-indigo-600">keywords naturales</strong>, meta tags personalizados y estructura de contenido optimizada para conversión.
-          </p>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-100 transition"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              Contenido estratégico
+            </h3>
+            <p class="text-gray-600">
+              Textos originales con <strong class="text-indigo-600"
+                >keywords naturales</strong
+              >, meta tags personalizados y estructura optimizada para
+              conversión.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Planes de mantenimiento SEO -->
-  <section id="planes" class="py-16 px-6 bg-gradient-to-br from-white via-gray-50 to-white">
+  <section
+    id="planes"
+    class="py-16 px-6 bg-gradient-to-br from-white via-gray-50 to-white"
+  >
     <div class="container mx-auto max-w-6xl">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Mantenimiento <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">SEO continuo</span>
+          Mantenimiento <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600"
+            >SEO continuo</span
+          >
         </h2>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          El SEO no termina cuando se lanza la web. Ofrecemos planes para mantener y mejorar tu posicionamiento.
+          El SEO no termina cuando se lanza la web. Ofrecemos planes para
+          mantener y mejorar tu posicionamiento.
         </p>
       </div>
 
-      <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+      <div
+        class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto"
+      >
         <!-- Plan Básico -->
-        <div class="flex flex-col h-full bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition">
+        <div
+          class="flex flex-col h-full bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition"
+        >
           <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-2xl font-bold text-gray-800 mb-2">Plan Básico</h3>
-            <p class="text-indigo-600 font-medium mb-4">Para mantener tu web actualizada</p>
+            <p class="text-indigo-600 font-medium mb-4">
+              Para mantener tu web actualizada
+            </p>
             <div class="flex items-end mb-6">
               <span class="text-4xl font-bold text-gray-800">30€</span>
               <span class="text-gray-500 ml-1">+IVA/mes</span>
             </div>
             <ul class="space-y-3 mb-8 flex-grow">
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Hosting y correo profesional</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Actualizaciones de seguridad</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Soporte técnico básico</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Backups semanales</span>
               </li>
             </ul>
-            <a href="#contacto" class="block w-full bg-white text-indigo-700 font-bold py-3 px-6 rounded-lg transition border-2 border-indigo-200 text-center hover:bg-indigo-50">
+            <a
+              href="#contacto"
+              class="block w-full bg-white text-indigo-700 font-bold py-3 px-6 rounded-lg transition border-2 border-indigo-200 text-center hover:bg-indigo-50"
+            >
               Contratar
             </a>
           </div>
         </div>
 
         <!-- Plan Intermedio -->
-        <div class="relative flex flex-col h-full bg-white rounded-2xl border-2 border-indigo-500 shadow-lg">
-          <div class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+        <div
+          class="relative flex flex-col h-full bg-white rounded-2xl border-2 border-indigo-500 shadow-lg"
+        >
+          <div
+            class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full"
+          >
             Más popular
           </div>
           <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Plan Contenido</h3>
-            <p class="text-indigo-600 font-medium mb-4">Para mejorar posicionamiento</p>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">
+              Plan Contenido
+            </h3>
+            <p class="text-indigo-600 font-medium mb-4">
+              Para mejorar posicionamiento
+            </p>
             <div class="flex items-end mb-6">
               <span class="text-4xl font-bold text-gray-800">60€</span>
               <span class="text-gray-500 ml-1">+IVA/mes</span>
             </div>
             <ul class="space-y-3 mb-8 flex-grow">
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span><strong>Todas las ventajas del Plan Básico</strong></span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>1 artículo de blog/mes optimizado SEO</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Actualización de contenidos existentes</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Optimización de imágenes y metadatos</span>
               </li>
             </ul>
-            <a href="#contacto" class="block w-full bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white font-bold py-3 px-6 rounded-lg transition shadow-md hover:shadow-lg text-center">
+            <a
+              href="#contacto"
+              class="block w-full bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white font-bold py-3 px-6 rounded-lg transition shadow-md hover:shadow-lg text-center"
+            >
               Contratar
             </a>
           </div>
         </div>
 
         <!-- Plan Avanzado -->
-        <div class="flex flex-col h-full bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition">
+        <div
+          class="flex flex-col h-full bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition"
+        >
           <div class="p-8 flex flex-col flex-grow">
             <h3 class="text-2xl font-bold text-gray-800 mb-2">Plan Avanzado</h3>
-            <p class="text-indigo-600 font-medium mb-4">Para crecimiento continuo</p>
+            <p class="text-indigo-600 font-medium mb-4">
+              Para crecimiento continuo
+            </p>
             <div class="flex items-end mb-6">
               <span class="text-4xl font-bold text-gray-800">200€</span>
               <span class="text-gray-500 ml-1">+IVA/mes</span>
             </div>
             <ul class="space-y-3 mb-8 flex-grow">
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span><strong>Todas las ventajas del Plan Contenido</strong></span>
+                <span
+                  ><strong>Todas las ventajas del Plan Contenido</strong></span
+                >
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>4 artículos de blog/mes optimizados</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Investigación de keywords avanzada</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Informe mensual de posicionamiento</span>
               </li>
               <li class="flex items-start">
-                <svg class="w-5 h-5 text-indigo-500 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                <svg
+                  class="w-5 h-5 text-indigo-500 mt-0.5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span>Estrategia de enlaces internos</span>
               </li>
             </ul>
-            <a href="#contacto" class="block w-full bg-white text-indigo-700 font-bold py-3 px-6 rounded-lg transition border-2 border-indigo-200 text-center hover:bg-indigo-50">
+            <a
+              href="#contacto"
+              class="block w-full bg-white text-indigo-700 font-bold py-3 px-6 rounded-lg transition border-2 border-indigo-200 text-center hover:bg-indigo-50"
+            >
               Contratar
             </a>
           </div>
@@ -341,19 +777,23 @@ const description = "SEO técnico y de contenido para negocios locales. Webs opt
   </section>
 
   <!-- CTA Final -->
- <section id="contacto" class="py-16 px-6 bg-gradient-to-br from-indigo-50 via-fuchsia-50 to-white">
-  <div class="container mx-auto max-w-4xl text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-      ¿Necesitas aparecer en Google cuando te buscan?
-    </h2>
-    <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
-      Analizamos tu competencia y te decimos <strong class="text-indigo-600">sin compromiso</strong> cómo mejorar tu posicionamiento.
-    </p>
+  <section
+    id="contacto"
+    class="py-16 px-6 bg-gradient-to-br from-indigo-50 via-fuchsia-50 to-white"
+  >
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        ¿Necesitas aparecer en Google cuando te buscan?
+      </h2>
+      <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+        Analizamos tu competencia y te decimos <strong class="text-indigo-600"
+          >sin compromiso</strong
+        > cómo mejorar tu posicionamiento.
+      </p>
 
-    <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
-      <ContactForm />
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 </Layout>
