@@ -12,9 +12,11 @@ const {
 } = Astro.props;
 ---
 
-<div class="h-full flex flex-col bg-white rounded-xl border 
-  {featured ? 'border-2 border-purple-500 shadow-lg' : 'border-gray-200'} 
-  overflow-hidden">
+<div
+  class={`h-full flex flex-col bg-white rounded-xl border ${
+    featured ? 'border-2 border-purple-500 shadow-lg' : 'border-gray-200'
+  } overflow-hidden`}
+>
   
   <!-- Cabecera con logo y espacio -->
   <div class="flex items-center px-6 pt-6 pb-2">
