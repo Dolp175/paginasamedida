@@ -1,0 +1,111 @@
+---
+// src/pages/contacto.astro
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const title = "Contacto | Páginas a Medida";
+const description = "Contacta con nuestro equipo para desarrollar tu proyecto web. Teléfono, WhatsApp, email o formulario de contacto.";
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-900 to-slate-900 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+        Contacta con <span class="text-amber-300">nuestro equipo</span>
+      </h1>
+      <p class="text-xl text-purple-200 max-w-3xl mx-auto">
+        Elige el método que prefieras y hablamos de tu proyecto
+      </p>
+    </div>
+  </section>
+
+  <!-- Sección de Métodos de Contacto -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-5xl">
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Teléfono -->
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Llámame directamente</h3>
+          <p class="text-gray-600 mb-4">Habla conmigo sin compromiso</p>
+          <a href="tel:+34623962963" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-lg transition">
+            +34 623 962 963
+          </a>
+        </div>
+
+        <!-- WhatsApp -->
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center text-green-700">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19.05 4.91A9.816 9.816 0 0012 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.13-1.32c1.45.89 3.11 1.32 4.87 1.32 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.09zm-7.01 15.1c-1.45 0-2.87-.4-4.1-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.264 8.264 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 012.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Escríbeme por WhatsApp</h3>
+          <p class="text-gray-600 mb-4">Resuelve tus dudas al instante</p>
+          <a href="https://wa.me/34623962963" class="inline-block bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-lg transition">
+            Abrir WhatsApp
+          </a>
+        </div>
+
+        <!-- Email -->
+        <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 text-center hover:shadow-lg transition">
+          <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-700">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">Envíame un email</h3>
+          <p class="text-gray-600 mb-4">Respuesta en menos de 24h</p>
+          <a href="mailto:info@paginasamedida.com" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-6 rounded-lg transition">
+            info@paginasamedida.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección del Formulario -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-4xl">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div class="grid md:grid-cols-2">
+          <!-- Columna de texto -->
+          <div class="bg-gradient-to-br from-purple-700 to-purple-900 p-10 text-white">
+            <h2 class="text-3xl font-bold mb-6">¿Prefieres que te contactemos nosotros?</h2>
+            <p class="mb-6">Déjanos tus datos y te llamaremos o escribiremos en menos de 24 horas hábiles.</p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-amber-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Sin compromiso ni presiones</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-amber-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Asesoramiento personalizado</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-amber-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Respuesta rápida garantizada</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Columna del formulario -->
+          <div class="p-2">
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

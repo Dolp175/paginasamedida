@@ -1,0 +1,251 @@
+---
+// src/pages/sobre-mi.astro
+import Layout from "../layouts/Layout.astro";
+
+const title = "Sobre Mí | Ingeniero Informático Especializado";
+const description =
+  "Ingeniero informático con más de 10 años de experiencia, especializado en desarrollo web y análisis de datos. Soluciones digitales con enfoque en resultados.";
+---
+
+<Layout {title} {description}>
+ <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-900 to-slate-900 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+        Tecnología con <span class="block bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">propósito humano</span>
+      </h1>
+      <p class="text-xl text-purple-200 max-w-3xl mx-auto">
+        Ingeniero informático · Especialista en datos · Padre comprometido
+      </p>
+    </div>
+  </section>
+
+  <!-- Sección Biografía -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-5xl">
+      <div class="grid md:grid-cols-3 gap-12 items-start">
+        <!-- Columna izquierda - Foto -->
+        <div class="md:sticky md:top-24">
+          <div
+            class="bg-gradient-to-br from-purple-100 to-amber-50 p-1 rounded-2xl shadow-lg"
+          >
+            <img
+              src="/foto.webp"
+              alt="Foto de perfil"
+              class="w-full h-auto rounded-xl object-cover"
+              width="400"
+              height="500"
+            />
+          </div>
+        </div>
+
+        <!-- Columna derecha - Texto -->
+        <div class="md:col-span-2">
+          <div class="prose prose-lg text-gray-700 max-w-none">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              Más de <span class="text-purple-600">10 años</span> transformando ideas
+              en resultados
+            </h2>
+
+            <p>
+              Como <strong>ingeniero informático</strong> con una década de experiencia,
+              he navegado por distintos ámbitos tecnológicos, siempre buscando ese
+              punto perfecto donde lo técnico se encuentra con lo práctico. Mi <strong
+                >máster en ingeniería de datos e inteligencia artificial</strong
+              > me permitió especializarme en los campos que están definiendo el
+              futuro digital.
+            </p>
+
+            <div
+              class="my-8 p-6 bg-amber-50 rounded-xl border-l-4 border-purple-600"
+            >
+              <p class="text-gray-800 italic">
+                "No creo en soluciones genéricas. Cada proyecto es único, como
+                lo son los objetivos de cada cliente que confía en mí."
+              </p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-4">
+              Equilibrio entre lo profesional y lo personal
+            </h3>
+            <p>
+              Fuera del mundo del código, mi mayor prioridad es mi familia. Soy
+              padre de dos niños pequeños y he aprendido a organizar mi tiempo
+              para estar presente en su crianza mientras desarrollo proyectos
+              digitales. Esta dualidad me ha enseñado a ser más eficiente, a
+              priorizar lo importante y a entender que detrás de cada negocio
+              hay personas con sueños y necesidades reales.
+            </p>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-4">
+              Filosofía de trabajo
+            </h3>
+            <p>
+              Mis clientes no son solo clientes. Son <strong
+                >colaboradores</strong
+              > con los que construyo relaciones a largo plazo basadas en:
+            </p>
+            <ul class="space-y-3 my-4">
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-amber-600 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  ><strong>Transparencia absoluta</strong> - Si algo no va a funcionar,
+                  lo sabrás desde el primer día</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-amber-600 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  ><strong>Enfoque en ROI</strong> - Cada acción debe contribuir
+                  a tus resultados económicos</span
+                >
+              </li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 text-amber-600 mt-0.5 mr-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span
+                  ><strong>Calidad accesible</strong> - Soluciones premium al precio
+                  de las plantillas genéricas</span
+                >
+              </li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-10 mb-4">
+              Mi compromiso
+            </h3>
+            <p>
+              Cuando trabajas conmigo, obtienes <strong
+                >mi atención personal</strong
+              > en cada fase del proyecto. Desde el análisis inicial hasta los ajustes
+              finales, me involucro al 100% para garantizar que tu presencia digital
+              no solo exista, sino que genere valor tangible para tu negocio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Valores -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-5xl">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12"
+      >
+        Mis <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-600"
+          >pilares</span
+        >
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Valor 1 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-md text-center border border-purple-100 hover:shadow-lg transition"
+        >
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-2xl"
+          >
+            🎯
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Resultados Medibles
+          </h3>
+          <p class="text-gray-600">
+            No creo en métricas vacías. Todo lo que hago está orientado a
+            impactar positivamente en tus ingresos.
+          </p>
+        </div>
+
+        <!-- Valor 2 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-md text-center border border-purple-100 hover:shadow-lg transition"
+        >
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 text-2xl"
+          >
+            🤝
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Relaciones Sólidas
+          </h3>
+          <p class="text-gray-600">
+            El 80% de mis clientes repiten. Trabajamos juntos, no para ti sino
+            contigo.
+          </p>
+        </div>
+
+        <!-- Valor 3 -->
+        <div
+          class="bg-white p-8 rounded-xl shadow-md text-center border border-purple-100 hover:shadow-lg transition"
+        >
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 text-2xl"
+          >
+            💡
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-gray-800">
+            Innovación Práctica
+          </h3>
+          <p class="text-gray-600">
+            Uso tecnología de vanguardia, pero siempre con los pies en la tierra
+            y el foco en lo que realmente importa.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section
+    class="py-16 px-6 bg-gradient-to-br from-purple-600 to-amber-700 text-center"
+  >
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        ¿Listo para trabajar con un profesional comprometido?
+      </h2>
+      <p class="text-xl text-purple-100 mb-8">
+        Sin intermediarios, sin promesas vacías. Solo trabajo honesto orientado
+        a resultados.
+      </p>
+      <a
+        href="/contacto"
+        class="inline-block bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl"
+      >
+        Habla conmigo directamente
+      </a>
+    </div>
+  </section>
+</Layout>

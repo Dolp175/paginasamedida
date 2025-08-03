@@ -1,0 +1,61 @@
+# 1. Evitar listado de directorios
+Options -Indexes
+
+# 2. Headers de seguridad esenciales
+<IfModule mod_headers.c>
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# 3. Redirecciones importantes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # (1) Forzar HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # (2) Forzar sin www (cambia si quieres con www)
+  RewriteCond %{HTTP_HOST} ^www\.paginasamedida\.com [NC]
+  RewriteRule ^(.*)$ https://paginasamedida.com/$1 [L,R=301]
+
+  # (3) Quitar barra final si no es archivo o directorio real
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # (4) Prevenir hotlinking
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^https://(www\.)?paginasamedida\.com [NC]
+  RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [NC,F,L]
+</IfModule>
+
+# 4. Caché de recursos estáticos
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+<FilesMatch "\.(html|css|js|jpg|jpeg|png|gif|webp|svg|woff2)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# 5. GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+# 6. Bloquear archivos sensibles
+<FilesMatch "(\.env|\.gitignore|\.htaccess|astro\.config\.mjs|package\.json|\.ts|\.tsx)$">
+  Require all denied
+</FilesMatch>
+
+# 7. No indexar páginas legales
+<FilesMatch "(gracias|aviso-legal|politica-privacidad|politica-cookies)(\.html)?$">
+  Header set X-Robots-Tag "noindex, nofollow"
+</FilesMatch>
+
