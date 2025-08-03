@@ -5,13 +5,58 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  canonical = new URL(Astro.url.pathname, Astro.site).toString(),
+  image = new URL('/og-image.png', Astro.site).toString(),
+  robots = 'index,follow',
+  keywords,
+  type = 'website',
+  siteName = 'Páginas web a Medida',
+  schema,
+} = Astro.props;
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": siteName,
+  "url": canonical,
+  "logo": new URL('/logo.png', Astro.site).toString(),
+  "description": description,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Avenida Glasgow 156",
+    "addressLocality": "Nuevo Baztán",
+    "addressRegion": "Madrid",
+    "postalCode": "28514",
+    "addressCountry": "ES"
+  },
+  "telephone": "+34623962963",
+  "openingHours": "Mo-Fr 09:30-18:00",
+  "priceRange": "$$",
+  "sameAs": [
+    "https://linkedin.com/in/jordi-martinez-joyeux",
+    "https://github.com/Dolp175"
+  ]
+};
+
+const schemaData = schema ?? defaultSchema;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <Head title={title} description={description} />
+  <Head
+    {title}
+    {description}
+    canonical={canonical}
+    image={image}
+    robots={robots}
+    {keywords}
+    {type}
+    siteName={siteName}
+  />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
   <Nav />
@@ -22,29 +67,7 @@ const { title, description } = Astro.props;
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Páginas web a Medida",
-      "url": "https://paginasamedida.com",
-      "logo": "https://paginasamedida.com/logo.png",
-      "description": "Desarrollo de páginas web a medida para negocios y profesionales.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Avenida Glasgow 156",
-        "addressLocality": "Nuevo Baztán",
-        "addressRegion": "Madrid",
-        "postalCode": "28514",
-        "addressCountry": "ES"
-      },
-      "telephone": "+34623962963",
-      "openingHours": "Mo-Fr 09:30-18:00",
-      "priceRange": "$$",
-      "sameAs": [
-        "https://linkedin.com/in/jordi-martinez-joyeux",
-        "https://github.com/Dolp175"
-      ]
-    }
+    {JSON.stringify(schemaData)}
   </script>
 </body>
 </html>
