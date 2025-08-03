@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props as { post: Awaited<ReturnType<typeof getCollection>>[number] };
+const { Content } = await post.render();
+const { title, description, date, image, readingTime } = post.data;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+
+<Layout {title} {description} {canonical}>
+  <article class="prose lg:prose-lg max-w-3xl mx-auto py-16 px-6">
+    <header class="mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">{title}</h1>
+      <img src={image} alt={title} class="w-full rounded-xl mb-6" />
+      <div class="text-sm text-gray-500 flex gap-2">
+        <time datetime={date.toISOString()}>{date.toLocaleDateString('es-ES')}</time>
+        <span>·</span>
+        <span>{readingTime}</span>
+      </div>
+    </header>
+    <Content />
+  </article>
+</Layout>
