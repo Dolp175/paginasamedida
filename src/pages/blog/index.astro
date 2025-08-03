@@ -4,9 +4,23 @@ import Layout from "../../layouts/Layout.astro";
 
 const title = "Blog | Páginas a Medida";
 const description = "Artículos y consejos sobre desarrollo web, SEO y tecnología. Próximamente disponible.";
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const keywords = "blog, desarrollo web, seo, tecnología";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  url: canonical,
+  name: title,
+  description,
+  publisher: {
+    "@type": "Organization",
+    name: "Páginas web a Medida",
+    logo: new URL('/logo.png', Astro.site).toString()
+  }
+};
 ---
 
-<Layout {title} {description}>
+<Layout {title} {description} {canonical} {keywords} {schema}>
   <!-- Hero Section -->
   <section class="py-24 px-6 bg-gradient-to-br from-purple-900 to-slate-900 text-center">
     <div class="container mx-auto max-w-4xl">
