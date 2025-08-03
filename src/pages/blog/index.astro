@@ -6,6 +6,7 @@ const posts = await getSortedPosts();
 const postsPerPage = 6;
 const pagePosts = posts.slice(0, postsPerPage);
 const totalPages = Math.ceil(posts.length / postsPerPage);
+const currentPage = 1;
 const title = "Blog | Páginas a Medida";
 const description = "Artículos y consejos sobre desarrollo web, SEO y tecnología.";
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -39,7 +40,8 @@ const keywords = "blog, desarrollo web, seo, tecnología";
           {Array.from({ length: totalPages }).map((_, i) => (
             <a
               href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
-              class={`px-4 py-2 rounded ${i === 0 ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+              class={`px-4 py-2 rounded ${i + 1 === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+              aria-current={i + 1 === currentPage ? 'page' : undefined}
             >
               {i + 1}
             </a>

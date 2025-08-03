@@ -58,6 +58,7 @@ const keywords = "blog, desarrollo web, seo, tecnología";
             <a
               href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
               class={`px-4 py-2 rounded ${i + 1 === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+              aria-current={i + 1 === currentPage ? 'page' : undefined}
             >
               {i + 1}
             </a>
