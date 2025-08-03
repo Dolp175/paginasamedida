@@ -9,14 +9,19 @@ const {
   cons,
   accentColor = "bg-gray-100",
   featured = false,
+  gradientFrom = "from-fuchsia-500",
+  gradientTo = "to-purple-600",
 } = Astro.props;
 ---
 
 <div
-  class={`h-full flex flex-col bg-white rounded-xl border ${
+  class={`relative h-full flex flex-col bg-white rounded-xl border ${
     featured ? 'border-2 border-purple-500 shadow-lg' : 'border-gray-200'
   } overflow-hidden`}
 >
+  <div
+    class={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${gradientFrom} ${gradientTo}`}
+  ></div>
   
   <!-- Cabecera con logo y espacio -->
   <div class="flex items-center px-6 pt-6 pb-2">
