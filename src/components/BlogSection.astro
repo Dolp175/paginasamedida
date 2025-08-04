@@ -3,15 +3,19 @@ import { slugify } from '../lib/slugify';
 
 interface Props {
   title: string;
+  level?: number;
 }
 
-const { title } = Astro.props as Props;
+const { title, level = 2 } = Astro.props as Props;
 const id = slugify(title);
+const HeadingTag = `h${level}` as const;
 ---
 
-<section id={id} class="mb-8 bg-purple-50 p-6 rounded-lg shadow-sm">
-  <h2 class="text-2xl font-bold mb-4 text-purple-800">{title}</h2>
-  <div class="prose prose-purple max-w-none">
+<section id={id} class="mb-12 scroll-mt-16">
+  <HeadingTag class="text-2xl font-bold mb-6 text-purple-800 flex items-center gap-3 before:content-[''] before:w-3 before:h-3 before:bg-purple-600 before:rounded-full">
+    {title}
+  </HeadingTag>
+  <div class="prose prose-lg max-w-none">
     <slot />
   </div>
 </section>
