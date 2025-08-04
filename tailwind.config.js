@@ -8,6 +8,24 @@ module.exports = {
         3000: "3000ms",
         5000: "5000ms",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h2: {
+              display: 'flex',
+              alignItems: 'center',
+              gap: theme('spacing.3'),
+            },
+            'h2::before': {
+              content: '""',
+              width: theme('spacing.3'),
+              height: theme('spacing.3'),
+              backgroundColor: theme('colors.purple.600'),
+              borderRadius: theme('borderRadius.full'),
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
@@ -18,6 +36,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     require('tailwind-scrollbar-hide')
   ],
 };
