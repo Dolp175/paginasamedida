@@ -17,5 +17,7 @@ module.exports = {
       transform: ["group-hover"],
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 };

@@ -14,50 +14,92 @@ const keywords = "blog, desarrollo web, seo, tecnología";
 ---
 
 <Layout {title} {description} {canonical} {keywords}>
-  <section class="py-20 px-6 bg-gray-50">
-    <div class="container mx-auto max-w-6xl">
-      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">
-        Últimos
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700">artículos</span>
+  <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-50 to-white">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        Nuestro <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700">Blog</span>
       </h1>
-      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Descubre artículos sobre desarrollo web, SEO y estrategias digitales para hacer crecer tu negocio online.
+      </p>
+      <div class="w-20 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-600 mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Artículos -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {pagePosts.map(post => (
-          <li class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition group">
-            <a href={`/blog/${post.slug}/`} class="block">
-              <div class="relative">
-                <img src={post.data.thumbnail} alt={post.data.title} class="w-full h-48 object-cover rounded-t-xl" loading="lazy" />
-                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-600"></div>
+          <article class="group bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <a href={`/blog/${post.slug}/`} class="block h-full flex flex-col">
+              <div class="relative overflow-hidden h-48">
+                <img 
+                  src={post.data.thumbnail} 
+                  alt={post.data.title} 
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                  loading="lazy"
+                  width="400"
+                  height="300"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-fuchsia-500 to-purple-600"></div>
               </div>
-              <div class="p-6">
-                <h2 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-purple-700 transition">{post.data.title}</h2>
-                <p class="text-gray-600 mb-4">{post.data.description}</p>
-                <div class="text-sm text-gray-500 flex items-center gap-2">
-                  <time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('es-ES')}</time>
-                  <span>·</span>
-                  <span>{post.data.readingTime}</span>
+              
+              <div class="p-6 flex-grow flex flex-col">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded-full">
+                    {post.data.category || 'Desarrollo Web'}
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    {post.data.date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                </div>
+                
+                <h2 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-700 transition-colors">
+                  {post.data.title}
+                </h2>
+                
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                  {post.data.description}
+                </p>
+                
+                <div class="mt-auto flex items-center text-purple-600 group-hover:text-purple-800 transition-colors">
+                  <span class="font-medium">Leer artículo</span>
+                  <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
                 </div>
               </div>
             </a>
-          </li>
+          </article>
         ))}
-      </ul>
+      </div>
+
+      <!-- Paginación mejorada -->
       {totalPages > 1 && (
-        <nav class="flex justify-center mt-12 gap-3">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <a
-              href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
-              class={`w-10 h-10 flex items-center justify-center rounded-full border font-semibold transition ${
-                i + 1 === currentPage
-                  ? 'bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white border-transparent'
-                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
-              }`}
-              aria-current={i + 1 === currentPage ? 'page' : undefined}
-            >
-              {i + 1}
-            </a>
-          ))}
+        <nav class="flex justify-center mt-16" aria-label="Paginación">
+          <ul class="inline-flex items-center gap-2">
+            {Array.from({ length: totalPages }).map((_, i) => (
+              <li>
+                <a
+                  href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
+                  class={`flex items-center justify-center w-10 h-10 rounded-full font-medium transition ${
+                    i + 1 === currentPage
+                      ? 'bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white shadow-md'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                  aria-current={i + 1 === currentPage ? 'page' : undefined}
+                >
+                  {i + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       )}
     </div>
   </section>
+
 </Layout>
