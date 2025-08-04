@@ -1,6 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import BlogHeader from "../../components/BlogHeader.astro";
+import BlogFooter from "../../components/BlogFooter.astro";
+import BlogTOC from "../../components/BlogTOC.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -17,16 +20,24 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <Layout {title} {description} {canonical}>
-  <article class="prose lg:prose-lg max-w-3xl mx-auto py-16 px-6 bg-gradient-to-b from-white to-purple-50 rounded-xl shadow-sm prose-headings:text-purple-800 prose-a:text-purple-600">
-    <header class="mb-8">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">{title}</h1>
-      <img src={image} alt={title} class="w-full rounded-xl mb-6" />
-      <div class="text-sm text-gray-500 flex gap-2">
-        <time datetime={date.toISOString()}>{date.toLocaleDateString('es-ES')}</time>
-        <span>·</span>
-        <span>{readingTime}</span>
-      </div>
-    </header>
-    <Content />
+  <article class="max-w-4xl mx-auto pb-16">
+    <BlogHeader 
+      title={title} 
+      image={image} 
+      date={date} 
+      readingTime={readingTime} 
+    />
+    
+    <div class="grid lg:grid-cols-[1fr_250px] gap-8 px-6">
+      <main class="prose lg:prose-lg prose-headings:font-bold prose-headings:text-purple-800 prose-a:text-purple-600 hover:prose-a:text-purple-800 prose-blockquote:border-l-purple-600 prose-blockquote:bg-purple-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg max-w-none">
+        <Content />
+      </main>
+      
+      <aside class="hidden lg:block sticky top-8 h-min">
+        <BlogTOC content={Content} />
+      </aside>
+    </div>
+    
+    <BlogFooter />
   </article>
 </Layout>

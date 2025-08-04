@@ -1,0 +1,29 @@
+---
+interface Props {
+  content: any;
+}
+
+const { content } = Astro.props as Props;
+const headings = content?.astro?.headings || [];
+---
+
+<nav class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+  <h2 class="text-lg font-bold text-purple-800 mb-4 flex items-center gap-2">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"></path>
+    </svg>
+    Contenido del artículo
+  </h2>
+  <ul class="space-y-2">
+    {headings.filter(h => h.depth <= 3).map(heading => (
+      <li class={`ml-${(heading.depth - 2) * 4}`}>
+        <a 
+          href={`#${heading.slug}`} 
+          class="text-purple-600 hover:text-purple-800 text-sm transition hover:underline"
+        >
+          {heading.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
