@@ -17,7 +17,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <Layout {title} {description} {canonical}>
-  <article class="prose lg:prose-lg max-w-3xl mx-auto py-16 px-6">
+  <article class="prose lg:prose-lg max-w-3xl mx-auto py-16 px-6 bg-gradient-to-b from-white to-purple-50 rounded-xl shadow-sm prose-headings:text-purple-800 prose-a:text-purple-600">
     <header class="mb-8">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">{title}</h1>
       <img src={image} alt={title} class="w-full rounded-xl mb-6" />
