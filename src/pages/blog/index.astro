@@ -14,18 +14,24 @@ const keywords = "blog, desarrollo web, seo, tecnología";
 ---
 
 <Layout {title} {description} {canonical} {keywords}>
-  <section class="py-16 px-6 bg-white">
-    <div class="container mx-auto max-w-5xl">
-      <h1 class="text-4xl font-bold mb-8 text-gray-800">Blog</h1>
-      <ul class="grid md:grid-cols-2 gap-8">
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800">
+        Últimos
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700">artículos</span>
+      </h1>
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {pagePosts.map(post => (
-          <li class="border border-gray-200 rounded-xl shadow-md overflow-hidden">
+          <li class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition group">
             <a href={`/blog/${post.slug}/`} class="block">
-              <img src={post.data.thumbnail} alt={post.data.title} class="w-full h-48 object-cover" loading="lazy" />
+              <div class="relative">
+                <img src={post.data.thumbnail} alt={post.data.title} class="w-full h-48 object-cover rounded-t-xl" loading="lazy" />
+                <div class="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-fuchsia-500 to-purple-600"></div>
+              </div>
               <div class="p-6">
-                <h2 class="text-2xl font-semibold mb-2 text-gray-800">{post.data.title}</h2>
+                <h2 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-purple-700 transition">{post.data.title}</h2>
                 <p class="text-gray-600 mb-4">{post.data.description}</p>
-                <div class="text-sm text-gray-500 flex gap-2">
+                <div class="text-sm text-gray-500 flex items-center gap-2">
                   <time datetime={post.data.date.toISOString()}>{post.data.date.toLocaleDateString('es-ES')}</time>
                   <span>·</span>
                   <span>{post.data.readingTime}</span>
@@ -36,11 +42,15 @@ const keywords = "blog, desarrollo web, seo, tecnología";
         ))}
       </ul>
       {totalPages > 1 && (
-        <nav class="flex justify-center mt-12 gap-4">
+        <nav class="flex justify-center mt-12 gap-3">
           {Array.from({ length: totalPages }).map((_, i) => (
             <a
               href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
-              class={`px-4 py-2 rounded ${i + 1 === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+              class={`w-10 h-10 flex items-center justify-center rounded-full border font-semibold transition ${
+                i + 1 === currentPage
+                  ? 'bg-gradient-to-r from-fuchsia-600 to-purple-600 text-white border-transparent'
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'
+              }`}
               aria-current={i + 1 === currentPage ? 'page' : undefined}
             >
               {i + 1}
