@@ -1,10 +1,14 @@
 ---
 // src/components/Footer.astro
+const { sticky = true } = Astro.props as { sticky?: boolean };
+const baseClasses =
+  'w-full bg-gradient-to-br from-purple-900 to-slate-900 text-white pt-12 pb-6 px-6';
+const positionClasses = sticky ? 'sticky bottom-0 left-0' : '';
 ---
 
 <footer
   id="site-footer"
-  class="sticky bottom-0 left-0 w-full bg-gradient-to-br from-purple-900 to-slate-900 text-white pt-12 pb-6 px-6"
+  class={`${positionClasses} ${baseClasses}`}
 >
   <div class="container mx-auto max-w-5xl">
     <div class="grid md:grid-cols-4 gap-8 mb-8">

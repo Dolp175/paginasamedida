@@ -15,6 +15,7 @@ const {
   type = 'website',
   siteName = 'Páginas web a Medida',
   schema,
+  footerSticky = true,
 } = Astro.props;
 
 const defaultSchema = {
@@ -63,7 +64,7 @@ const schemaData = schema ?? defaultSchema;
   <main class="flex-grow relative z-10">
     <slot />
   </main>
-  <Footer />
+  <Footer sticky={footerSticky} />
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">

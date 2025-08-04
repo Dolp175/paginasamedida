@@ -13,13 +13,15 @@ export async function getStaticPaths() {
   }));
 }
 
-const { post } = Astro.props as { post: Awaited<ReturnType<typeof getCollection>>[number] };
-const { Content } = await post.render();
+const { post } = Astro.props as {
+  post: Awaited<ReturnType<typeof getCollection>>[number];
+};
+const { Content, headings } = await post.render();
 const { title, description, date, image, readingTime } = post.data;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
-<Layout {title} {description} {canonical}>
+<Layout {title} {description} {canonical} footerSticky={false}>
   <article class="max-w-4xl mx-auto pb-16">
     <BlogHeader 
       title={title} 
@@ -34,10 +36,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
       </main>
       
       <aside class="hidden lg:block sticky top-8 h-min">
-        <BlogTOC content={Content} />
+        <BlogTOC headings={headings} />
       </aside>
     </div>
-    
-    <BlogFooter />
+
+    <BlogFooter url={canonical} title={title} />
   </article>
 </Layout>
