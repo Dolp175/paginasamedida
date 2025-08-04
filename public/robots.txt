@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /gracias
-Disallow: /legal/
-Disallow: /legal/aviso-legal
-Disallow: /legal/politica-privacidad
-Disallow: /legal/politica-cookies
-Sitemap: https://paginasamedida.com/sitemap-index.xml
