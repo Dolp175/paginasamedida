@@ -1,0 +1,19 @@
+---
+import { slugify } from '../lib/slugify';
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props as Props;
+---
+<nav class="mb-8">
+  <h2 class="text-xl font-semibold mb-2">Índice</h2>
+  <ol class="list-decimal list-inside space-y-1">
+    {items.map((item) => (
+      <li>
+        <a href={`#${slugify(item)}`} class="text-blue-600 hover:underline">{item}</a>
+      </li>
+    ))}
+  </ol>
+</nav>
