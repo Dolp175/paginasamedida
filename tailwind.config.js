@@ -9,7 +9,7 @@ module.exports = {
         5000: "5000ms",
       },
       typography: (theme) => ({
-        DEFAULT: {
+        blog: {
           css: {
             h2: {
               display: 'flex',

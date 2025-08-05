@@ -41,7 +41,7 @@ const posts = (await getSortedPosts()).slice(0, 3);
                     <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded-full">
                       {Array.isArray(post.data.tema)
                         ? post.data.tema.join(', ')
-                        : post.data.tema}
+                        : post.data.tema || 'Desarrollo Web'}
                     </span>
                     <span class="text-xs text-gray-500">
                       {new Date(post.data.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
@@ -92,7 +92,7 @@ const posts = (await getSortedPosts()).slice(0, 3);
                   <span class="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded-full">
                     {Array.isArray(post.data.tema)
                       ? post.data.tema.join(', ')
-                      : post.data.tema}
+                      : post.data.tema || 'Desarrollo Web'}
                   </span>
                   <span class="text-xs text-gray-500">
                     {new Date(post.data.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
