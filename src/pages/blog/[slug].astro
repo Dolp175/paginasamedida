@@ -31,13 +31,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     />
     
     <div class="grid lg:grid-cols-[1fr_250px] gap-8 px-6">
-      <main class="prose lg:prose-lg prose-headings:font-bold prose-headings:text-purple-800 prose-a:text-purple-600 hover:prose-a:text-purple-800 prose-blockquote:border-l-purple-600 prose-blockquote:bg-purple-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg max-w-none">
+      <div class="order-first lg:order-last">
+        <BlogTOC headings={headings} />
+      </div>
+
+      <main class="order-last lg:order-first prose lg:prose-lg prose-headings:font-bold prose-headings:text-purple-800 prose-a:text-purple-600 hover:prose-a:text-purple-800 prose-blockquote:border-l-purple-600 prose-blockquote:bg-purple-50 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:rounded-r-lg max-w-none">
         <Content />
       </main>
-      
-      <aside class="hidden lg:block sticky top-8 h-min">
-        <BlogTOC headings={headings} />
-      </aside>
     </div>
 
     <BlogFooter url={canonical} title={title} />

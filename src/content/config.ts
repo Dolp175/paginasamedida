@@ -10,6 +10,7 @@ const blog = defineCollection({
     image: z.string(),
     thumbnail: z.string(),
     readingTime: z.string(),
+    tema: z.union([z.string(), z.array(z.string())]),
   }),
 });
 
