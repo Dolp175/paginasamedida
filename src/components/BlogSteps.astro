@@ -1,0 +1,46 @@
+---
+// components/BlogSteps.astro
+interface Props {
+  steps: {
+    title: string;
+    content: string;
+  }[];
+  title?: string;
+  highlightTitle?: string;
+  bgColor?: 'gradient' | 'light' | 'none';
+}
+const { steps, title, highlightTitle, bgColor = 'light' } = Astro.props;
+
+const bgClasses = {
+  gradient: 'bg-gradient-to-r from-purple-50 to-fuchsia-50',
+  light: 'bg-gray-50',
+  none: ''
+};
+---
+<section class={`py-12 px-6 ${bgClasses[bgColor]} rounded-xl`}>
+  <div class="max-w-4xl mx-auto">
+    {title && (
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+        {title} {highlightTitle && (
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700">
+            {highlightTitle}
+          </span>
+        )}
+      </h2>
+    )}
+    
+    <div class="space-y-8">
+      {steps.map((step, index) => (
+        <div class="flex flex-col md:flex-row gap-6 items-start group">
+          <div class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200 group-hover:bg-purple-100 transition-colors">
+            <span class="text-xl font-bold text-purple-700 group-hover:text-purple-900">{index + 1}</span>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex-1">
+            <h3 class="text-xl font-bold mb-2 text-gray-800">{step.title}</h3>
+            <p class="text-gray-600">{step.content}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

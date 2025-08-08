@@ -1,0 +1,112 @@
+---
+// components/BlogCards.astro
+interface Props {
+  title?: string;
+  highlightTitle?: string;
+  description?: string;
+  cards: {
+    title: string;
+    content: string;
+    icon?: string;
+    color?: 'indigo' | 'fuchsia' | 'emerald' | 'amber';
+  }[];
+  columns?: 2 | 3 | 4;
+  bg?: 'gray' | 'white' | 'gradient';
+}
+
+const { 
+  title, 
+  highlightTitle, 
+  description, 
+  cards, 
+  columns = 3, 
+  bg = 'gray' 
+} = Astro.props;
+
+const bgClasses = {
+  gray: 'bg-gray-50',
+  white: 'bg-white',
+  gradient: 'bg-gradient-to-br from-gray-50 to-purple-50'
+};
+
+const colorClasses = {
+  indigo: {
+    accent: 'from-indigo-500 to-indigo-600',
+    icon: 'bg-indigo-50 text-indigo-600',
+    hover: 'bg-indigo-100',
+    text: 'text-indigo-600'
+  },
+  fuchsia: {
+    accent: 'from-fuchsia-500 to-fuchsia-600',
+    icon: 'bg-fuchsia-50 text-fuchsia-600',
+    hover: 'bg-fuchsia-100',
+    text: 'text-fuchsia-600'
+  },
+  emerald: {
+    accent: 'from-emerald-500 to-emerald-600',
+    icon: 'bg-emerald-50 text-emerald-600',
+    hover: 'bg-emerald-100',
+    text: 'text-emerald-600'
+  },
+  amber: {
+    accent: 'from-amber-500 to-amber-600',
+    icon: 'bg-amber-50 text-amber-600',
+    hover: 'bg-amber-100',
+    text: 'text-amber-600'
+  }
+};
+
+const gridClasses = {
+  2: 'md:grid-cols-2',
+  3: 'md:grid-cols-2 lg:grid-cols-3',
+  4: 'md:grid-cols-2 lg:grid-cols-4'
+};
+---
+<section class={`py-16 px-6 ${bgClasses[bg]} rounded-xl`}>
+  <div class="container mx-auto max-w-6xl">
+    {(title || description) && (
+      <div class="text-center mb-12">
+        {title && (
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            {title} {highlightTitle && (
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-fuchsia-600">
+                {highlightTitle}
+              </span>
+            )}
+          </h2>
+        )}
+        {description && (
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            {description}
+          </p>
+        )}
+      </div>
+    )}
+
+    <div class={`grid gap-8 ${gridClasses[columns]}`}>
+      {cards.map((card, index) => (
+        <div 
+          class="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 group"
+        >
+          <!-- Franja superior con gradiente -->
+          <div class={`h-2 bg-gradient-to-r ${colorClasses[card.color || 'indigo'].accent}`}></div>
+          
+          <div class="p-8">
+            <!-- Icono -->
+            {card.icon && (
+              <div class={`w-14 h-14 mb-6 rounded-lg ${colorClasses[card.color || 'indigo'].icon} flex items-center justify-center group-hover:${colorClasses[card.color || 'indigo'].hover} transition`}>
+                <span class="text-2xl">{card.icon}</span>
+              </div>
+            )}
+            
+            <!-- Contenido -->
+            <h3 class="text-xl font-bold mb-3 text-gray-800">
+              {card.title}
+            </h3>
+            <p class="text-gray-600" set:html={card.content}></p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

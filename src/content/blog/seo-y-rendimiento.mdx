@@ -11,115 +11,196 @@ tema: ["SEO"]
 ---
 
 import BlogCallout from "../../components/BlogCallout.astro";
+import BlogSteps from "../../components/BlogSteps.astro";
+import BlogComparison from "../../components/BlogComparison.astro";
+import BlogCards from "../../components/BlogCards.astro";
+import BlogStat from "../../components/BlogStat.astro";
 
 ## ¿Qué es el rendimiento web y por qué debería importarte?
 
-Cuando hablamos de rendimiento web, nos referimos principalmente a una pregunta sencilla: ¿cuánto tarda tu web en cargar?. Aunque parezca un detalle menor, la velocidad de carga puede marcar la diferencia entre captar un cliente o perderlo para siempre.
+<BlogCallout type="info">
+El **rendimiento web** responde a una pregunta simple: <strong>¿cuánto tarda tu web en cargar?</strong>.  
+La respuesta determina si un visitante se queda… o se va para siempre.
+</BlogCallout>
 
-Imagina que alguien entra en tu web y tarda varios segundos en aparecer el contenido. Ese retraso genera impaciencia, desconfianza y, muchas veces, provoca que el visitante cierre la página y busque otra opción. Es decir: tu web puede estar funcionando, pero no está rindiendo bien.
+Imagina que alguien entra en tu web y tarda 5 segundos en ver algo útil. Ese retraso genera impaciencia, desconfianza y provoca que muchos cierren la página antes de conocerte.
 
-Para los usuarios, una web lenta transmite dejadez, poca profesionalidad o incluso desactualización. Para Google, ese mismo problema afecta directamente al posicionamiento en los resultados de búsqueda. En resumen: si tu web es lenta, pierdes visitas, pierdes oportunidades y pierdes ventas.
+Una web lenta transmite dejadez y poca profesionalidad.  
+Para Google, ese mismo problema significa menor posicionamiento.
 
-Y lo peor es que a menudo pasa desapercibido. Desde tu propio dispositivo todo parece ir bien, pero alguien que entra desde un móvil en otra zona o con peor conexión puede estar viviendo una experiencia frustrante sin que tú lo sepas.
-
-Por eso, cuidar el rendimiento web no es solo una cuestión técnica: es una inversión en imagen, en confianza y en visibilidad.
+<BlogStat
+  value="53 %"
+  description="de los usuarios abandonan una web si tarda más de 3 segundos en cargar"
+  icon="⏱️"
+  variant="fuchsia"
+  caption="Fuente: Google"
+ />
 
 ## ¿Qué relación tiene con el SEO?
 
-El SEO (Search Engine Optimization) no es solo cuestión de palabras clave. Google evalúa muchos factores para decidir qué páginas mostrar primero en los resultados de búsqueda, y el rendimiento web es uno de los más importantes.
+El SEO no es solo cuestión de palabras clave. Google evalúa muchos factores, y **el rendimiento web es uno de los más importantes**.
 
-Cuando una web carga rápido y responde bien, Google lo interpreta como una buena señal: significa que los usuarios van a tener una experiencia fluida, sin esperas ni errores. Por eso, las páginas rápidas y bien optimizadas tienen más posibilidades de aparecer en los primeros puestos.
+<BlogSteps
+  title="Cómo influye el rendimiento en"
+  highlightTitle="tu posicionamiento"
+  bgColor="light"
+  steps={[
+    {
+      title: "Mejor experiencia de usuario",
+      content: "Una web rápida mantiene a los visitantes activos y reduce la tasa de rebote."
+    },
+    {
+      title: "Mejores Core Web Vitals",
+      content: "Métricas como LCP, FID y CLS miden velocidad, interactividad y estabilidad visual. Son clave para Google."
+    },
+    {
+      title: "Mayor visibilidad en rankings",
+      content: "Las páginas rápidas y optimizadas tienen más opciones de aparecer en los primeros resultados."
+    }
+  ]}
+/>
 
-Además, Google utiliza métricas específicas como los Core Web Vitals, que analizan aspectos como la velocidad de carga, la estabilidad visual o el tiempo que tarda una página en estar lista para usarse. Si tu web falla en estos puntos, es probable que baje posiciones frente a otras que sí los cumplen.
-
-En resumen: una web lenta no solo frustra a tus visitantes, también frustra tu posicionamiento. Mejorar el rendimiento es mejorar el SEO, y eso se traduce en más visibilidad, más visitas y más oportunidades de negocio.
+En resumen: una web lenta frena tanto a tus clientes como a tu SEO.  
+Mejorar el rendimiento es mejorar tu visibilidad.
 
 ## ¿Qué pasa cuando una web va lenta?
 
-Una web lenta es como una tienda en la que nadie atiende: la gente entra, espera unos segundos... y se va sin mirar nada.
-
-Cuando una página tarda demasiado en cargar, el usuario pierde la paciencia. No importa si ofreces un buen producto o servicio: si el visitante no puede ver tu contenido rápidamente, simplemente buscará otra opción. En internet, la competencia está a un solo clic.
-
-Además, una mala experiencia no solo te hace perder esa visita: puede dañar tu reputación. Si alguien asocia tu web con lentitud o problemas técnicos, es difícil que vuelva.
-
-Y por si fuera poco, Google también toma nota. Una web lenta suele tener una alta tasa de rebote (usuarios que entran y se van sin hacer nada), y eso es una señal negativa para el buscador. ¿El resultado? Tu página baja posiciones, recibe menos visitas orgánicas y cada vez es más difícil recuperarse.
+<BlogComparison
+  title="Impacto de la velocidad en tu negocio"
+  items={{
+    pros: [
+      "Carga rápida: el usuario permanece en tu web",
+      "Más interacciones y conversiones",
+      "Google mejora tu posicionamiento"
+    ],
+    cons: [
+      "Carga lenta: el usuario abandona",
+      "Pierdes ventas y leads",
+      "Google te penaliza bajando posiciones"
+    ]
+  }}
+/>
 
 <BlogCallout type="warning">
-**En resumen:**
-
-- El usuario se va.
-- El cliente no compra.
-- Google te penaliza.
-
-Todo por no cuidar algo tan básico como el rendimiento.
+Un sitio lento es como una tienda sin dependientes: la gente entra, espera y se va.  
+La competencia está a un clic.
 </BlogCallout>
 
 ## ¿Por qué no es solo 'tener una web bonita'?
 
-Tener una web atractiva es importante, pero no lo es todo. De nada sirve que tu página tenga un diseño espectacular si tarda en cargar o no funciona bien en móviles. En internet, la primera impresión no es solo visual, también es funcional.
+<BlogCards
+  title="Riesgos de priorizar el diseño sobre el rendimiento"
+  columns={2}
+  bg="white"
+  cards={[
+    {
+      title: "Animaciones innecesarias",
+      content: "Efectos visuales que ralentizan la carga y no aportan valor.",
+      icon: "🎞️",
+      color: "fuchsia"
+    },
+    {
+      title: "Imágenes pesadas",
+      content: "Ficheros sin optimizar que multiplican el tiempo de carga.",
+      icon: "🖼️",
+      color: "emerald"
+    },
+    {
+      title: "Código sobrecargado",
+      content: "Scripts y recursos que no se usan y bloquean el renderizado.",
+      icon: "💻",
+      color: "indigo"
+    },
+    {
+      title: "Diseño no responsive",
+      content: "Páginas que no se adaptan bien a móviles, perdiendo accesibilidad y posicionamiento.",
+      icon: "📱",
+      color: "amber"
+    }
+  ]}
+/>
 
-Muchas veces se sacrifica el rendimiento en favor del diseño: animaciones innecesarias, imágenes demasiado pesadas o efectos visuales que entorpecen la experiencia. El resultado es una web lenta, difícil de usar y mal valorada tanto por los usuarios como por Google.
+## ¿Qué debería incluir un buen mantenimiento web?
 
-Una web mal optimizada:
-
-- Tarda más en cargar, lo que hace que muchos usuarios se vayan antes de ver tu contenido.
-- No se adapta bien a todos los dispositivos, lo que reduce su accesibilidad.
-- Pierde posicionamiento, porque Google prioriza webs que cargan rápido y funcionan bien.
-
-A veces, menos es más. Un diseño limpio, con imágenes bien optimizadas y animaciones que aporten (no que distraigan), puede ayudarte a conseguir mucho más: mejor experiencia, mejor posicionamiento y mejores resultados.
-
-Recuerda: una web no solo debe ser bonita; debe ser eficaz.
-
-## ¿Qué debería hacer un buen mantenimiento web?
-
-Tener una web no es algo que se hace una vez y ya está. Tu web necesita revisiones, como un coche. Si no se revisa, no solo se vuelve más lenta o insegura con el tiempo, sino que además empieza a perder relevancia en los buscadores.
-
-Un buen mantenimiento web debería incluir:
-
-- **Optimización de imágenes:** reducir el peso sin perder calidad para mejorar la velocidad de carga.
-- **Mejoras de rendimiento:** revisar el código, eliminar lo innecesario y asegurarse de que todo cargue rápido.
-- **Actualizaciones de seguridad:** proteger la web de posibles ataques y mantener los sistemas al día.
-- **Detección de errores:** comprobar que no hay enlaces rotos, páginas que no cargan o formularios que no funcionan.
-- **Revisión de contenido:** hacer pequeños cambios, añadir secciones nuevas o actualizar la información para que Google vea que tu web está viva y en movimiento.
-
-Muchas webs fallan porque parecen abandonadas. Y cuando eso ocurre, tanto los usuarios como Google dejan de confiar en ellas.
-
-Si cuidas tu web de forma constante, no solo funcionará mejor, también se posicionará mejor, generará más confianza y convertirá más visitas en clientes.
+<BlogSteps
+  title="Checklist de"
+  highlightTitle="mantenimiento recomendado"
+  bgColor="gradient"
+  steps={[
+    {
+      title: "Optimización de imágenes",
+      content: "Reducir peso sin perder calidad para mejorar la velocidad."
+    },
+    {
+      title: "Revisión de código",
+      content: "Eliminar lo innecesario y asegurar carga rápida."
+    },
+    {
+      title: "Actualizaciones de seguridad",
+      content: "Proteger tu web y mantener los sistemas al día."
+    },
+    {
+      title: "Detección de errores",
+      content: "Corregir enlaces rotos, formularios que no funcionan y páginas caídas."
+    },
+    {
+      title: "Revisión de contenido",
+      content: "Actualizar textos e incluir nuevas secciones para que Google vea actividad."
+    }
+  ]}
+/>
 
 ## ¿Y si ya tengo una web hecha?
 
-¡Genial! Tener una web ya es un paso importante. Pero incluso si ya tienes una página funcionando, siempre se puede mejorar.
+Tener una web es el primer paso, pero **la tecnología y los estándares cambian**.
 
-Con el paso del tiempo, las tecnologías cambian, los estándares evolucionan y lo que hace unos años funcionaba bien, hoy puede estar frenando tu negocio sin que te des cuenta. Una web hecha en su día con buena intención, pero sin actualizaciones, puede estar perdiendo visitas, velocidad o seguridad sin que lo sepas.
+<BlogCallout type="tip">
+Una auditoría rápida puede detectar problemas de velocidad, seguridad o posicionamiento, y aplicar mejoras sin rehacer toda la web.
+</BlogCallout>
 
-A veces, con una auditoría rápida se pueden detectar errores técnicos, imágenes mal optimizadas o detalles que afectan al posicionamiento. Otras veces, el mejor camino es una migración a una tecnología más moderna, que mantenga tu contenido pero mejore la estructura, el rendimiento y la experiencia del usuario.
-
-Mantener una web actualizada no es un capricho, es una forma de seguir compitiendo en internet.
-
-Si tienes dudas sobre el estado actual de tu web, revisarla puede ser el primer paso para sacarle mucho más partido.
+A veces basta con optimizar imágenes y código; otras, una migración a tecnologías más modernas puede multiplicar el rendimiento.
 
 ## ¿Cómo saber si tu web va bien o mal?
 
-A veces no hace falta ser experto para notar que algo no va bien. Estas son algunas señales claras de que tu web podría necesitar una revisión:
-
-- Tarda más de 3 segundos en cargar.
-- No aparece en Google al buscar tus servicios.
-- Nadie rellena el formulario ni contacta contigo.
-- Funciona bien en tu ordenador, pero se ve mal en el móvil.
-
-La buena noticia es que comprobarlo es fácil. Existen herramientas gratuitas que analizan el rendimiento de tu web y señalan posibles fallos: velocidad, accesibilidad, SEO, seguridad… Incluso con una revisión básica, se pueden detectar oportunidades de mejora importantes.
-
-Si lo necesitas, podemos ayudarte a hacer estos test sin ningún coste. Y si hay margen de mejora (que casi siempre lo hay), también podemos ayudarte a aplicar los cambios necesarios para que tu web funcione mejor, cargue más rápido y consiga más resultados.
-
-A veces, con pequeños ajustes, se nota una gran diferencia.
+<BlogCards
+  title="Señales de que tu web necesita mejoras"
+  columns={2}
+  bg="gray"
+  cards={[
+    {
+      title: "Carga lenta",
+      content: "Más de 3 segundos de espera es un aviso rojo.",
+      icon: "⏳",
+      color: "fuchsia"
+    },
+    {
+      title: "No apareces en Google",
+      content: "Tus servicios no se encuentran con búsquedas relevantes.",
+      icon: "🔍",
+      color: "indigo"
+    },
+    {
+      title: "Sin conversiones",
+      content: "Nadie rellena formularios ni contacta contigo.",
+      icon: "📉",
+      color: "amber"
+    },
+    {
+      title: "Mal en móviles",
+      content: "Diseño que se ve mal o no es funcional en pantallas pequeñas.",
+      icon: "📱",
+      color: "emerald"
+    }
+  ]}
+/>
 
 ## Conclusión: invertir en rendimiento es ahorrar en marketing
 
-Muchas empresas invierten en anuncios para atraer visitas a su web… pero olvidan una parte fundamental: ¿qué pasa cuando esas visitas llegan?
+<BlogCallout type="tip">
+Cada segundo que ahorras en carga y cada error que corriges aumentan las posibilidades de que una visita se convierta en cliente.
+</BlogCallout>
 
-Si la web es lenta, está desactualizada o no transmite confianza, el esfuerzo y el dinero invertidos en publicidad se pierden. Es como llevar clientes a una tienda donde nadie les atiende o donde no pueden entrar cómodamente.
+Antes de gastar más en campañas publicitarias, asegúrate de que tu web está preparada para aprovechar esas visitas.  
+El rendimiento no es un extra: **es la base sobre la que se construyen tus resultados online**.
 
-Por eso, mejorar el rendimiento de tu web no es un gasto, es una inversión inteligente. Porque cada segundo que ahorras en carga, cada error que corriges y cada mejora en la experiencia del usuario aumenta las posibilidades de que esa visita se convierta en un cliente.
-
-Antes de seguir invirtiendo en campañas, asegúrate de que tu web está preparada para aprovecharlas.
 
