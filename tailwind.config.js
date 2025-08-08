@@ -12,16 +12,13 @@ module.exports = {
         blog: {
           css: {
             h2: {
-              display: 'flex',
-              alignItems: 'center',
-              gap: theme('spacing.3'),
-            },
-            'h2::before': {
-              content: '""',
-              width: theme('spacing.3'),
-              height: theme('spacing.3'),
-              backgroundColor: theme('colors.purple.600'),
-              borderRadius: theme('borderRadius.full'),
+              fontWeight: theme('fontWeight.bold'),
+              fontSize: theme('fontSize.3xl')[0],
+              lineHeight: theme('fontSize.3xl')[1].lineHeight,
+              '@screen md': {
+                fontSize: theme('fontSize.4xl')[0],
+                lineHeight: theme('fontSize.4xl')[1].lineHeight,
+              },
             },
           },
         },
