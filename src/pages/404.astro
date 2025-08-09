@@ -1,0 +1,88 @@
+---
+// src/pages/404.astro
+import Layout from '../layouts/Layout.astro';
+
+const title = "404 - Página no encontrada";
+const description = "La página que buscas no existe en nuestro sitio";
+const errorLinks = [
+  { text: "Inicio", url: "/" },
+  { text: "Blog", url: "/blog" },
+  { text: "Contacto", url: "/contacto" }
+];
+---
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-900 to-slate-900 text-center">
+    <div class="container mx-auto max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">
+        Error <span class="block bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-amber-200">404</span>
+      </h1>
+      <p class="text-xl text-purple-200 max-w-3xl mx-auto">
+        La página que buscas no existe o ha sido movida
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenido Principal -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-5xl text-center">
+      <div class="max-w-md mx-auto">
+        <div class="mb-8">
+          <img 
+            src="/images/404-illustration.webp" 
+            alt="Error 404" 
+            class="max-w-xs mx-auto"
+            width="320"
+            height="320"
+          />
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">
+          ¡Ups! Parece que te has perdido
+        </h2>
+        
+        <p class="text-gray-600 mb-8">
+          La página que intentas visitar no existe en nuestro sitio. 
+          Prueba con alguno de estos enlaces útiles:
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          {errorLinks.map(link => (
+            <a 
+              href={link.url} 
+              class="inline-block bg-white hover:bg-purple-50 text-purple-600 font-medium py-2 px-6 rounded-lg border border-purple-200 hover:border-purple-300 transition-colors shadow-sm hover:shadow-md"
+            >
+              {link.text}
+            </a>
+          ))}
+        </div>
+
+        <div class="bg-amber-50 rounded-xl border-l-4 border-purple-600 p-6 text-left">
+          <h3 class="font-bold text-gray-800 mb-2">¿Buscas algo específico?</h3>
+          <p class="text-gray-600">
+            Si no encuentras lo que necesitas, no dudes en <a href="/contacto" class="text-purple-600 hover:underline">contactarme</a> directamente. 
+            Estaré encantado de ayudarte.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 px-6 bg-gradient-to-br from-purple-600 to-amber-700 text-center">
+    <div class="container mx-auto max-w-3xl">
+      <h2 class="text-3xl font-bold text-white mb-6">
+        ¿Necesitas ayuda con tu proyecto?
+      </h2>
+      <p class="text-xl text-purple-100 mb-8">
+        Trabajemos juntos para crear soluciones digitales efectivas
+      </p>
+      <a
+        href="/contacto"
+        class="inline-block bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl"
+      >
+        Contactar ahora
+      </a>
+    </div>
+  </section>
+</Layout>
