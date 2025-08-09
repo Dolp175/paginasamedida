@@ -19,9 +19,23 @@ const { post } = Astro.props as {
 const { Content, headings } = await post.render();
 const { title, description, date, image, readingTime } = post.data;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "image": new URL(image, Astro.site).toString(),
+  "author": {
+    "@type": "Person",
+    "name": "Jordi Martínez Joyeux",
+  },
+  "datePublished": date,
+  "dateModified": date,
+  "mainEntityOfPage": canonical,
+  "description": description,
+};
 ---
 
-<Layout {title} {description} {canonical} footerSticky={false}>
+<Layout {title} {description} {canonical} footerSticky={false} schema={blogSchema}>
   <article class="max-w-4xl lg:max-w-6xl mx-auto pb-16">
     <BlogHeader 
       title={title} 

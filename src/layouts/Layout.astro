@@ -42,7 +42,15 @@ const defaultSchema = {
   ]
 };
 
-const schemaData = schema ?? defaultSchema;
+let schemaData;
+
+if (schema) {
+  schemaData = Array.isArray(schema)
+    ? [defaultSchema, ...schema]
+    : [defaultSchema, schema];
+} else {
+  schemaData = defaultSchema;
+}
 ---
 
 <!DOCTYPE html>
