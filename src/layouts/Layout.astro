@@ -9,7 +9,7 @@ const {
   title,
   description,
   canonical = new URL(Astro.url.pathname, Astro.site).toString(),
-  image = new URL('/og-image.png', Astro.site).toString(),
+  image = new URL('/images/og-image.jpg', Astro.site).toString(),
   robots = 'index,follow',
   keywords,
   type = 'website',
@@ -23,7 +23,7 @@ const defaultSchema = {
   "@type": "ProfessionalService",
   "name": siteName,
   "url": canonical,
-  "logo": new URL('/logo.png', Astro.site).toString(),
+  "logo": new URL('/images/logo.webp', Astro.site).toString(),
   "description": description,
   "address": {
     "@type": "PostalAddress",
