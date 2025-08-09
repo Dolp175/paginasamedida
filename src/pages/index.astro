@@ -161,101 +161,343 @@ import LatestPosts from "../components/LatestPosts.astro";
     </div>
   </section>
 
-  <!-- Sección Proceso de Trabajo -->
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="container mx-auto max-w-4xl">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800"
-      >
-        Así <span
-          class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
-          >trabajamos</span
-        >
-      </h2>
+<!-- Proceso de Trabajo -->
+<section class="py-16 px-6 bg-gray-50">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <!-- Columna izquierda - Texto introductorio -->
+      <div class="md:sticky md:top-24">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          Nuestro <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-indigo-600">proceso</span> de desarrollo
+        </h2>
+        <div class="prose text-gray-600 max-w-none">
+          <p class="text-lg mb-4 leading-relaxed">
+            Crear una web exitosa requiere <strong class="text-fuchsia-600">mucho más que código</strong>. Cada proyecto sigue una metodología probada que garantiza resultados <strong>medibles</strong> y <strong>alineados con tus objetivos</strong>.
+          </p>
 
-      <div class="space-y-8">
-        <!-- Paso 1 -->
-        <div class="flex flex-col md:flex-row gap-6 items-start">
-          <div
-            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
-          >
-            <span class="text-xl font-bold text-purple-700">1</span>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2 text-gray-800">
-              Análisis inicial gratuito
-            </h3>
-            <p class="text-gray-600">
-              Empezamos con una videollamada o llamada sin coste, donde
-              analizamos tu negocio, tus objetivos y las funcionalidades que
-              realmente necesitas. Esta conversación es clave para ofrecer una
-              solución web eficaz y personalizada.
+          <p class="mb-6 leading-relaxed">
+            Desde el primer contacto hasta el lanzamiento y más allá, nuestro enfoque combina:
+          </p>
+
+          <ul class="space-y-3 mb-6 pl-5">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Planificación estratégica</strong> basada en datos</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Desarrollo iterativo</strong> con feedback constante</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span><strong>Optimización técnica</strong> para máximo rendimiento</span>
+            </li>
+          </ul>
+
+          <div class="p-5 bg-fuchsia-50 rounded-lg border-l-4 border-indigo-600 mb-6">
+            <p class="text-fuchsia-800 font-medium italic">
+              "El 80% del éxito de un proyecto web está en la fase de planificación y arquitectura, no en el desarrollo."
             </p>
+          </div>
+
+          <p class="text-gray-700 leading-relaxed">
+            Te guiamos paso a paso, asegurando que cada decisión técnica y de diseño contribuya directamente a <strong>mejorar tus resultados empresariales</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna derecha - Acordeón de pasos -->
+      <div class="space-y-4">
+        <!-- Paso 1 -->
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-700 font-bold mr-4">
+                1
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Descubrimiento y Análisis
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Auditoría inicial de necesidades y objetivos del negocio</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Análisis de competidores y benchmarks del sector</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Definición de KPIs y métricas de éxito</span>
+              </li>
+            </ul>
           </div>
         </div>
 
         <!-- Paso 2 -->
-        <div class="flex flex-col md:flex-row gap-6 items-start">
-          <div
-            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
-          >
-            <span class="text-xl font-bold text-purple-700">2</span>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2 text-gray-800">
-              Propuesta a medida
-            </h3>
-            <p class="text-gray-600">
-              En un máximo de 48 horas recibirás una propuesta clara y honesta:
-              funcionalidades, diseño, tecnologías recomendadas, plazos y
-              presupuesto sin sorpresas. Todo adaptado a ti, sin plantillas
-              genéricas.
-            </p>
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold mr-4">
+                2
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Estrategia y Planificación
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Arquitectura de información y mapa del sitio</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Plan SEO técnico y de contenidos</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Cronograma detallado con hitos y entregables</span>
+              </li>
+            </ul>
           </div>
         </div>
 
         <!-- Paso 3 -->
-        <div class="flex flex-col md:flex-row gap-6 items-start">
-          <div
-            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
-          >
-            <span class="text-xl font-bold text-purple-700">3</span>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2 text-gray-800">
-              Desarrollo profesional y flexible
-            </h3>
-            <p class="text-gray-600">
-              Comenzamos el desarrollo por fases, con entregas intermedias para
-              que puedas revisar y dar feedback. Así garantizamos que el
-              resultado final cumple tus expectativas al 100%, sin sustos de
-              última hora.
-            </p>
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-700 font-bold mr-4">
+                3
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Diseño UX/UI
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Wireframes y prototipos interactivos</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Diseño de interfaz adaptado a tu identidad de marca</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Pruebas de usabilidad con usuarios reales</span>
+              </li>
+            </ul>
           </div>
         </div>
 
         <!-- Paso 4 -->
-        <div class="flex flex-col md:flex-row gap-6 items-start">
-          <div
-            class="bg-white rounded-full w-14 h-14 flex items-center justify-center shrink-0 shadow-md border border-gray-200"
-          >
-            <span class="text-xl font-bold text-purple-700">4</span>
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold mr-4">
+                4
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Desarrollo Web
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Implementación con tecnologías modernas (Astro, React, Tailwind CSS)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Desarrollo mobile-first y completamente responsive</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Integración con CMS, APIs y sistemas externos</span>
+              </li>
+            </ul>
           </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2 text-gray-800">
-              Publicación y soporte continuo
-            </h3>
-            <p class="text-gray-600">
-              Una vez tu web esté lista, la subimos a producción y te ayudamos
-              con todo lo necesario: dominio, correo, SEO básico y seguridad.
-              Además, puedes contar con nosotros si más adelante necesitas
-              cambios o mejoras.
-            </p>
+        </div>
+
+        <!-- Paso 5 -->
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-700 font-bold mr-4">
+                5
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Optimización Técnica
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Mejora de velocidad (Puntuación Lighthouse 90+)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Implementación de schema markup para SEO</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Configuración de seguridad (HTTPS, CSP, protecciones)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paso 6 -->
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold mr-4">
+                6
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Lanzamiento y Migración
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Configuración de dominio y hosting optimizado</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Migración segura sin tiempo de inactividad</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Implementación de Google Analytics y Search Console</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paso 7 -->
+        <div x-data="{ open: false }" class="border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-md">
+          <button @click="open = !open" class="flex justify-between items-center w-full p-6 text-left bg-gradient-to-r from-fuchsia-50 to-indigo-50">
+            <div class="flex items-center">
+              <div class="w-10 h-10 rounded-full bg-fuchsia-100 flex items-center justify-center text-fuchsia-700 font-bold mr-4">
+                7
+              </div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-800">
+                Mantenimiento y Mejoras
+              </h3>
+            </div>
+            <svg class="w-5 h-5 text-fuchsia-600 transform transition-transform duration-200" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div x-show="open" x-collapse class="px-6 pb-6 pt-2 bg-white">
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Actualizaciones de seguridad y rendimiento</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Análisis de métricas y optimización continua</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-indigo-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>Implementación de nuevas funcionalidades</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-4 bg-fuchsia-50 rounded-lg">
+              <p class="text-sm text-fuchsia-700 flex items-start">
+                <svg class="w-4 h-4 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span>Ofrecemos planes de mantenimiento adaptados a cada necesidad</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Sección Comparativa WordPress vs Astro -->
   <section class="py-20 px-6 bg-white">
@@ -1506,7 +1748,7 @@ import LatestPosts from "../components/LatestPosts.astro";
             class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
           >
             <div>
-              <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
+              <h3 class="text-xl font-bold text-white">Cerrajero Chfuchsiaí</h3>
               <p class="text-purple-200">Landing page ultra ligera</p>
               <p class="text-purple-100 text-sm mt-1">
                 Diseño minimalista con Tailwind
