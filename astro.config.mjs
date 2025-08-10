@@ -4,13 +4,14 @@ import sitemap from "@astrojs/sitemap";
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: "https://www.paginasamedida.com",
+  site: "https://www.paginasamedida.com/",
+  trailingSlash: "always",
   integrations: [
     mdx(),
-    tailwind(), 
+    tailwind(),
     sitemap({
-      filter: (page) => 
-        !page.includes('/gracias') && 
+      filter: (page) =>
+        !page.includes('/gracias') &&
         !page.includes('/legal/')
     })
   ]

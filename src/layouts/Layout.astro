@@ -8,7 +8,10 @@ import '../styles/global.css';
 const {
   title,
   description,
-  canonical = new URL(Astro.url.pathname, Astro.site).toString(),
+  canonical = new URL(
+    Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
+    Astro.site
+  ).toString(),
   image = new URL('/images/og-image.jpg', Astro.site).toString(),
   robots = 'index,follow',
   keywords,

@@ -6,8 +6,8 @@ const title = "404 - Página no encontrada";
 const description = "La página que buscas no existe en nuestro sitio";
 const errorLinks = [
   { text: "Inicio", url: "/" },
-  { text: "Blog", url: "/blog" },
-  { text: "Contacto", url: "/contacto" }
+  { text: "Blog", url: "/blog/" },
+  { text: "Contacto", url: "/contacto/" }
 ];
 ---
 <Layout {title} {description}>
@@ -60,7 +60,7 @@ const errorLinks = [
         <div class="bg-amber-50 rounded-xl border-l-4 border-purple-600 p-6 text-left">
           <h3 class="font-bold text-gray-800 mb-2">¿Buscas algo específico?</h3>
           <p class="text-gray-600">
-            Si no encuentras lo que necesitas, no dudes en <a href="/contacto" class="text-purple-600 hover:underline">contactarme</a> directamente. 
+            Si no encuentras lo que necesitas, no dudes en <a href="/contacto/" class="text-purple-600 hover:underline">contactarme</a> directamente.
             Estaré encantado de ayudarte.
           </p>
         </div>
@@ -78,7 +78,7 @@ const errorLinks = [
         Trabajemos juntos para crear soluciones digitales efectivas
       </p>
       <a
-        href="/contacto"
+        href="/contacto/"
         class="inline-block bg-white hover:bg-gray-100 text-purple-900 font-bold py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl"
       >
         Contactar ahora
