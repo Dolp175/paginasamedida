@@ -18,7 +18,10 @@ const { post } = Astro.props as {
 };
 const { Content, headings } = await post.render();
 const { title, description, date, image, readingTime } = post.data;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const canonical = new URL(
+  Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
+  Astro.site
+).toString();
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",

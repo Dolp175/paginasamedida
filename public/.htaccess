@@ -11,20 +11,18 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # (1) Forzar HTTPS
+  # (1) Forzar HTTPS y www
+  RewriteCond %{HTTP_HOST} !^www\.paginasamedida\.com$ [OR]
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteRule ^(.*)$ https://www.paginasamedida.com%{REQUEST_URI} [L,R=301]
 
-  # (2) Forzar sin www (cambia si quieres con www)
-  RewriteCond %{HTTP_HOST} ^www\.paginasamedida\.com [NC]
-  RewriteRule ^(.*)$ https://paginasamedida.com/$1 [L,R=301]
-
-  # (3) Quitar barra final si no es archivo o directorio real
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # (2) Añadir barra final
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.+)/$ /$1 [R=301,L]
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ https://www.paginasamedida.com%{REQUEST_URI}/ [L,R=301]
 
-  # (4) Prevenir hotlinking
+  # (3) Prevenir hotlinking
   RewriteCond %{HTTP_REFERER} !^$
   RewriteCond %{HTTP_REFERER} !^https://(www\.)?paginasamedida\.com [NC]
   RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [NC,F,L]

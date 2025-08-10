@@ -26,7 +26,10 @@ const { pagePosts, totalPages, currentPage } = Astro.props as {
 };
 const title = `Blog página ${currentPage} | Páginas a Medida`;
 const description = "Artículos y consejos sobre desarrollo web, SEO y tecnología.";
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const canonical = new URL(
+  Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
+  Astro.site
+).toString();
 const keywords = "blog, desarrollo web, seo, tecnología";
 ---
 
