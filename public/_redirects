@@ -1,0 +1,4 @@
+# Redirect non-www and HTTP traffic to canonical HTTPS www domain
+http://paginasamedida.com/* https://www.paginasamedida.com/:splat 301!
+https://paginasamedida.com/* https://www.paginasamedida.com/:splat 301!
+http://www.paginasamedida.com/* https://www.paginasamedida.com/:splat 301!
