@@ -75,8 +75,6 @@ if (schema) {
   <Footer sticky={footerSticky} />
 
   <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-    {JSON.stringify(schemaData)}
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 </body>
 </html>
