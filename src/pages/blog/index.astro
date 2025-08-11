@@ -7,7 +7,7 @@ const postsPerPage = 6;
 const pagePosts = posts.slice(0, postsPerPage);
 const totalPages = Math.ceil(posts.length / postsPerPage);
 const currentPage = 1;
-const title = "Blog | Páginas a Medida";
+const title = "Blog";
 const description = "Artículos y consejos sobre desarrollo web, SEO y tecnología.";
 const canonical = new URL(
   Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
