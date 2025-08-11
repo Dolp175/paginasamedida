@@ -53,7 +53,7 @@ Options -Indexes
 </FilesMatch>
 
 # 7. No indexar páginas legales
-<FilesMatch "(gracias|aviso-legal|politica-privacidad|politica-cookies)(\.html)?$">
+<LocationMatch "^/(gracias|legal/(aviso-legal|politica-privacidad|politica-cookies))/">
   Header set X-Robots-Tag "noindex, nofollow"
-</FilesMatch>
+</LocationMatch>
 
