@@ -14,8 +14,8 @@
     <a href="/legal/politica-cookies/" class="underline">política de cookies</a>.
   </p>
   <div class="flex gap-2 justify-end">
-    <button id="pm-accept" class="px-3 py-1 bg-purple-700 text-white rounded">Aceptar</button>
-    <button id="pm-reject" class="px-3 py-1 bg-gray-200 text-gray-800 rounded">Rechazar</button>
+    <button id="pm-reject" class="px-3 py-1 rounded border border-gray-300">Rechazar</button>
+    <button id="pm-accept" class="px-3 py-1 rounded bg-purple-700 text-white">Aceptar</button>
   </div>
 </div>
 
@@ -45,11 +45,8 @@
   };
 
   const stored = localStorage.getItem(STORAGE_KEY);
-  if (!stored) {
-    openBanner();
-  } else if (stored === 'granted') {
-    setConsent('granted');
-  }
+  if (!stored) openBanner();
+  else setConsent(stored === 'granted' ? 'granted' : 'denied');
 
   acceptBtn.addEventListener('click', () => {
     setConsent('granted');
@@ -68,6 +65,18 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !banner.classList.contains('hidden')) {
       closeBanner();
+    }
+    if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
+      const focusable = banner.querySelectorAll('button, a[href]');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 </script>
