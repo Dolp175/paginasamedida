@@ -3,6 +3,7 @@
 import Head from '../components/Head.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/global.css';
 
 const {
@@ -69,13 +70,46 @@ if (schema) {
     {type}
     siteName={siteName}
   />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ ga4_id: import.meta.env.PUBLIC_GA4_ID });
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      ad_storage:'denied',
+      analytics_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+  </script>
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'? '&l='+l : '';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer', import.meta.env.PUBLIC_GTM_ID);
+  </script>
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
+  <noscript>
+    <iframe
+      src={"https://www.googletagmanager.com/ns.html?id=" + import.meta.env.PUBLIC_GTM_ID}
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
   <Nav />
   <main class="flex-grow relative z-10">
     <slot />
   </main>
   <Footer sticky={footerSticky} />
+  <CookieBanner />
+  <script type="module" src="/src/scripts/analytics.ts"></script>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
