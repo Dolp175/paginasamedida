@@ -1,0 +1,82 @@
+---
+---
+
+<div
+  id="pm-cookie-banner"
+  class="fixed bottom-4 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 max-w-md w-full p-4 bg-white text-gray-800 rounded shadow-lg border border-gray-200 z-50 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="pm-cookie-title"
+>
+  <h2 id="pm-cookie-title" class="text-base font-semibold mb-2">Cookies</h2>
+  <p class="text-sm mb-4">
+    Usamos cookies para analizar el tráfico. Más info en
+    <a href="/legal/politica-cookies/" class="underline">política de cookies</a>.
+  </p>
+  <div class="flex gap-2 justify-end">
+    <button id="pm-reject" class="px-3 py-1 rounded border border-gray-300">Rechazar</button>
+    <button id="pm-accept" class="px-3 py-1 rounded bg-purple-700 text-white">Aceptar</button>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = 'pm_cookie_consent_v2';
+  const banner = document.getElementById('pm-cookie-banner');
+  const acceptBtn = document.getElementById('pm-accept');
+  const rejectBtn = document.getElementById('pm-reject');
+  const changeBtn = document.getElementById('pm-change-consent');
+
+  const openBanner = () => {
+    banner.classList.remove('hidden');
+    acceptBtn.focus();
+  };
+  const closeBanner = () => banner.classList.add('hidden');
+
+  const setConsent = (value) => {
+    localStorage.setItem(STORAGE_KEY, value);
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        ad_storage: value,
+        analytics_storage: value,
+        ad_user_data: value,
+        ad_personalization: value
+      });
+    }
+  };
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (!stored) openBanner();
+  else setConsent(stored === 'granted' ? 'granted' : 'denied');
+
+  acceptBtn.addEventListener('click', () => {
+    setConsent('granted');
+    closeBanner();
+  });
+  rejectBtn.addEventListener('click', () => {
+    setConsent('denied');
+    closeBanner();
+  });
+
+  changeBtn?.addEventListener('click', () => {
+    setConsent('denied');
+    openBanner();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !banner.classList.contains('hidden')) {
+      closeBanner();
+    }
+    if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
+      const focusable = banner.querySelectorAll('button, a[href]');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+</script>
