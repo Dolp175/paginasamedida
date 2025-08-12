@@ -9,6 +9,20 @@ import '../styles/global.css';
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // usable inside GTM configuration
 
+const gtmScript = `
+  const GTM_ID = ${JSON.stringify(GTM_ID)};
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    const f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', GTM_ID);
+`;
+
 const {
   title,
   description,
@@ -83,19 +97,7 @@ if (schema) {
       ad_personalization:'denied'
     });
   </script>
-  <script is:inline>
-    const GTM_ID = ${JSON.stringify(GTM_ID)};
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      const f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', GTM_ID);
-  </script>
+  <script is:inline set:html={gtmScript} />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
   <noscript>
