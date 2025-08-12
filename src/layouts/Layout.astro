@@ -73,7 +73,7 @@ if (schema) {
     {type}
     siteName={siteName}
   />
-    <script>
+    <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('consent','default',{
@@ -83,7 +83,8 @@ if (schema) {
       ad_personalization:'denied'
     });
   </script>
-  <script>
+  <script is:inline>
+    const GTM_ID = {JSON.stringify(GTM_ID)};
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
       w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
