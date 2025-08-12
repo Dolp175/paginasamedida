@@ -9,8 +9,19 @@ import '../styles/global.css';
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // usable inside GTM configuration
 
-const gtmScript = `
+const analyticsScript = `
   const GTM_ID = ${JSON.stringify(GTM_ID)};
+  const GA4_ID = ${JSON.stringify(GA4_ID)};
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied',
+    analytics_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', GA4_ID);
   (function (w, d, s, l, i) {
     w[l] = w[l] || [];
     w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
@@ -87,22 +98,13 @@ if (schema) {
     {type}
     siteName={siteName}
   />
-    <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent','default',{
-      ad_storage:'denied',
-      analytics_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied'
-    });
-  </script>
-  <script is:inline set:html={gtmScript} />
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+  <script is:inline set:html={analyticsScript} />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
   <noscript>
     <iframe
-      src={"https://www.googletagmanager.com/ns.html?id=" + GTM_ID}
+      src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
       height="0"
       width="0"
       style="display:none;visibility:hidden"
