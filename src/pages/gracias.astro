@@ -9,6 +9,23 @@ const keywords = "gracias, contacto recibido, páginas a medida";
 ---
 
 <Layout {title} {description} {keywords} robots="noindex,nofollow">
+  <!-- Script de tracking de conversión -->
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'generate_lead',
+      form_id: 'contact',
+      page_location: location.pathname
+    });
+
+    // Si quieres medir en Google Ads (reemplaza por tus datos)
+    if (typeof gtag === 'function') {
+      gtag('event', 'conversion', {
+        send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL'
+      });
+    }
+  </script>
+
   <!-- Hero Section -->
   <section class="py-20 px-6 bg-gradient-to-br from-purple-900 to-slate-900 text-center">
     <div class="container mx-auto max-w-4xl">
