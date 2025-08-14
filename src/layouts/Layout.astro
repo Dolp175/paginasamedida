@@ -10,7 +10,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID; // p.ej. GTM-NCFC9T5F
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // p.ej. G-H7CDJRC7FE
 
 const analyticsScript = `
-  // DataLayer + Consent Mode por defecto (denegado)
+  // --- DataLayer + Consent Mode (denegado por defecto) ---
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
   window.gtag('consent','default',{
@@ -21,7 +21,16 @@ const analyticsScript = `
     wait_for_update: 500
   });
 
-  // Helper para cargar scripts externos de forma perezosa
+  // --- Utilidades ---
+  function unlockPreconnects(){
+    document.querySelectorAll('link[data-rel="preconnect"][data-href]').forEach(function(l){
+      l.rel = 'preconnect';
+      l.href = l.getAttribute('data-href');
+      l.removeAttribute('data-rel');
+      l.removeAttribute('data-href');
+    });
+  }
+
   function loadScript(src, attrs){
     return new Promise(function(resolve){
       var s=document.createElement('script');
@@ -33,11 +42,7 @@ const analyticsScript = `
     });
   }
 
-  // Escuchar nuestro evento de consentimiento desde el banner
-  window.addEventListener('pm_consent_changed', function(e){
-    var value = e.detail || e.consent || 'denied';
-
-    // Actualizar Consent Mode
+  function applyConsent(value){
     if (typeof window.gtag === 'function'){
       window.gtag('consent','update',{
         ad_storage: value,
@@ -46,37 +51,69 @@ const analyticsScript = `
         ad_personalization: value
       });
     }
+  }
 
-    // Si se concede, cargar GTM y (si no hay GTM) GA4 directo
-    if (value === 'granted') {
-      // “Desbloquear” preconnects diferidos
-      document.querySelectorAll('link[data-rel="preconnect"][data-href]').forEach(function(l){
-        l.rel = 'preconnect';
-        l.href = l.getAttribute('data-href');
-        l.removeAttribute('data-rel');
-        l.removeAttribute('data-href');
-      });
+  function enableVendorsOnce(){
+    if (window.__vendorsLoaded) return;
+    window.__vendorsLoaded = true;
 
-      ${GTM_ID ? `
-      // Cargar GTM
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','${GTM_ID}');
-      ` : ''}
+    unlockPreconnects();
 
-      ${!GTM_ID && GA4_ID ? `
-      // Cargar GA4 directo si no hay GTM
-      loadScript('https://www.googletagmanager.com/gtag/js?id=${GA4_ID}').then(function(){
-        window.gtag('js', new Date());
-        window.gtag('config', '${GA4_ID}', { send_page_view: true });
-      });
-      ` : ''}
-    }
+    ${GTM_ID ? `
+    // Cargar GTM
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','${GTM_ID}');
+    ` : ''}
+
+    ${!GTM_ID && GA4_ID ? `
+    // Cargar GA4 directo si no hay GTM
+    loadScript('https://www.googletagmanager.com/gtag/js?id=${GA4_ID}').then(function(){
+      window.gtag('js', new Date());
+      window.gtag('config', '${GA4_ID}', { send_page_view: true });
+    });
+    ` : ''}
+  }
+
+  // --- 1) Escuchar CustomEvent del banner (si lo emite) ---
+  window.addEventListener('pm_consent_changed', function(e){
+    var value = e && (e.detail || e.consent) || 'denied';
+    applyConsent(value);
+    if (value === 'granted') enableVendorsOnce();
   });
+
+  // --- 2) Interceptar dataLayer.push del banner (si usa dataLayer en vez de CustomEvent) ---
+  (function tapDataLayerForConsent(){
+    var dl = window.dataLayer;
+    if (!dl) return;
+    var originalPush = dl.push;
+    dl.push = function(){
+      for (var i=0;i<arguments.length;i++){
+        var item = arguments[i];
+        if (item && item.event === 'pm_consent_changed'){
+          var v = item.consent || item.value || 'denied';
+          applyConsent(v);
+          if (v === 'granted') enableVendorsOnce();
+        }
+      }
+      return originalPush.apply(dl, arguments);
+    }
+  })();
+
+  // --- 3) Si ya había consentimiento guardado, cargar sin esperar al banner ---
+  (function bootFromStoredConsent(){
+    try{
+      var stored = localStorage.getItem('pm_cookie_consent_v2');
+      if (stored === 'granted'){
+        applyConsent('granted');
+        enableVendorsOnce();
+      }
+    }catch(e){}
+  })();
 `;
 
 const {
@@ -145,16 +182,12 @@ const schemaData = schema
   <script is:inline set:html={analyticsScript} />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
-  {GTM_ID && (
-    <noscript>
-      <iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-        height="0" width="0"
-        style="display:none;visibility:hidden"
-        title="Google Tag Manager"
-      ></iframe>
-    </noscript>
-  )}
+  <!-- En sitios con exigencia estricta de consentimiento, es más seguro NO incluir el noscript de GTM -->
+  <noscript>
+    <div style="padding:1rem;text-align:center;background:#f6f5ff;color:#4338ca">
+      Para respetar tu privacidad, no cargamos analítica sin tu consentimiento.
+    </div>
+  </noscript>
 
   <Nav />
   <main class="flex-grow relative z-10" id="main-content">
