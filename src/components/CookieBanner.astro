@@ -19,47 +19,28 @@
 
 <script>
 (function () {
-  const STORAGE_KEY = 'pm_cookie_consent_v3'; // Versión incrementada
-  const COOKIE_TTL = 365; // Días de persistencia
+  const STORAGE_KEY = 'pm_cookie_consent_v3';
+  const COOKIE_TTL = 365;
   const banner = document.getElementById('pm-cookie-banner');
   const acceptBtn = document.getElementById('pm-accept');
   const rejectBtn = document.getElementById('pm-reject');
-  const changeBtn = document.getElementById('pm-change-consent');
 
   if (!banner || !acceptBtn || !rejectBtn) return;
 
-  // Funciones básicas
-  const openBanner = () => {
-    banner.classList.remove('hidden');
-    acceptBtn.focus();
-  };
-  
-  const closeBanner = () => {
-    banner.classList.add('hidden');
-  };
+  const openBanner = () => { banner.classList.remove('hidden'); acceptBtn.focus(); };
+  const closeBanner = () => { banner.classList.add('hidden'); };
 
-  // Notificación de consentimiento (sincronizado con Layout.astro)
   const notifyConsent = (value) => {
-    // 1. Disparar evento personalizado (para Layout.astro)
     document.dispatchEvent(new CustomEvent('pmConsentUpdate', {
-      detail: {
-        consent: value,
-        timestamp: new Date().toISOString()
-      }
+      detail: { consent: value, timestamp: new Date().toISOString() }
     }));
-    // 2. Enviar a dataLayer (para GTM si está cargado)
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'pm_consent_update',
-      consent: value,
-      timestamp: new Date().toISOString()
-    });
+    window.dataLayer.push({ event: 'pm_consent_update', consent: value, timestamp: new Date().toISOString() });
   };
 
-  // Guardar consentimiento con fecha de expiración
   const saveConsent = (value) => {
     const consentData = {
-      value: value,
+      value,
       date: new Date().toISOString(),
       expires: new Date(Date.now() + COOKIE_TTL * 86400000).toISOString()
     };
@@ -67,81 +48,57 @@
     notifyConsent(value);
   };
 
-  // Verificar consentimiento guardado
   const getSavedConsent = () => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (!saved) return null;
-      
       const { value, expires } = JSON.parse(saved);
       return new Date(expires) > new Date() ? value : null;
-    } catch {
-      return null;
-    }
+    } catch { return null; }
   };
 
-  // Respetar señales de privacidad (GPC/DNT)
-  const shouldDenyByDefault = () => {
-    return !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
-  };
+  const shouldDenyByDefault = () =>
+    !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
 
-  // Inicialización
+  // ✅ Nueva lógica: si ya hay elección (granted o denied), NO reabrir
   const initBanner = () => {
     const savedConsent = getSavedConsent();
-    const denyByDefault = shouldDenyByDefault();
-    
-    if (savedConsent) {
+    if (savedConsent === 'granted' || savedConsent === 'denied') {
       notifyConsent(savedConsent);
-      if (savedConsent !== 'granted') openBanner();
-    } else if (denyByDefault) {
+      return; // no mostramos el banner otra vez
+    }
+
+    // Si no hay elección previa:
+    if (shouldDenyByDefault()) {
+      // Puedes elegir informar o no. Si NO quieres reabrir banner en GPC:
       saveConsent('denied');
-      openBanner(); // Mostrar banner informativo aunque esté denegado
+      // openBanner(); // <- si quieres informar, descomenta
     } else {
       openBanner();
     }
   };
 
-  // Manejadores de eventos
   acceptBtn.addEventListener('click', () => {
     saveConsent('granted');
     closeBanner();
   });
-  
+
   rejectBtn.addEventListener('click', () => {
     saveConsent('denied');
     closeBanner();
   });
-  
-  changeBtn?.addEventListener('click', () => {
-    saveConsent('denied');
-    openBanner();
-  });
 
-  // Manejo de teclado
   document.addEventListener('keydown', (e) => {
-    // Escape para cerrar
-    if (e.key === 'Escape' && !banner.classList.contains('hidden')) {
-      closeBanner();
-    }
-    
-    // Trap de foco dentro del banner
+    if (e.key === 'Escape' && !banner.classList.contains('hidden')) closeBanner();
     if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
-      const focusable = Array.from(banner.querySelectorAll(
-        'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )).filter(el => !el.disabled && el.offsetParent !== null);
-      
+      const focusable = Array.from(
+        banner.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])')
+      ).filter(el => !el.disabled && el.offsetParent !== null);
       if (!focusable.length) return;
-      
       const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
 
@@ -152,3 +109,4 @@
   }
 })();
 </script>
+
