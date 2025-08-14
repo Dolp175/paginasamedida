@@ -12,8 +12,8 @@ const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // p.ej. G-H7CDJRC7FE
 const analyticsScript = `
   // DataLayer + Consent Mode por defecto (denegado)
   window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('consent','default',{
+  window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+  window.gtag('consent','default',{
     ad_storage:'denied',
     analytics_storage:'denied',
     ad_user_data:'denied',
@@ -38,8 +38,8 @@ const analyticsScript = `
     var value = e.detail || e.consent || 'denied';
 
     // Actualizar Consent Mode
-    if (typeof gtag === 'function'){
-      gtag('consent','update',{
+    if (typeof window.gtag === 'function'){
+      window.gtag('consent','update',{
         ad_storage: value,
         analytics_storage: value,
         ad_user_data: value,
@@ -71,8 +71,8 @@ const analyticsScript = `
       ${!GTM_ID && GA4_ID ? `
       // Cargar GA4 directo si no hay GTM
       loadScript('https://www.googletagmanager.com/gtag/js?id=${GA4_ID}').then(function(){
-        gtag('js', new Date());
-        gtag('config', '${GA4_ID}', { send_page_view: true });
+        window.gtag('js', new Date());
+        window.gtag('config', '${GA4_ID}', { send_page_view: true });
       });
       ` : ''}
     }
