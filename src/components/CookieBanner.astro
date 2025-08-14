@@ -20,72 +20,80 @@
 </div>
 
 <script>
-  (function () {
-    const STORAGE_KEY = 'pm_cookie_consent_v2';
-    const banner    = document.getElementById('pm-cookie-banner');
-    const acceptBtn = document.getElementById('pm-accept');
-    const rejectBtn = document.getElementById('pm-reject');
-    const changeBtn = document.getElementById('pm-change-consent');
+(function () {
+  const STORAGE_KEY = 'pm_cookie_consent_v2';
+  const banner    = document.getElementById('pm-cookie-banner');
+  const acceptBtn = document.getElementById('pm-accept');
+  const rejectBtn = document.getElementById('pm-reject');
+  const changeBtn = document.getElementById('pm-change-consent'); // botón del footer
 
-    if (!banner || !acceptBtn || !rejectBtn) return;
+  if (!banner || !acceptBtn || !rejectBtn) return;
 
-    const openBanner  = () => { banner.classList.remove('hidden'); acceptBtn.focus(); };
-    const closeBanner = () => { banner.classList.add('hidden'); };
+  const openBanner  = () => { banner.classList.remove('hidden'); acceptBtn.focus(); };
+  const closeBanner = () => { banner.classList.add('hidden'); };
 
-    const pushConsentEvent = (value) => {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'pm_consent_changed', consent: value });
-    };
+  // Aviso a GTM (dataLayer) y al Layout (evento DOM)
+  const notifyConsent = (value) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'pm_consent_changed', consent: value });
+    // MUY IMPORTANTE: este evento es el que escucha Layout.astro para cargar GTM
+    window.dispatchEvent(new CustomEvent('pm_consent_changed', { detail: value }));
+  };
 
-    const applyConsent = (value) => {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', {
-          ad_storage: value,
-          analytics_storage: value,
-          ad_user_data: value,
-          ad_personalization: value
-        });
-      }
-      pushConsentEvent(value);
-    };
-
-    const setConsent = (value) => {
-      const current = localStorage.getItem(STORAGE_KEY);
-      if (current !== value) {
-        localStorage.setItem(STORAGE_KEY, value);
-        applyConsent(value);
-      }
-    };
-
-    // Global Privacy Control / Do Not Track -> denegar por defecto
-    const gpcDenies = !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
-
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === 'granted' || stored === 'denied') {
-      applyConsent(stored);
-    } else {
-      if (gpcDenies) {
-        setConsent('denied');
-        // Muestra el banner para informar (opcional quitar si no quieres):
-        openBanner();
-      } else {
-        openBanner();
-      }
+  // Aplica Consent Mode (si gtag ya existe) y notifica
+  const applyConsent = (value) => {
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        ad_storage: value,
+        analytics_storage: value,
+        ad_user_data: value,
+        ad_personalization: value
+      });
     }
+    notifyConsent(value);
+  };
 
-    acceptBtn.addEventListener('click', () => { setConsent('granted'); closeBanner(); });
-    rejectBtn.addEventListener('click', () => { setConsent('denied');  closeBanner(); });
-    changeBtn?.addEventListener('click', () => { setConsent('denied'); openBanner(); });
+  const setConsent = (value) => {
+    const current = localStorage.getItem(STORAGE_KEY);
+    if (current !== value) {
+      localStorage.setItem(STORAGE_KEY, value);
+      applyConsent(value);
+    } else {
+      // aunque no cambie, asegúrate de notificar p.ej. al recargar
+      applyConsent(value);
+    }
+  };
 
-    // Focus trap + Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !banner.classList.contains('hidden')) closeBanner();
-      if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
-        const focusable = banner.querySelectorAll('button, a[href]');
-        const first = focusable[0], last = focusable[focusable.length - 1];
-        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
-    });
-  })();
+  // Respetar GPC / DNT
+  const gpcDenies = !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
+
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === 'granted' || stored === 'denied') {
+    // ⚠️ Si ya había “granted”, aquí disparamos el evento para que Layout cargue GTM
+    applyConsent(stored);
+    if (stored !== 'granted') openBanner(); // si era denied puedes mostrar el banner para cambiar
+  } else {
+    if (gpcDenies) {
+      setConsent('denied');
+      openBanner();
+    } else {
+      openBanner();
+    }
+  }
+
+  acceptBtn.addEventListener('click', () => { setConsent('granted'); closeBanner(); });
+  rejectBtn.addEventListener('click', () => { setConsent('denied');  closeBanner(); });
+  changeBtn?.addEventListener('click', () => { setConsent('denied'); openBanner(); });
+
+  // Focus trap + Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !banner.classList.contains('hidden')) closeBanner();
+    if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
+      const focusable = banner.querySelectorAll('button, a[href]');
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
 </script>

@@ -11,18 +11,24 @@ const keywords = "gracias, contacto recibido, páginas a medida";
 <Layout {title} {description} {keywords} robots="noindex,nofollow">
   <!-- Script de tracking de conversión -->
   <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'generate_lead',
-      form_id: 'contact',
-      page_location: location.pathname
-    });
-
-    // Si quieres medir en Google Ads (reemplaza por tus datos)
-    if (typeof gtag === 'function') {
-      gtag('event', 'conversion', {
-        send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL'
+    const pushLeadEvent = () => {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        form_id: 'contact',
+        page_location: location.pathname
       });
+    };
+
+    if (window.dataLayer) {
+      pushLeadEvent();
+    } else {
+      const checkGTM = setInterval(() => {
+        if (window.dataLayer) {
+          pushLeadEvent();
+          clearInterval(checkGTM);
+        }
+      }, 500);
     }
   </script>
 
@@ -93,3 +99,4 @@ const keywords = "gracias, contacto recibido, páginas a medida";
     </div>
   </section>
 </Layout>
+

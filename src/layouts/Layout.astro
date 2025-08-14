@@ -6,32 +6,77 @@ import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/global.css';
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // usable inside GTM configuration
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID; // p.ej. GTM-NCFC9T5F
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // p.ej. G-H7CDJRC7FE
 
 const analyticsScript = `
-  const GTM_ID = ${JSON.stringify(GTM_ID)};
-  const GA4_ID = ${JSON.stringify(GA4_ID)};
+  // DataLayer + Consent Mode por defecto (denegado)
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){ dataLayer.push(arguments); }
   gtag('consent','default',{
     ad_storage:'denied',
     analytics_storage:'denied',
     ad_user_data:'denied',
-    ad_personalization:'denied'
+    ad_personalization:'denied',
+    wait_for_update: 500
   });
-  gtag('js', new Date());
-  gtag('config', GA4_ID);
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || [];
-    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-    const f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != 'dataLayer' ? '&l=' + l : '';
-    j.async = true;
-    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-    f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', GTM_ID);
+
+  // Helper para cargar scripts externos de forma perezosa
+  function loadScript(src, attrs){
+    return new Promise(function(resolve){
+      var s=document.createElement('script');
+      s.src = src;
+      s.async = true;
+      if (attrs) Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
+      s.onload = resolve;
+      document.head.appendChild(s);
+    });
+  }
+
+  // Escuchar nuestro evento de consentimiento desde el banner
+  window.addEventListener('pm_consent_changed', function(e){
+    var value = e.detail || e.consent || 'denied';
+
+    // Actualizar Consent Mode
+    if (typeof gtag === 'function'){
+      gtag('consent','update',{
+        ad_storage: value,
+        analytics_storage: value,
+        ad_user_data: value,
+        ad_personalization: value
+      });
+    }
+
+    // Si se concede, cargar GTM y (si no hay GTM) GA4 directo
+    if (value === 'granted') {
+      // “Desbloquear” preconnects diferidos
+      document.querySelectorAll('link[data-rel="preconnect"][data-href]').forEach(function(l){
+        l.rel = 'preconnect';
+        l.href = l.getAttribute('data-href');
+        l.removeAttribute('data-rel');
+        l.removeAttribute('data-href');
+      });
+
+      ${GTM_ID ? `
+      // Cargar GTM
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','${GTM_ID}');
+      ` : ''}
+
+      ${!GTM_ID && GA4_ID ? `
+      // Cargar GA4 directo si no hay GTM
+      loadScript('https://www.googletagmanager.com/gtag/js?id=${GA4_ID}').then(function(){
+        gtag('js', new Date());
+        gtag('config', '${GA4_ID}', { send_page_view: true });
+      });
+      ` : ''}
+    }
+  });
 `;
 
 const {
@@ -74,17 +119,10 @@ const defaultSchema = {
   ]
 };
 
-let schemaData;
-
-if (schema) {
-  schemaData = Array.isArray(schema)
-    ? [defaultSchema, ...schema]
-    : [defaultSchema, schema];
-} else {
-  schemaData = defaultSchema;
-}
+const schemaData = schema
+  ? (Array.isArray(schema) ? [defaultSchema, ...schema] : [defaultSchema, schema])
+  : defaultSchema;
 ---
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -98,27 +136,34 @@ if (schema) {
     {type}
     siteName={siteName}
   />
-  <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+
+  <!-- Preconnect diferido: solo se activa tras consentimiento -->
+  <link data-rel="preconnect" data-href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+  <!-- Script unificado (sin GA4 directo si hay GTM) -->
   <script is:inline set:html={analyticsScript} />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
-  <noscript>
-    <iframe
-      src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
-  </noscript>
+  {GTM_ID && (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0" width="0"
+        style="display:none;visibility:hidden"
+        title="Google Tag Manager"
+      ></iframe>
+    </noscript>
+  )}
+
   <Nav />
-  <main class="flex-grow relative z-10">
+  <main class="flex-grow relative z-10" id="main-content">
     <slot />
   </main>
   <Footer sticky={footerSticky} />
-  <CookieBanner />
-  <script type="module" src="/src/scripts/analytics.ts"></script>
+  <CookieBanner gtmId={GTM_ID} gaId={GA4_ID} />
 
-  <!-- Schema.org JSON-LD -->
+  <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 </body>
 </html>
