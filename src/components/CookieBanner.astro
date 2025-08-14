@@ -1,5 +1,3 @@
----
----
 <div
   id="pm-cookie-banner"
   class="fixed bottom-4 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 max-w-md w-full p-4 bg-white text-gray-800 rounded shadow-lg border border-gray-200 z-50 hidden"
@@ -11,89 +9,146 @@
   <h2 id="pm-cookie-title" class="text-base font-semibold mb-2">Cookies</h2>
   <p id="pm-cookie-desc" class="text-sm mb-4">
     Usamos cookies para analizar el tráfico. Más info en
-    <a href="/legal/politica-cookies/" class="underline">política de cookies</a>.
+    <a href="/legal/politica-cookies/" class="underline hover:text-purple-600">política de cookies</a>.
   </p>
   <div class="flex gap-2 justify-end">
-    <button id="pm-reject" type="button" class="px-3 py-1 rounded border border-gray-300">Rechazar</button>
-    <button id="pm-accept" type="button" class="px-3 py-1 rounded bg-purple-700 text-white">Aceptar</button>
+    <button id="pm-reject" type="button" class="px-3 py-1 rounded border border-gray-300 hover:bg-gray-50 transition-colors">Rechazar</button>
+    <button id="pm-accept" type="button" class="px-3 py-1 rounded bg-purple-700 hover:bg-purple-800 text-white transition-colors">Aceptar</button>
   </div>
 </div>
 
 <script>
 (function () {
-  const STORAGE_KEY = 'pm_cookie_consent_v2';
-  const banner    = document.getElementById('pm-cookie-banner');
+  const STORAGE_KEY = 'pm_cookie_consent_v3'; // Versión incrementada
+  const COOKIE_TTL = 365; // Días de persistencia
+  const banner = document.getElementById('pm-cookie-banner');
   const acceptBtn = document.getElementById('pm-accept');
   const rejectBtn = document.getElementById('pm-reject');
-  const changeBtn = document.getElementById('pm-change-consent'); // botón del footer
+  const changeBtn = document.getElementById('pm-change-consent');
 
   if (!banner || !acceptBtn || !rejectBtn) return;
 
-  const openBanner  = () => { banner.classList.remove('hidden'); acceptBtn.focus(); };
-  const closeBanner = () => { banner.classList.add('hidden'); };
-
-  // Aviso a GTM (dataLayer) y al Layout (evento DOM)
-  const notifyConsent = (value) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'pm_consent_changed', consent: value });
-    // MUY IMPORTANTE: este evento es el que escucha Layout.astro para cargar GTM
-    window.dispatchEvent(new CustomEvent('pm_consent_changed', { detail: value }));
+  // Funciones básicas
+  const openBanner = () => {
+    banner.classList.remove('hidden');
+    acceptBtn.focus();
+  };
+  
+  const closeBanner = () => {
+    banner.classList.add('hidden');
   };
 
-  // Aplica Consent Mode (si gtag ya existe) y notifica
-  const applyConsent = (value) => {
-    if (typeof window.gtag === 'function') {
-      window.gtag('consent', 'update', {
-        ad_storage: value,
-        analytics_storage: value,
-        ad_user_data: value,
-        ad_personalization: value
-      });
-    }
+  // Notificación de consentimiento (sincronizado con Layout.astro)
+  const notifyConsent = (value) => {
+    // 1. Disparar evento personalizado (para Layout.astro)
+    document.dispatchEvent(new CustomEvent('pmConsentUpdate', {
+      detail: {
+        consent: value,
+        timestamp: new Date().toISOString()
+      }
+    }));
+    // 2. Enviar a dataLayer (para GTM si está cargado)
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'pm_consent_update',
+      consent: value,
+      timestamp: new Date().toISOString()
+    });
+  };
+
+  // Guardar consentimiento con fecha de expiración
+  const saveConsent = (value) => {
+    const consentData = {
+      value: value,
+      date: new Date().toISOString(),
+      expires: new Date(Date.now() + COOKIE_TTL * 86400000).toISOString()
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(consentData));
     notifyConsent(value);
   };
 
-  const setConsent = (value) => {
-    const current = localStorage.getItem(STORAGE_KEY);
-    if (current !== value) {
-      localStorage.setItem(STORAGE_KEY, value);
-      applyConsent(value);
-    } else {
-      // aunque no cambie, asegúrate de notificar p.ej. al recargar
-      applyConsent(value);
+  // Verificar consentimiento guardado
+  const getSavedConsent = () => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return null;
+      
+      const { value, expires } = JSON.parse(saved);
+      return new Date(expires) > new Date() ? value : null;
+    } catch {
+      return null;
     }
   };
 
-  // Respetar GPC / DNT
-  const gpcDenies = !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
+  // Respetar señales de privacidad (GPC/DNT)
+  const shouldDenyByDefault = () => {
+    return !!(navigator.globalPrivacyControl || navigator.doNotTrack == '1');
+  };
 
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === 'granted' || stored === 'denied') {
-    // ⚠️ Si ya había “granted”, aquí disparamos el evento para que Layout cargue GTM
-    applyConsent(stored);
-    if (stored !== 'granted') openBanner(); // si era denied puedes mostrar el banner para cambiar
-  } else {
-    if (gpcDenies) {
-      setConsent('denied');
-      openBanner();
+  // Inicialización
+  const initBanner = () => {
+    const savedConsent = getSavedConsent();
+    const denyByDefault = shouldDenyByDefault();
+    
+    if (savedConsent) {
+      notifyConsent(savedConsent);
+      if (savedConsent !== 'granted') openBanner();
+    } else if (denyByDefault) {
+      saveConsent('denied');
+      openBanner(); // Mostrar banner informativo aunque esté denegado
     } else {
       openBanner();
     }
-  }
+  };
 
-  acceptBtn.addEventListener('click', () => { setConsent('granted'); closeBanner(); });
-  rejectBtn.addEventListener('click', () => { setConsent('denied');  closeBanner(); });
-  changeBtn?.addEventListener('click', () => { setConsent('denied'); openBanner(); });
+  // Manejadores de eventos
+  acceptBtn.addEventListener('click', () => {
+    saveConsent('granted');
+    closeBanner();
+  });
+  
+  rejectBtn.addEventListener('click', () => {
+    saveConsent('denied');
+    closeBanner();
+  });
+  
+  changeBtn?.addEventListener('click', () => {
+    saveConsent('denied');
+    openBanner();
+  });
 
-  // Focus trap + Escape
+  // Manejo de teclado
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !banner.classList.contains('hidden')) closeBanner();
+    // Escape para cerrar
+    if (e.key === 'Escape' && !banner.classList.contains('hidden')) {
+      closeBanner();
+    }
+    
+    // Trap de foco dentro del banner
     if (e.key === 'Tab' && !banner.classList.contains('hidden')) {
-      const focusable = banner.querySelectorAll('button, a[href]');
-      const first = focusable[0], last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      const focusable = Array.from(banner.querySelectorAll(
+        'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )).filter(el => !el.disabled && el.offsetParent !== null);
+      
+      if (!focusable.length) return;
+      
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBanner);
+  } else {
+    initBanner();
+  }
 })();
 </script>

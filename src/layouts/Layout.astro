@@ -6,13 +6,15 @@ import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import '../styles/global.css';
 
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID; // p.ej. GTM-NCFC9T5F
-const GA4_ID = import.meta.env.PUBLIC_GA4_ID; // p.ej. G-H7CDJRC7FE
+const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
 
 const analyticsScript = `
-  // --- DataLayer + Consent Mode (denegado por defecto) ---
+  // Asegura dataLayer + gtag
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+  // Consent Mode (por defecto: denegado)
   window.gtag('consent','default',{
     ad_storage:'denied',
     analytics_storage:'denied',
@@ -21,99 +23,80 @@ const analyticsScript = `
     wait_for_update: 500
   });
 
-  // --- Utilidades ---
-  function unlockPreconnects(){
-    document.querySelectorAll('link[data-rel="preconnect"][data-href]').forEach(function(l){
-      l.rel = 'preconnect';
-      l.href = l.getAttribute('data-href');
-      l.removeAttribute('data-rel');
-      l.removeAttribute('data-href');
-    });
-  }
-
-  function loadScript(src, attrs){
-    return new Promise(function(resolve){
-      var s=document.createElement('script');
-      s.src = src;
-      s.async = true;
-      if (attrs) Object.keys(attrs).forEach(k => s.setAttribute(k, attrs[k]));
-      s.onload = resolve;
-      document.head.appendChild(s);
-    });
-  }
-
-  function applyConsent(value){
-    if (typeof window.gtag === 'function'){
-      window.gtag('consent','update',{
-        ad_storage: value,
-        analytics_storage: value,
-        ad_user_data: value,
-        ad_personalization: value
-      });
-    }
-  }
-
+  // Evita cargar vendors dos veces
+  window.__vendorsLoaded = false;
   function enableVendorsOnce(){
     if (window.__vendorsLoaded) return;
     window.__vendorsLoaded = true;
 
-    unlockPreconnects();
-
     ${GTM_ID ? `
-    // Cargar GTM
+    // Cargar GTM tras consentimiento
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
       w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
       var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
       f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','${GTM_ID}');
-    ` : ''}
-
-    ${!GTM_ID && GA4_ID ? `
+    ` : `
     // Cargar GA4 directo si no hay GTM
-    loadScript('https://www.googletagmanager.com/gtag/js?id=${GA4_ID}').then(function(){
-      window.gtag('js', new Date());
-      window.gtag('config', '${GA4_ID}', { send_page_view: true });
-    });
-    ` : ''}
+    (function(){
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id=${GA4_ID}';
+      s.onload=function(){
+        window.gtag('js', new Date());
+        window.gtag('config', '${GA4_ID}', { send_page_view: true });
+      };
+      document.head.appendChild(s);
+    })();
+    `}
   }
 
-  // --- 1) Escuchar CustomEvent del banner (si lo emite) ---
-  window.addEventListener('pm_consent_changed', function(e){
-    var value = e && (e.detail || e.consent) || 'denied';
-    applyConsent(value);
-    if (value === 'granted') enableVendorsOnce();
+  // Aplicar consentimiento y (si procede) cargar vendors
+  function applyConsent(consent){
+    window.gtag('consent','update',{
+      ad_storage: consent,
+      analytics_storage: consent,
+      ad_user_data: consent,
+      ad_personalization: consent
+    });
+    if (consent === 'granted') enableVendorsOnce();
+  }
+
+  // Escuchar el CustomEvent del banner
+  document.addEventListener('pmConsentUpdate', function(e){
+    var consent = (e && e.detail && e.detail.consent) || 'denied';
+    applyConsent(consent);
   });
 
-  // --- 2) Interceptar dataLayer.push del banner (si usa dataLayer en vez de CustomEvent) ---
-  (function tapDataLayerForConsent(){
+  // Fallback: si alguien empuja nuestro evento auxiliar al dataLayer
+  (function(){
     var dl = window.dataLayer;
     if (!dl) return;
-    var originalPush = dl.push;
+    var orig = dl.push;
     dl.push = function(){
       for (var i=0;i<arguments.length;i++){
-        var item = arguments[i];
-        if (item && item.event === 'pm_consent_changed'){
-          var v = item.consent || item.value || 'denied';
-          applyConsent(v);
-          if (v === 'granted') enableVendorsOnce();
+        var it = arguments[i];
+        if (it && it.event === 'pm_consent_update'){
+          applyConsent(it.consent || 'denied');
         }
       }
-      return originalPush.apply(dl, arguments);
-    }
+      return orig.apply(dl, arguments);
+    };
   })();
 
-  // --- 3) Si ya había consentimiento guardado, cargar sin esperar al banner ---
-  (function bootFromStoredConsent(){
-    try{
-      var stored = localStorage.getItem('pm_cookie_consent_v2');
-      if (stored === 'granted'){
-        applyConsent('granted');
-        enableVendorsOnce();
-      }
-    }catch(e){}
-  })();
+  // Si ya había consentimiento guardado, aplica al entrar
+  try {
+    var saved = localStorage.getItem('pm_cookie_consent_v3');
+    if (saved) {
+      var parsed;
+      try { parsed = JSON.parse(saved); } catch(_){}
+      var consent = (parsed && parsed.value) || saved;
+      if (consent === 'granted') applyConsent('granted');
+    }
+  } catch(_) {}
 `;
 
 const {
@@ -160,6 +143,7 @@ const schemaData = schema
   ? (Array.isArray(schema) ? [defaultSchema, ...schema] : [defaultSchema, schema])
   : defaultSchema;
 ---
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -174,18 +158,17 @@ const schemaData = schema
     siteName={siteName}
   />
 
-  <!-- Preconnect diferido: solo se activa tras consentimiento -->
-  <link data-rel="preconnect" data-href="https://www.googletagmanager.com" crossorigin>
+  <!-- Preconnect (no afecta a cookies, puedes quitarlo si buscas el máximo score) -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
-  <!-- Script unificado (sin GA4 directo si hay GTM) -->
+  <!-- Script de analytics/consent unificado -->
   <script is:inline set:html={analyticsScript} />
 </head>
 <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
-  <!-- En sitios con exigencia estricta de consentimiento, es más seguro NO incluir el noscript de GTM -->
   <noscript>
-    <div style="padding:1rem;text-align:center;background:#f6f5ff;color:#4338ca">
-      Para respetar tu privacidad, no cargamos analítica sin tu consentimiento.
+    <div class="p-4 text-center bg-purple-50 text-purple-800">
+      Para una experiencia completa, recomendamos activar JavaScript.
     </div>
   </noscript>
 
@@ -194,7 +177,7 @@ const schemaData = schema
     <slot />
   </main>
   <Footer sticky={footerSticky} />
-  <CookieBanner gtmId={GTM_ID} gaId={GA4_ID} />
+  <CookieBanner />
 
   <!-- JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
