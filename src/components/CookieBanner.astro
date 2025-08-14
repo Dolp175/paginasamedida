@@ -42,8 +42,8 @@
 
   // Aplica Consent Mode (si gtag ya existe) y notifica
   const applyConsent = (value) => {
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', {
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
         ad_storage: value,
         analytics_storage: value,
         ad_user_data: value,
