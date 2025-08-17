@@ -1,5 +1,8 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+// Número de publicaciones a mostrar por página en el blog
+export const POSTS_PER_PAGE = 6;
+
 export async function getSortedPosts(): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getCollection('blog');
   return posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
