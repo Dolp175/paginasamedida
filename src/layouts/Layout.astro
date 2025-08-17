@@ -1,10 +1,10 @@
 ---
 // src/layouts/Layout.astro
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import CookieBanner from '../components/CookieBanner.astro';
-import '../styles/global.css';
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner.astro";
+import "../styles/global.css";
 
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 const GA4_ID = import.meta.env.PUBLIC_GA4_ID;
@@ -29,7 +29,9 @@ const analyticsScript = `
     if (window.__vendorsLoaded) return;
     window.__vendorsLoaded = true;
 
-    ${GTM_ID ? `
+    ${
+      GTM_ID
+        ? `
     // Cargar GTM tras consentimiento
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -39,7 +41,8 @@ const analyticsScript = `
       j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
       f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','${GTM_ID}');
-    ` : `
+    `
+        : `
     // Cargar GA4 directo si no hay GTM
     (function(){
       var s=document.createElement('script');
@@ -51,7 +54,8 @@ const analyticsScript = `
       };
       document.head.appendChild(s);
     })();
-    `}
+    `
+    }
   }
 
   // Aplicar consentimiento y (si procede) cargar vendors
@@ -103,14 +107,16 @@ const {
   title,
   description,
   canonical = new URL(
-    Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/',
+    Astro.url.pathname.endsWith("/")
+      ? Astro.url.pathname
+      : Astro.url.pathname + "/",
     Astro.site
   ).toString(),
-  image = new URL('/images/og-image.jpg', Astro.site).toString(),
-  robots = 'index,follow',
+  image = new URL("/images/og-image.jpg", Astro.site).toString(),
+  robots = "index,follow",
   keywords,
-  type = 'website',
-  siteName = 'Páginas web a Medida',
+  type = "website",
+  siteName = "Páginas web a Medida",
   schema,
   footerSticky = true,
 } = Astro.props;
@@ -118,68 +124,171 @@ const {
 const defaultSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": siteName,
-  "url": canonical,
-  "logo": new URL('/images/logo.webp', Astro.site).toString(),
-  "description": description,
-  "address": {
+  name: siteName,
+  url: canonical,
+  logo: new URL("/images/logo.webp", Astro.site).toString(),
+  description: description,
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": "Avenida Glasgow 156",
-    "addressLocality": "Nuevo Baztán",
-    "addressRegion": "Madrid",
-    "postalCode": "28514",
-    "addressCountry": "ES"
+    streetAddress: "Avenida Glasgow 156",
+    addressLocality: "Nuevo Baztán",
+    addressRegion: "Madrid",
+    postalCode: "28514",
+    addressCountry: "ES",
   },
-  "telephone": "+34623962963",
-  "openingHours": "Mo-Fr 09:30-18:00",
-  "priceRange": "$$",
-  "sameAs": [
+  telephone: "+34623962963",
+  openingHours: "Mo-Fr 09:30-20:30",
+  priceRange: "$$",
+  sameAs: [
     "https://linkedin.com/in/jordi-martinez-joyeux",
-    "https://github.com/Dolp175"
-  ]
+    "https://github.com/Dolp175",
+  ],
 };
 
 const schemaData = schema
-  ? (Array.isArray(schema) ? [defaultSchema, ...schema] : [defaultSchema, schema])
+  ? Array.isArray(schema)
+    ? [defaultSchema, ...schema]
+    : [defaultSchema, schema]
   : defaultSchema;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <Head
-    {title}
-    {description}
-    canonical={canonical}
-    image={image}
-    robots={robots}
-    {keywords}
-    {type}
-    siteName={siteName}
-  />
+  <head>
+    <Head
+      {title}
+      {description}
+      canonical={canonical}
+      image={image}
+      robots={robots}
+      {keywords}
+      {type}
+      siteName={siteName}
+    />
 
-  <!-- Preconnect (no afecta a cookies, puedes quitarlo si buscas el máximo score) -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <!-- Preconnect (no afecta a cookies, puedes quitarlo si buscas el máximo score) -->
+    <link
+      rel="preconnect"
+      href="https://www.googletagmanager.com"
+      crossorigin
+    />
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 
-  <!-- Script de analytics/consent unificado -->
-  <script is:inline set:html={analyticsScript} />
-</head>
-<body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
-  <noscript>
-    <div class="p-4 text-center bg-purple-50 text-purple-800">
-      Para una experiencia completa, recomendamos activar JavaScript.
-    </div>
-  </noscript>
+    <!-- Script de analytics/consent unificado -->
+    <script is:inline set:html={analyticsScript} />
+  </head>
+  <body class="bg-white text-gray-800 min-h-screen flex flex-col relative">
+    <noscript>
+      <div class="p-4 text-center bg-purple-50 text-purple-800">
+        Para una experiencia completa, recomendamos activar JavaScript.
+      </div>
+    </noscript>
 
-  <Nav />
-  <main class="flex-grow relative z-10" id="main-content">
-    <slot />
-  </main>
-  <Footer sticky={footerSticky} />
-  <CookieBanner />
+    <Nav />
+    <main class="flex-grow relative z-10" id="main-content">
+      <slot />
+    </main>
+    <Footer sticky={footerSticky} />
+    <CookieBanner />
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
-</body>
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <!-- GTM track -->
+    <script is:inline>
+      (function () {
+        const STORAGE_KEY = "pm_cookie_consent_v3";
+
+        function consentGranted() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (!raw) return false;
+            const parsed = JSON.parse(raw);
+            return parsed?.value === "granted";
+          } catch {
+            return false;
+          }
+        }
+
+        function pushEvent(eventName, payload, navigate) {
+          if (!consentGranted()) {
+            navigate && navigate();
+            return;
+          }
+          window.dataLayer = window.dataLayer || [];
+          let done = false;
+          const cb = () => {
+            if (done) return;
+            done = true;
+            navigate && navigate();
+          };
+          window.dataLayer.push({
+            event: eventName,
+            event_time: Date.now(),
+            page_location: location.href,
+            page_title: document.title,
+            ...payload,
+            event_callback: cb,
+          });
+          setTimeout(cb, 200); // seguridad por si GTM no llama callback
+        }
+
+        function isTel(a) {
+          return (
+            a.tagName === "A" && /^tel:/i.test(a.getAttribute("href") || "")
+          );
+        }
+        function isWA(a) {
+          if (a.tagName !== "A") return false;
+          const href = (a.getAttribute("href") || "").toLowerCase();
+          return (
+            href.startsWith("https://wa.me/") ||
+            href.startsWith("https://api.whatsapp.com/send") ||
+            href.startsWith("whatsapp://send")
+          );
+        }
+        function isMail(a) {
+          return (
+            a.tagName === "A" && /^mailto:/i.test(a.getAttribute("href") || "")
+          );
+        }
+
+        document.addEventListener("click", function (e) {
+          const a = e.target.closest("a");
+          if (!a) return;
+          const url = a.getAttribute("href");
+          const label =
+            a.getAttribute("data-track-label") || (a.textContent || "").trim();
+          const go = () => {
+            location.href = url;
+          };
+
+          // Teléfono
+          if (isTel(a)) {
+            if (consentGranted()) e.preventDefault();
+            pushEvent("click_phone", { link_url: url, link_text: label }, go);
+            return;
+          }
+
+          // WhatsApp
+          if (isWA(a)) {
+            if (consentGranted()) e.preventDefault();
+            pushEvent(
+              "click_whatsapp",
+              { link_url: url, link_text: label },
+              go
+            );
+            return;
+          }
+
+          // Email
+          if (isMail(a)) {
+            if (consentGranted()) e.preventDefault();
+            pushEvent("click_email", { link_url: url, link_text: label }, go);
+            return;
+          }
+        });
+      })();
+    </script>
+  </body>
 </html>

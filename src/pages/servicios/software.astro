@@ -1,0 +1,1433 @@
+---
+// src/pages/servicios/software.astro
+import Layout from "../../layouts/Layout.astro";
+import ContactForm from "../../components/ContactForm.astro";
+
+const title = "Desarrollo de Software a Medida";
+const description =
+  "Soluciones personalizadas para proyectos complejos que requieren más que una web estándar. Ingeniería de software profesional.";
+const keywords =
+  "software a medida, desarrollo personalizado, ingeniería de software";
+---
+
+<Layout {title} {description} {keywords}>
+  <!-- Hero Section - Adaptado a Software -->
+  <section
+    id="hero"
+    class="py-20 px-6 bg-gradient-to-br from-purple-50 to-amber-50"
+  >
+    <div class="container mx-auto max-w-6xl text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+        Soluciones de
+        <span
+          class="block bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+        >
+          software a medida
+        </span>
+      </h1>
+
+      <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+        Cuando tu proyecto necesita <strong class="text-purple-700"
+          >más que una web estándar</strong
+        >. Desarrollamos <strong>apps web</strong>, <strong
+          >automatizaciones</strong
+        > e
+        <strong>integraciones API</strong> para que tus procesos sean más rápidos
+        y fiables.
+      </p>
+
+      <!-- Bullets rápidos -->
+      <ul
+        class="flex flex-wrap justify-center gap-4 text-sm text-gray-700 mb-10"
+      >
+        <li
+          class="flex items-center gap-2 bg-white/80 border border-purple-100 px-3 py-2 rounded-lg"
+        >
+          <svg
+            class="w-4 h-4 text-purple-600"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            ><path
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"></path></svg
+          >
+          Entrega por fases
+        </li>
+        <li
+          class="flex items-center gap-2 bg-white/80 border border-purple-100 px-3 py-2 rounded-lg"
+        >
+          <svg
+            class="w-4 h-4 text-purple-600"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            ><path
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"></path></svg
+          >
+          Integraciones con tus herramientas
+        </li>
+        <li
+          class="flex items-center gap-2 bg-white/80 border border-purple-100 px-3 py-2 rounded-lg"
+        >
+          <svg
+            class="w-4 h-4 text-purple-600"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            ><path
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"></path></svg
+          >
+          Soporte y mantenimiento
+        </li>
+      </ul>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#soluciones"
+          aria-label="Ver soluciones de software a medida"
+          class="bg-gradient-to-r from-purple-600 to-amber-700 hover:from-purple-700 hover:to-amber-800 text-white font-bold py-3 px-8 rounded-lg transition shadow-md hover:shadow-lg"
+        >
+          Ver Soluciones
+        </a>
+        <a
+          href="#contacto"
+          aria-label="contacta con nosotros"
+          class="bg-white hover:bg-gray-50 text-purple-700 font-bold py-3 px-8 rounded-lg transition border-2 border-purple-200 shadow-sm hover:shadow-md"
+        >
+          Escríbenos
+        </a>
+        <!-- CTA caliente opcional (trackeado por tu script global) -->
+        <a
+          href="tel:+34623962963"
+          aria-label="Llamar ahora por teléfono"
+          class="bg-transparent hover:bg-purple-100 text-purple-800 font-bold py-3 px-8 rounded-lg transition border-2 border-purple-300"
+        >
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: "Por qué el software a medida" (versión con bordes) -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-12">
+        <span
+          class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+        >
+          Tu negocio es único.
+        </span>
+        Tu software debería serlo también.
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 text-left">
+        <!-- Bloque 1 - Eficiencia -->
+        <div
+          class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-500 to-amber-600"
+          >
+          </div>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Eficiencia radical
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Sistemas que <strong class="text-purple-600"
+                >automatizan hasta el 80%</strong
+              > de procesos repetitivos.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Reducción de <strong>errores manuales</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Ahorro de <strong>tiempo operativo</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Procesos <strong>optimizados</strong></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bloque 2 - Seguridad -->
+        <div
+          class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-amber-500 to-purple-600"
+          >
+          </div>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 group-hover:bg-amber-100 transition"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Seguridad integrada
+            </h3>
+            <p class="text-gray-600 mb-6">
+              Arquitectura <strong class="text-amber-600"
+                >diseñada para proteger</strong
+              > desde el primer día.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Encriptación <strong>de extremo a extremo</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-purple-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Cumplimiento de <strong>normativas</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-purple-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Backups <strong>automatizados</strong></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bloque 3 - Escalabilidad -->
+        <div
+          class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-purple-500 to-amber-600"
+          >
+          </div>
+          <div class="p-8">
+            <div
+              class="w-14 h-14 mb-6 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 group-hover:bg-purple-100 transition"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">Escalabilidad</h3>
+            <p class="text-gray-600 mb-6">
+              Crece sin límites con sistemas que <strong class="text-purple-600"
+                >se adaptan a tu volumen</strong
+              >.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Arquitectura <strong>modular</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Crecimiento <strong>sin reinversiones</strong></span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-5 h-5 rounded-full bg-amber-50 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-3 h-3 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-2 text-gray-700"
+                  >Adaptación a <strong>picos de demanda</strong></span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Llamada intermedia -->
+      <div
+        class="mt-16 bg-gradient-to-r from-purple-50 to-amber-50 p-6 rounded-xl border border-purple-200"
+      >
+        <p class="text-lg text-gray-700 mb-4">
+          <strong class="text-purple-600">El software perfecto</strong> debería adaptarse
+          a ti como un guante, no al revés.
+        </p>
+        <a
+          href="#soluciones"
+          class="inline-flex items-center text-purple-700 font-semibold hover:text-purple-900 transition"
+        >
+          Ver soluciones personalizadas
+          <svg
+            class="w-4 h-4 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<!-- Sección: Por qué elegir software a medida -->
+<section class="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
+  <div class="container mx-auto max-w-5xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        ¿Por qué <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700">software a medida</span>?
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Cada empresa es diferente. Un desarrollo a medida asegura que la solución se adapta a ti, no al revés.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Punto 1 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-purple-700">Automatización de procesos.</span> Reducimos el tiempo que tu equipo dedica a tareas repetitivas
+          mediante flujos inteligentes, eliminando errores humanos y mejorando la productividad. Así, tus empleados pueden
+          centrarse en lo que realmente aporta valor al negocio en lugar de perder horas en gestiones manuales.
+        </p>
+      </div>
+
+      <!-- Punto 2 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-amber-700">Integraciones sin límites.</span> Conecta tu web, ERP, CRM, TPV o cualquier herramienta de terceros en un único
+          sistema. Ya no tendrás que duplicar datos ni trabajar en diferentes plataformas: todo estará sincronizado y accesible
+          en tiempo real desde un solo lugar.
+        </p>
+      </div>
+
+      <!-- Punto 3 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-purple-700">Escalabilidad real.</span> Diseñamos soluciones que crecen contigo: empieza con lo básico
+          y añade funcionalidades cuando lo necesites, sin tener que cambiar de sistema. El software a medida evoluciona con
+          tu negocio en lugar de frenarlo.
+        </p>
+      </div>
+
+      <!-- Punto 4 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-amber-700">Control total de tus datos.</span> Olvídate de depender de plataformas externas con
+          políticas cambiantes. Con tu propio sistema tendrás pleno acceso y control sobre la información de clientes, ventas
+          y procesos internos, con la posibilidad de aplicar tus propias políticas de privacidad y seguridad.
+        </p>
+      </div>
+
+      <!-- Punto 5 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-purple-700">Seguridad personalizada.</span> Configura accesos por usuario, define permisos de lectura
+          o escritura y establece rutinas de copia de seguridad adaptadas a tu empresa. La protección no se limita a lo estándar:
+          se diseña en función de tu sector y tu forma de trabajar.
+        </p>
+      </div>
+
+      <!-- Punto 6 -->
+      <div class="flex items-start">
+        <div class="flex-shrink-0 w-7 h-7 mt-1 mr-4 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center font-bold">✓</div>
+        <p class="text-gray-700">
+          <span class="font-semibold text-amber-700">Mejor experiencia de usuario.</span> Creamos interfaces claras y sencillas
+          que tu equipo entiende desde el primer día. Un diseño intuitivo significa menos formación, mayor adopción y menos
+          resistencia al cambio cuando se implanta un nuevo sistema.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-16">
+      <a href="/contacto" class="inline-block px-10 py-4 bg-gradient-to-r from-purple-600 to-amber-600 text-white text-lg font-semibold rounded-full shadow-md hover:shadow-lg transition">
+        Solicita tu solución personalizada
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Sección de soluciones - Versión mejorada -->
+  <section id="soluciones" class="py-16 px-6 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+            >Soluciones técnicas</span
+          > personalizadas
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Sistemas diseñados desde cero para resolver tus desafíos específicos
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Tarjeta 1 - ERP/CRM -->
+        <div
+          class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-purple-500 to-amber-600"
+          >
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-5">
+              <div
+                class="bg-gradient-to-r from-purple-50 to-amber-50 border border-purple-200 font-bold px-4 py-1 rounded-full text-sm mr-4 shadow-sm"
+              >
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-amber-700"
+                  >Sistemas Empresariales</span
+                >
+              </div>
+              <div
+                class="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 shadow-sm"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">
+              <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+                >ERP/CRM</span
+              >
+              <span class="text-gray-600 font-normal block text-xl mt-1"
+                >Personalizados para tu operativa</span
+              >
+            </h3>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              <strong
+                class="bg-gradient-to-r from-purple-600 to-amber-700 bg-clip-text text-transparent"
+                >Gestión integral</strong
+              > adaptada a tus procesos específicos, con integraciones nativas y
+              reporting avanzado.
+            </p>
+
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Flujos adaptados:</strong> Modelado
+                  exacto de tus operaciones</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Integraciones:</strong> Conectamos
+                  con tus herramientas actuales</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Escalable:</strong> Crece al ritmo
+                  de tu negocio sin limitaciones</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 - Automatización -->
+        <div
+          class="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition group border border-gray-200"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-amber-500 to-purple-600"
+          >
+          </div>
+          <div class="p-8">
+            <div class="flex items-center mb-5">
+              <div
+                class="bg-gradient-to-r from-amber-50 to-purple-50 border border-amber-200 font-bold px-4 py-1 rounded-full text-sm mr-4 shadow-sm"
+              >
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 to-purple-600"
+                  >Automatización</span
+                >
+              </div>
+              <div
+                class="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shadow-sm"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">
+              <span
+                class="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-purple-600"
+                >Automatización</span
+              >
+              <span class="text-gray-600 font-normal block text-xl mt-1"
+                >Inteligente y adaptable</span
+              >
+            </h3>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              <strong
+                class="bg-gradient-to-r from-amber-700 to-purple-600 bg-clip-text text-transparent"
+                >Elimina tareas repetitivas</strong
+              > con flujos de trabajo inteligentes que aprenden de tus patrones.
+            </p>
+
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Procesos automatizados:</strong
+                  > Desde tareas simples hasta flujos complejos</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Conectores API:</strong> Integración
+                  con cualquier plataforma</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shadow-inner"
+                  >
+                    <svg
+                      class="w-4 h-4 text-amber-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span class="ml-3 text-gray-700"
+                  ><strong class="text-gray-800">Alertas inteligentes:</strong> Notificaciones
+                  proactivas para acciones clave</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nota adicional -->
+      <div class="mt-12 text-center">
+        <div
+          class="inline-flex items-center bg-white px-6 py-3 rounded-full border border-purple-200 shadow-sm"
+        >
+          <svg
+            class="w-5 h-5 text-purple-600 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+          <span class="text-gray-700"
+            >¿Necesitas algo diferente? <a
+              href="/contacto/"
+              class="text-purple-600 hover:text-purple-800 font-semibold"
+              >Hablemos de tu proyecto</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Soluciones para PYMES -->
+  <section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+            >Soluciones reales</span
+          > para PYMES
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Software que resuelve problemas cotidianos de empresas como la tuya
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Ejemplo 1 - Control horario -->
+        <article
+          class="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200 flex flex-col"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-purple-500 to-amber-600"
+          >
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <!-- Cabecera -->
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 shrink-0"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                Control horario inteligente
+              </h3>
+            </div>
+
+            <!-- Lista (crece para alinear el footer) -->
+            <ul class="space-y-3 text-gray-600 flex-1">
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  >Fichaje con <strong>reconocimiento facial</strong> o código QR</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  >Adaptado a <strong>turnos rotativos</strong> y horarios flexibles</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  >Integración directa con <strong>nóminas</strong> y RR. HH.</span
+                >
+              </li>
+            </ul>
+
+            <!-- Footer (alineado en todas) -->
+            <div class="pt-4 border-t border-gray-100 mt-auto">
+              <span
+                class="inline-block bg-purple-50 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full"
+              >
+                Ejemplo: Empresa con empleados en remoto, presencial,
+                desplazados, etc...
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ejemplo 2 - Gestión de inventario -->
+        <article
+          class="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200 flex flex-col"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-amber-500 to-purple-600"
+          >
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <!-- Cabecera -->
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">
+                Inventario automatizado
+              </h3>
+            </div>
+
+            <ul class="space-y-3 text-gray-600 flex-1">
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-purple-600">•</span>
+                <span><strong>Alertas automáticas</strong> de stock mínimo</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-purple-600">•</span>
+                <span
+                  >Sincronización con <strong>TPV físico</strong> y tienda online</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-purple-600">•</span>
+                <span
+                  >Informes de <strong>rotación</strong> y estacionalidad</span
+                >
+              </li>
+            </ul>
+
+            <div class="pt-4 border-t border-gray-100 mt-auto">
+              <span
+                class="inline-block bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full"
+              >
+                Ejemplo: ferretería con control sobre el stock inmovilizado.
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Ejemplo 3 - Integraciones web -->
+        <article
+          class="relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200 flex flex-col"
+        >
+          <div
+            class="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-purple-500 to-amber-600"
+          >
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <!-- Cabecera -->
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 shrink-0"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800">Integraciones web</h3>
+            </div>
+
+            <ul class="space-y-3 text-gray-600 flex-1">
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  ><strong>Reservas online</strong> que actualizan tu agenda interna</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  >Formularios web que crean <strong
+                    >clientes automáticamente</strong
+                  > en tu CRM</span
+                >
+              </li>
+              <li class="flex items-start">
+                <span class="mt-1 mr-2 text-amber-600">•</span>
+                <span
+                  >Conexión con <strong>Google Workspace</strong> y <strong
+                    >Microsoft&nbsp;365</strong
+                  ></span
+                >
+              </li>
+            </ul>
+
+            <div class="pt-4 border-t border-gray-100 mt-auto">
+              <span
+                class="inline-block bg-purple-50 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full"
+              >
+                Ejemplo real: clínica dental con reservas online y gestión de
+                pacientes.
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Más ejemplos colapsables -->
+      <div class="mt-12 text-center">
+        <div x-data="{ open: false }" class="inline-block w-full">
+          <button
+            @click="open = !open"
+            class="flex items-center text-purple-600 hover:text-purple-800 font-semibold mx-auto"
+          >
+            <span>Ver más ejemplos</span>
+            <svg
+              class="w-4 h-4 ml-2 transition-transform"
+              :class="{ 'transform rotate-180': open }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <div
+            x-show="open"
+            x-collapse
+            class="mt-6 bg-gray-50 p-6 rounded-xl text-left"
+          >
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- Ejemplo adicional 1 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-amber-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Gestión Documental</h4>
+                  <p class="text-gray-600 mt-1">
+                    Digitalización de facturas con OCR y clasificación
+                    automática.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Ejemplo adicional 2 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-purple-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Portal de Clientes</h4>
+                  <p class="text-gray-600 mt-1">
+                    Historial de compras, facturas y tickets de soporte en un
+                    acceso seguro.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Ejemplo adicional 3 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-amber-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2zm-6 8a6 6 0 1112 0H6z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Intranet de Empleados</h4>
+                  <p class="text-gray-600 mt-1">
+                    Comunicación interna, calendario de vacaciones y manuales
+                    digitales.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Ejemplo adicional 4 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-purple-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 17v-6h13M9 7h13M3 5h.01M3 12h.01M3 19h.01"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">
+                    Automatización de Facturación
+                  </h4>
+                  <p class="text-gray-600 mt-1">
+                    Emisión automática de facturas y recordatorios de cobro por
+                    email.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Ejemplo adicional 5 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-amber-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6l4 2m6 4a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">
+                    Recordatorios Automáticos
+                  </h4>
+                  <p class="text-gray-600 mt-1">
+                    Avisos por SMS/email para citas, entregas o vencimientos.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Ejemplo adicional 6 -->
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1 mr-4 text-purple-600">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 3h18v4H3V3zm0 8h18v10H3V11z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Cuadros de Mando</h4>
+                  <p class="text-gray-600 mt-1">
+                    Panel con métricas clave: ventas, stock y flujo de caja en
+                    tiempo real.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Proceso de desarrollo -->
+  <section class="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Nuestro <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-amber-700"
+            >proceso de trabajo</span
+          >
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Un camino claro y ágil, desde la idea inicial hasta la solución
+          funcionando en tu empresa
+        </p>
+      </div>
+
+      <div class="relative">
+        <!-- Línea del timeline -->
+        <div
+          class="absolute top-6 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-amber-600 rounded-full"
+        >
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-12 relative">
+          <!-- Paso 1 -->
+          <div class="text-center relative">
+            <div
+              class="w-14 h-14 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shadow-md"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m-6-8h6m2 10V6a2 2 0 00-2-2H7a2 2 0 00-2 2v12a2 2 0 002 2h8z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">
+              1. Descubrimiento
+            </h3>
+            <p class="text-gray-600">
+              Escuchamos tus retos y analizamos juntos las necesidades reales.
+            </p>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="text-center relative">
+            <div
+              class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shadow-md"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3zM5 20h14"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">2. Diseño</h3>
+            <p class="text-gray-600">
+              Prototipos visuales y propuesta técnica clara antes de empezar.
+            </p>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="text-center relative">
+            <div
+              class="w-14 h-14 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 shadow-md"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 7h18M3 12h18M3 17h18"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">3. Desarrollo</h3>
+            <p class="text-gray-600">
+              Construcción iterativa con entregas parciales para que veas
+              avances.
+            </p>
+          </div>
+
+          <!-- Paso 4 -->
+          <div class="text-center relative">
+            <div
+              class="w-14 h-14 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 shadow-md"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">4. Lanzamiento</h3>
+            <p class="text-gray-600">
+              Puesta en marcha, formación a tu equipo y soporte cercano.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section
+    id="contacto"
+    class="py-16 px-6 bg-gradient-to-br from-purple-50 via-gray-50 to-white"
+  >
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        ¿Necesitas una solución de software personalizada?
+      </h2>
+      <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+        Analizamos tu caso y te proponemos <strong class="text-purple-600"
+          >sin compromiso</strong
+        > la mejor solución técnica.
+      </p>
+
+      <div class="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+</Layout>
