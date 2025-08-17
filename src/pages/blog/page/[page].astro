@@ -1,10 +1,10 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import { getSortedPosts } from "../../../lib/posts";
+import { getSortedPosts, POSTS_PER_PAGE } from "../../../lib/posts";
 
 export async function getStaticPaths() {
   const posts = await getSortedPosts();
-  const postsPerPage = 6;
+  const postsPerPage = POSTS_PER_PAGE;
   const totalPages = Math.ceil(posts.length / postsPerPage);
   return Array.from({ length: totalPages }, (_, i) => {
     const start = i * postsPerPage;
@@ -55,19 +55,17 @@ const keywords = "blog, desarrollo web, seo, tecnología";
           </li>
         ))}
       </ul>
-      {totalPages > 1 && (
-        <nav class="flex justify-center mt-12 gap-4">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <a
-              href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
-              class={`px-4 py-2 rounded ${i + 1 === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
-              aria-current={i + 1 === currentPage ? 'page' : undefined}
-            >
-              {i + 1}
-            </a>
-          ))}
-        </nav>
-      )}
+      <nav class="flex justify-center mt-12 gap-4">
+        {Array.from({ length: totalPages }).map((_, i) => (
+          <a
+            href={i === 0 ? '/blog/' : `/blog/page/${i + 1}/`}
+            class={`px-4 py-2 rounded ${i + 1 === currentPage ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+            aria-current={i + 1 === currentPage ? 'page' : undefined}
+          >
+            {i + 1}
+          </a>
+        ))}
+      </nav>
     </div>
   </section>
 </Layout>
