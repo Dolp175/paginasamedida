@@ -2060,92 +2060,220 @@ import LatestPosts from "../components/LatestPosts.astro";
     </div>
   </section>
 
-  <!-- Sección Portafolio -->
-  <section class="py-16 px-6 bg-white">
-    <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
-          <span
-            class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700"
-          >
-            Nuestros
-          </span> Proyectos
-        </h2>
-        <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-          Webs rápidas, seguras y optimizadas para cada necesidad
-        </p>
-      </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Proyecto 1 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/images/proyecto1.webp"
-            alt="Web para cerrajero en Tetuán"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Cerrajero Tetuán</h3>
-              <p class="text-purple-200">Web estática con Astro + Tailwind</p>
-              <p class="text-purple-100 text-sm mt-1">SEO local optimizado</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Proyecto 2 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/images/proyecto2.webp"
-            alt="Web para cerrajero multiservicio"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Tu Cerrajero Local</h3>
-              <p class="text-purple-200">Solución completa con Bootstrap</p>
-              <p class="text-purple-100 text-sm mt-1">
-                +50 páginas de servicios
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Proyecto 3 -->
-        <div
-          class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition"
-        >
-          <img
-            src="/images/proyecto3.webp"
-            alt="Landing page para cerrajero"
-            class="w-full h-60 object-cover transition-transform group-hover:scale-105"
-            loading="lazy"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6"
-          >
-            <div>
-              <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
-              <p class="text-purple-200">Landing page ultra ligera</p>
-              <p class="text-purple-100 text-sm mt-1">
-                Diseño minimalista con Tailwind
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+<!-- Sección Portafolio -->
+<section class="py-16 px-6 bg-white">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-600 to-purple-700">Nuestros</span>
+        Proyectos
+      </h2>
+      <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+        Webs rápidas, seguras y optimizadas para cada necesidad
+      </p>
     </div>
-  </section>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio">
+      <!-- 1) Tu Cerrajero Local (TCL) -->
+      <article class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition cursor-zoom-in">
+        <img
+          src="/images/latest/tcl-thumb-600.webp"
+          srcset="/images/latest/tcl-thumb-600.webp 600w, /images/latest/tcl-thumb-900.webp 900w"
+          sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+          alt="Web para cerrajero multiservicio"
+          width="900" height="506"
+          class="w-full h-60 object-cover transition-transform group-hover:scale-105 blur-[2px]"
+          loading="lazy" decoding="async"
+          data-full="/images/latest/tcl-1600.webp"
+          data-full2x="/images/latest/tcl-2400.webp"
+          data-title="Tu Cerrajero Local"
+          data-subtitle="Solución completa con Bootstrap · +50 páginas de servicios"
+          data-index="0"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6 pointer-events-none">
+          <div>
+            <h3 class="text-xl font-bold text-white">Tu Cerrajero Local</h3>
+            <p class="text-purple-200">Solución completa con Bootstrap</p>
+            <p class="text-purple-100 text-sm mt-1">+50 páginas de servicios</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2) Cerrajero Tetuán -->
+      <article class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition cursor-zoom-in">
+        <img
+          src="/images/latest/ctetuan-thumb-600.webp"
+          srcset="/images/latest/ctetuan-thumb-600.webp 600w, /images/latest/ctetuan-thumb-900.webp 900w"
+          sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+          alt="Web para cerrajero en Tetuán"
+          width="900" height="506"
+          class="w-full h-60 object-cover transition-transform group-hover:scale-105 blur-[2px]"
+          loading="lazy" decoding="async"
+          data-full="/images/latest/ctetuan-1600.webp"
+          data-full2x="/images/latest/ctetuan-2400.webp"
+          data-title="Cerrajero Tetuán"
+          data-subtitle="Web estática con Astro + Tailwind · SEO local optimizado"
+          data-index="1"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6 pointer-events-none">
+          <div>
+            <h3 class="text-xl font-bold text-white">Cerrajero Tetuán</h3>
+            <p class="text-purple-200">Web estática con Astro + Tailwind</p>
+            <p class="text-purple-100 text-sm mt-1">SEO local optimizado</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3) Cerrajero Chamberí -->
+      <article class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition cursor-zoom-in">
+        <img
+          src="/images/latest/chamberi-thumb-600.webp"
+          srcset="/images/latest/chamberi-thumb-600.webp 600w, /images/latest/chamberi-thumb-900.webp 900w"
+          sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+          alt="Landing page para cerrajero"
+          width="900" height="506"
+          class="w-full h-60 object-cover transition-transform group-hover:scale-105 blur-[2px]"
+          loading="lazy" decoding="async"
+          data-full="/images/latest/chamberi-1600.webp"
+          data-full2x="/images/latest/chamberi-2400.webp"
+          data-title="Cerrajero Chamberí"
+          data-subtitle="Landing page ultra ligera · Tailwind"
+          data-index="2"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent flex items-end p-6 pointer-events-none">
+          <div>
+            <h3 class="text-xl font-bold text-white">Cerrajero Chamberí</h3>
+            <p class="text-purple-200">Landing page ultra ligera</p>
+            <p class="text-purple-100 text-sm mt-1">Diseño minimalista con Tailwind</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="lightbox"
+       class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/70 p-4 touch-pan-y select-none"
+       role="dialog" aria-modal="true" aria-labelledby="lb-title">
+    <button id="lb-close" aria-label="Cerrar"
+            class="absolute top-4 right-4 rounded-full bg-white/90 px-3 py-1 text-sm font-medium shadow hover:bg-white">✕</button>
+    <figure class="max-w-6xl w-full">
+      <img id="lb-img" alt=""
+           class="max-h-[85vh] w-auto mx-auto rounded-lg shadow-xl object-contain"
+           draggable="false" />
+      <figcaption class="mt-3 text-center text-white">
+        <div id="lb-title" class="text-lg font-semibold"></div>
+        <div id="lb-sub" class="text-sm text-white/80"></div>
+      </figcaption>
+    </figure>
+    <button id="lb-prev" class="absolute left-3 top-1/2 -translate-y-1/2 text-white text-2xl">‹</button>
+    <button id="lb-next" class="absolute right-3 top-1/2 -translate-y-1/2 text-white text-2xl">›</button>
+  </div>
+</section>
+
+<script type="module">
+  const grid = document.getElementById('portfolio');
+  const box  = document.getElementById('lightbox');
+  const img  = document.getElementById('lb-img');
+  const t    = document.getElementById('lb-title');
+  const s    = document.getElementById('lb-sub');
+  const btnX = document.getElementById('lb-close');
+  const prev = document.getElementById('lb-prev');
+  const next = document.getElementById('lb-next');
+
+  const thumbs = Array.from(grid.querySelectorAll('img[data-full]'));
+  let idx = 0;
+
+  // Quitar blur de thumbs al cargar
+  thumbs.forEach(th => {
+    const unblur = () => th.classList.remove('blur-[2px]');
+    if (th.complete) unblur();
+    else th.addEventListener('load', unblur, { once: true });
+  });
+
+  function openAt(i) {
+    idx = (i + thumbs.length) % thumbs.length;
+    const el = thumbs[idx];
+    const full1x = el.dataset.full;
+    const full2x = el.dataset.full2x || full1x;
+
+    img.srcset = `${full1x} 1x, ${full2x} 2x`;
+    img.src = full1x;
+    img.alt = el.alt;
+    t.textContent = el.dataset.title || '';
+    s.textContent = el.dataset.subtitle || '';
+
+    box.classList.remove('hidden');
+    box.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKey);
+  }
+
+  function closeBox() {
+    box.classList.add('hidden');
+    box.classList.remove('flex');
+    document.body.style.overflow = '';
+    document.removeEventListener('keydown', onKey);
+  }
+
+  function onKey(e){
+    if (e.key === 'Escape') closeBox();
+    if (e.key === 'ArrowRight') openAt(idx+1);
+    if (e.key === 'ArrowLeft') openAt(idx-1);
+  }
+
+  // Click en cualquier parte de la tarjeta
+  grid.addEventListener('click', (e) => {
+    const card = e.target.closest('article');
+    if (!card || !grid.contains(card)) return;
+    const el = card.querySelector('img[data-full]');
+    if (!el) return;
+    openAt(thumbs.indexOf(el));
+  });
+
+  btnX.addEventListener('click', closeBox);
+  box.addEventListener('click', (e) => { if (e.target === box) closeBox(); });
+  prev.addEventListener('click', () => openAt(idx-1));
+  next.addEventListener('click', () => openAt(idx+1));
+
+  // --- Swipe táctil (izq/der para navegar, abajo para cerrar) ---
+  let x0 = null, y0 = null, dx = 0, dy = 0;
+  const SWIPE_X = 60;     // px mínimos horizontales
+  const SWIPE_Y = 80;     // px para cerrar hacia abajo
+
+  function touchStart(e){
+    if (!box || box.classList.contains('hidden')) return;
+    const t = e.touches && e.touches[0]; if (!t) return;
+    x0 = t.clientX; y0 = t.clientY; dx = 0; dy = 0;
+  }
+  function touchMove(e){
+    if (x0 == null) return;
+    const t = e.touches && e.touches[0]; if (!t) return;
+    dx = t.clientX - x0; dy = t.clientY - y0;
+    // No hacemos preventDefault para permitir pan vertical (gracias a touch-pan-y)
+  }
+  function touchEnd(){
+    if (x0 == null) return;
+    // Navegación horizontal prioritaria
+    if (Math.abs(dx) > SWIPE_X && Math.abs(dx) > Math.abs(dy)){
+      if (dx < 0) openAt(idx+1); else openAt(idx-1);
+    } else if (dy > SWIPE_Y) {
+      // swipe hacia abajo: cerrar
+      closeBox();
+    }
+    x0 = y0 = null; dx = dy = 0;
+  }
+  img.addEventListener('touchstart', touchStart, { passive: true });
+  img.addEventListener('touchmove',  touchMove,  { passive: true });
+  img.addEventListener('touchend',   touchEnd,   { passive: true });
+  img.addEventListener('touchcancel',touchEnd,   { passive: true });
+</script>
+
+
+
+
 
   <LatestPosts />
 
